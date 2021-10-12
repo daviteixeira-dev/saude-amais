@@ -1,16 +1,27 @@
-<h1>Projeto - SaúdeA+</h1>
+<h1>🧘‍♀️ Projeto - SaúdeA+ 🧘‍♂️</h1>
 
-> Sobre o Projeto
+> <h2>💬 Sobre o Projeto</h2>
 
-O studio de Pilates (saúde a+) necessita sistema de gerenciamento das atividades/modalidades do estúdio e o agendamento de aulas teste e reposições. Esse sistema poderá ser acessado pelos administradores do studio, pelos alunos matriculados ou visitantes que desejem agendar uma aula.
+<p>
+  O studio de Pilates (saúde a+) necessita sistema de gerenciamento das atividades/modalidades do estúdio e o agendamento de aulas teste e reposições. 
+  Esse sistema poderá ser acessado pelos administradores do studio, pelos alunos matriculados ou visitantes que desejem agendar uma aula.
+</p>
 
-> Elicitação de Requisitos
+> <h2>📝 Elicitação de Requisitos</h2>
 
-Na fase de levantamento de requisitos, nós dedicamos a entender o objetivo geral do problema para a realização do sistema do studio, focando principalmente nas funções gerais do projeto e na realização de agendamento de aulas, atividades e modalidades, bem como agendamento de aulas teste e reposições, além disso, para que um aluno possa solicitar a aula teste ou reposição, o mesmo necessita entrar em contato com a equipe responsável pelo agendamento no studio.
+<p>
+  Na fase de levantamento de requisitos, nós dedicamos a entender o objetivo geral do problema para a realização do sistema do studio, 
+  focando principalmente nas funções gerais do projeto e na realização de agendamento de aulas, atividades e modalidades, bem como agendamento 
+  de aulas teste e reposições, além disso, para que um aluno possa solicitar a aula teste ou reposição, o mesmo necessita entrar em contato com 
+  a equipe responsável pelo agendamento no studio.
+</p>
 
-Desta forma, o studio de Pilates (saúde a+) necessita sistema de gerenciamento das atividades/modalidades do estúdio e o agendamento de aulas teste e reposições. Assim, buscamos inicialmente realizar o estudo dos requisitos funcionais e não funcionais para integrar no sistema.
+<p>
+  Desta forma, o studio de Pilates (saúde a+) necessita sistema de gerenciamento das atividades/modalidades do estúdio e o agendamento de aulas 
+  teste e reposições. Assim, buscamos inicialmente realizar o estudo dos requisitos funcionais e não funcionais para integrar no sistema.
+</p>
 
-> Atores do Sistema
+> <h2>👥 Atores do Sistema</h2>
 
 <table>
   <tr>
@@ -46,7 +57,7 @@ Desta forma, o studio de Pilates (saúde a+) necessita sistema de gerenciamento 
   </tr>
 </table>
 
-> Regras de Négocio
+> <h2>💼 Regras de Négocio</h2>
 
 <table>
   <tr>
@@ -99,9 +110,9 @@ Desta forma, o studio de Pilates (saúde a+) necessita sistema de gerenciamento 
   </tr>
 </table>
 
-> Telas identificadas para o sistema
+> <h2>🕵️ Telas identificadas para o sistema</h2>
 
-<h2>Tela de visão geral</h2>
+<h3>Tela de visão geral</h3>
 
 - Visualizar as modalidades ofertadas;
 - Visualizar horários de aula;
@@ -110,14 +121,14 @@ Desta forma, o studio de Pilates (saúde a+) necessita sistema de gerenciamento 
 - Visualizar as principais notícias;
 - Solicitar agendamento de aula experimental (Ir para formulário de cadastro).
 
-<h2>Tela de login</h2>
+<h3>Tela de login</h3>
 
 - Usuário;
 - Senha;
 - Esqueci a senha;
 - Opção para se cadastrar (Ir para formulário de cadastro).
 
-<h2>Tela de formulário de cadastro</h2>
+<h3>Tela de formulário de cadastro</h3>
 
 - Nome;
 - Endereço;
@@ -125,7 +136,7 @@ Desta forma, o studio de Pilates (saúde a+) necessita sistema de gerenciamento 
 - Data de nascimento;
 - Foto de perfil (opcional).
 
-<h2>Tela de visão de usuário comum</h2>
+<h3>Tela de visão de usuário comum</h3>
 
 - Funcionalidades em comum com a tela de visão geral;
 - Opção para alterar o perfil (Tela de alteração de perfil);
@@ -134,7 +145,7 @@ Desta forma, o studio de Pilates (saúde a+) necessita sistema de gerenciamento 
 - Opção para cancelar uma aula;
 - Fazer logout do sistema.
 
-<h2>Tela de visão do administrador</h2>
+<h3>Tela de visão do administrador</h3>
 
 - Funcionalidades em comum com a tela de visão geral;
 - Opção para gerenciar os usuários (Tela de usuários cadastrados);
@@ -143,20 +154,71 @@ Desta forma, o studio de Pilates (saúde a+) necessita sistema de gerenciamento 
 - Opção para cadastro de professores (Tela para o cadastro de professores);
 - Fazer logout do sistema.
 
-<h2>Tela de grade de horários para agendamentos</h2>
+<h3>Tela de grade de horários para agendamentos</h3>
 
-<h2>Tela de usuários cadastrados</h2>
+<h3>Tela de usuários cadastrados</h3>
 
-<h2>Tela de cadastro de professores</h2>
+<h3>Tela de cadastro de professores</h3>
 
-<h2>Tela de alteração de perfil</h2>
+<h3>Tela de alteração de perfil</h3>
 
 - Alterar nome
 - Alterar foto
 - Alterar usuário
 - Alterar senha
 
-<h2>Tela para o cadastro de horários</h2>
+<h3>Tela para o cadastro de horários</h3>
 
 - Opção para alocar horário a um usuário;
 - Opção para cancelar algum horário agendado;
+
+> <h3> 👨‍💻 Contribuidores </h3>
+
+<p>🚀 Equipe de desenvolvimento - 🌵 Os Shaolins do Sertão</p>
+
+<table align="center">
+  <tr align="center">
+    <td>
+      <a href="https://github.com/daviteixeira-btm">
+        <img src="https://avatars.githubusercontent.com/daviteixeira-btm" width=100 />
+        <p>Davi <br/>Teixeira</p>
+      </a>
+      <p>🦇</p>
+    </td>
+    <td>
+      <a href="https://github.com/fco-alves">
+        <img src="https://avatars.githubusercontent.com/fco-alves" width=100 />
+        <p>Francisco <br/>Alves</p>
+      </a>
+      <p>🍕</p>
+    </td>
+    <td>
+      <a href="https://github.com/guilhermanosilva">
+        <img src="https://avatars.githubusercontent.com/guilhermanosilva" width=100 />
+        <p>Guilhermano <br/>Silva</p>
+      </a>
+      <p>:octocat:</p>
+    </td>
+    <td>
+      <a href="https://github.com/LaelKayo">
+        <img src="https://avatars.githubusercontent.com/LaelKayo" width=100 />
+        <p>Lael <br/>Kayo</p>
+      </a>
+      <p>👨‍💻</p>
+    </td>
+    <td>
+      <a href="https://github.com/aSTRonuun">
+        <img src="https://avatars.githubusercontent.com/aSTRonuun" width=100 />
+        <p>Vitor <br/>Alves</p>
+      </a>
+      <p>🌌</p>
+    </td>
+    <td>
+      <a href="https://github.com/wesleypavanello">
+        <img src="https://avatars.githubusercontent.com/wesleypavanello" width=100 />
+        <p>Wesley <br/>Pavanello</p>
+      </a>
+      <p>🧠</p>
+    </td>
+  </tr>
+</table>
