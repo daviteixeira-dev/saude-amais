@@ -12,3 +12,4 @@ Na fase de levantamento de requisitos, nós dedicamos a entender o objetivo gera
 Desta forma, o studio de Pilates (saúde a+) necessita sistema de gerenciamento das atividades/modalidades do estúdio e o agendamento de aulas teste e reposições. Assim, buscamos inicialmente realizar o estudo dos requisitos funcionais e não funcionais para integrar no sistema.
 
 Atores do Sistema
+Actor - Test 
