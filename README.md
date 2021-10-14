@@ -57,6 +57,98 @@
   </tr>
 </table>
 
+> <h2> :gear: Requisitos Funcionais</h2>
+<table>
+    <tr>
+        <td align="center">
+            <p>Identificado</p>
+        </td>
+        <td align="center">
+            <p>Descrição</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>RF01</p>
+        </td>
+        <td>
+            <p>O sistema deve permitir que os usuários realizem seu registro no sistema com suas informações pessoais.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>RF02</p>
+        </td>
+        <td>
+            <p>O sistema deve permitir que os usuários loguem no sistema com suas informações pessoais.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>RF03</p>
+        </td>
+        <td>
+            <p>O sistema deve permitir que o administrador possa cadastrar modalidades, horários, professores e vagas.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>RF04</p>
+        </td>
+        <td>
+            <p>O sistema deve permitir que o administrador possa alocar horários e cancelar algum horário agendado.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>RF05</p>
+        </td>
+        <td>
+            <p>O sistema deve permitir que os usuários possam visualizar as modalidades, horários, professores e vagas.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>RF06</p>
+        </td>
+        <td>
+            <p>O sistema deve permitir que os alunos possam solicitar o agendamento de uma aula experimental.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>RF07</p>
+        </td>
+        <td>
+            <p>O sistema deve permitir que os usuários logados possam visualizar a sua agenda.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>RF08</p>
+        </td>
+        <td>
+            <p>O sistema deve permitir que os alunos possam agendar uma reposição.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>RF09</p>
+        </td>
+        <td>
+            <p>O sistema deve permitir que os usuários possam ver a localização do estabelecimento.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>RF10</p>
+        </td>
+        <td>
+            <p>O sistema deve permitir que os usuários possam ver as principais notícias.</p>
+        </td>
+    </tr>
+</table>
+
 > <h2>💼 Regras de Négocio</h2>
 
 <table>
@@ -109,6 +201,9 @@
     </td>
   </tr>
 </table>
+
+> <h2> :world_map: Modelagem da Visão Geral </h2>
+<img src="./assets/visao-geral-uml.png" align="center">
 
 > <h2>🕵️ Telas identificadas para o sistema</h2>
 
