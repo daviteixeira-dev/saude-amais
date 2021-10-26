@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import Alunos from "./alunos/home"
+import Alunos from "./alunos"
 
 
-const Formulario = () => {
+const Home = () => {
   return (
     <Fragment>
       <Alunos />
@@ -10,4 +10,4 @@ const Formulario = () => {
   );
 }
 
-export default Formulario;
+export default Home;
