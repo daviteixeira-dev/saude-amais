@@ -27,7 +27,6 @@ export default function SelectVariants() {
         <MenuItem value={10}>1</MenuItem>
         <MenuItem value={20}>2</MenuItem>
         <MenuItem value={30}>3</MenuItem>
-
       </Select>
     </FormControl>
 
