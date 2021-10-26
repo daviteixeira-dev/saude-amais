@@ -1,13 +1,13 @@
-import Header from "./components/Header";
+import React from "react";
+import Home from "./components/pages/home";
 
-import "./global.css";
+
 
 function App() {
   return (
-    <>
-      <Header />
-      <h1>Saude a mais</h1>
-    </>
+    <div>
+      <Home />
+    </div>
   );
 }
 
