@@ -3,6 +3,7 @@ import { Container } from "@mui/material/";
 import PagePilates from "./pages/PagePilates";
 import Modalidades from "./components/Modalidades/Modalidades";
 import FooterContainer from "./containers/footer";
+import Formulario from "./components/pages/home/Formulario";
 //import styles from "./index.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route exact path="/">
             <Modalidades />
           </Route>
+          <Formulario />
           <Route path="/modalidades">
             <PagePilates />
           </Route>
@@ -20,6 +22,7 @@ function App() {
         </Container>
       </Switch>
     </Router>
+
   );
 }
 
