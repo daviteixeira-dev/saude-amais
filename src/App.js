@@ -1,12 +1,12 @@
-import Header from "./components/Header";
+import React from "react";
+import FooterContainer from "./containers/footer";
 
 import "./global.css";
 
 function App() {
   return (
     <>
-      <Header />
-      <h1>Saude a mais</h1>
+      <FooterContainer/>
     </>
   );
 }
