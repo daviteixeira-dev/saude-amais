@@ -3,7 +3,7 @@ import { Container } from "@mui/material/";
 import PagePilates from "./pages/PagePilates";
 import Modalidades from "./components/Modalidades/Modalidades";
 import FooterContainer from "./containers/footer";
-import Formulario from "./components/pages/home/Formulario";
+import Formulario from "./components/pages/home";
 //import styles from "./index.css";
 
 function App() {
