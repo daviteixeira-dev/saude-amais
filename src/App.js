@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Container } from "@mui/material/";
-import PagePilates from "./pages/PagePilates";
+import { Container } from "@mui/material";
+import PagePilates from "./components/pages/home/PagePilates";
 import Modalidades from "./components/Modalidades/Modalidades";
 import FooterContainer from "./containers/footer";
-import Formulario from "./components/pages/home";
+import Alunos from "./components/pages/home/formAlunos/propAlunos";
 //import styles from "./index.css";
 
 function App() {
@@ -14,11 +14,11 @@ function App() {
           <Route exact path="/">
             <Modalidades />
           </Route>
-          <Formulario />
+          <Alunos />
           <Route path="/modalidades">
             <PagePilates />
           </Route>
-          <FooterContainer/>
+          <FooterContainer />
         </Container>
       </Switch>
     </Router>

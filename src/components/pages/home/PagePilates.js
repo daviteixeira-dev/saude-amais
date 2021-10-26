@@ -1,4 +1,4 @@
-function PagePilates(){
+function PagePilates() {
   return (
     <div>
       <section>
