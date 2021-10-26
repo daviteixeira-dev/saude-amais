@@ -11,7 +11,7 @@ import {
   CardContent,
   CardActionArea,
 } from "@mui/material/";
-import styles from "./Modalidades.module.css";
+import styles from "./modalidades.module.css";
 import pilatescard01 from "../../images/pilates_card_01.jpg";
 import pilatescard02 from "../../images/pilates_card_02.jpg";
 import pilatescard03 from "../../images/pilates_card_03.jpg";

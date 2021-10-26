@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container } from "@mui/material";
-import PagePilates from "./components/pages/home/PagePilates";
-import Modalidades from "./components/Modalidades/Modalidades";
-import FooterContainer from "./containers/footer";
+import PagePilates from "./components/pages/home/pagePilates";
+import Modalidades from "./components/modalidades/modalidades";
+import FooterContainer from "./containers/footer/footerContainer";
 import Alunos from "./components/pages/home/formAlunos/propAlunos";
 //import styles from "./index.css";
 
