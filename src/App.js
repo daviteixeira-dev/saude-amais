@@ -7,7 +7,7 @@ import SecaoProfessores from "./components/SecaoProfessores/SecaoProfessores"
 import Localizacao from "./components/Mapa/Localizacao";
 import SectionCall from "./components/CallToAction/SectionCall";
 import FooterContainer from "./components/Footer/containers/Footer";
-//import Formulario from "./components/Formulario/Formulario";
+import Formulario from "./components/Formulario/Formulario";
 //import styles from "./index.css";
 
 function App() {
@@ -19,12 +19,14 @@ function App() {
             <Modalidades />
             <SecaoProfessores />
           </Route>
-          {/*<Formulario />*/}
           <Route path="/modalidades">
             <PagePilates />
           </Route>
           <Route path="/professores">
             <PageProfessores />
+          </Route>
+          <Route path="/cadastro">
+            <Formulario />
           </Route>
           <Localizacao />
           <SectionCall />
