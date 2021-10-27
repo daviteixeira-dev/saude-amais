@@ -5,8 +5,10 @@ import Grid from "@mui/material/Grid";
 import SelectVariants from "./FormSelect/SelectVariantes";
 import SelectRadioGroup from "./FormSelect/SelectRadioGroup";
 import SelectDatePicker from "./FormSelect/SelectDatePicker";
+import TextMaskCustomPhone from "./FormSelect/TextMaskCustomPhone";
 import FormButton from "./FormButton/FormButton";
 import { Link } from "react-router-dom";
+
 
 function Formulario() {
   return (
@@ -27,8 +29,6 @@ function Formulario() {
         style={{ minHeight: '100vh' }}>
 
         <h1>Formulário</h1>
-
-
 
         <TextField
           required
@@ -80,6 +80,8 @@ function Formulario() {
           label="Formação"
           variant="filled"
         />
+
+        <TextMaskCustomPhone />
 
         <TextField
           required
