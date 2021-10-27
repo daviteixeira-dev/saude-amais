@@ -3,9 +3,10 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import SelectVariants from "./FormSelect/SelectVariantes";
+import SelectRadioGroup from "./FormSelect/SelectRadioGroup";
+import SelectDatePicker from "./FormSelect/SelectDatePicker";
 import FormButton from "./FormButton/FormButton";
 import { Link } from "react-router-dom";
-
 
 function Formulario() {
   return (
@@ -27,12 +28,16 @@ function Formulario() {
 
         <h1>Formulário</h1>
 
+
+
         <TextField
           required
           id="name"
           label="Nome"
           variant="filled"
         />
+
+        <SelectRadioGroup />
 
         <TextField
           required
@@ -66,6 +71,8 @@ function Formulario() {
           label="CEP"
           variant="filled"
         />
+
+        <SelectDatePicker />
 
         <TextField
           required

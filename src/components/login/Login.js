@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from '@material-ui/styles';
+import { styled } from "@material-ui/styles";
 import { Link } from "react-router-dom";
 import styles from "./styles/login.module.css";
 
@@ -117,7 +117,6 @@ function Login() {
                     Cadastrar
                   </ColorButton>
                 </Link>
-
 
               </div>
             </div>
