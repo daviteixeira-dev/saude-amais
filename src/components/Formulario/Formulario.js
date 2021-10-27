@@ -1,11 +1,11 @@
-import * as React from "react";
+import React from 'react';
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
-import SelectVariants from "./select/select";
-import BasicButtons from "./button/button"
+import SelectVariants from "./FormSelect/SelectVariantes";
+import FormButton from "./FormButton/FormButton";
 
-function Alunos() {
+function Formulario() {
   return (
     <Box
       component="form"
@@ -67,10 +67,10 @@ function Alunos() {
             type="email"
           />
         </div>
-        <BasicButtons />
+        <FormButton />
       </Container>
     </Box >
   );
 }
 
-export default Alunos
+export default Formulario
