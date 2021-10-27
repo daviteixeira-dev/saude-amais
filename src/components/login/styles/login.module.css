@@ -1,0 +1,18 @@
+.img {
+  width: 500px;
+  height: 540px;
+}
+
+.backgroundImg {
+  background-image: url("../../../images/pilates_card_01.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+.loginMain {
+  margin-top: 5em;
+  width: 400px;
+  height: 400px;
+}

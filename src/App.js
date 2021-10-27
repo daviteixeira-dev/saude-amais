@@ -4,25 +4,26 @@ import PagePilates from "./pages/PagePilates";
 import Modalidades from "./components/Modalidades/Modalidades";
 import FooterContainer from "./containers/footer";
 import Formulario from "./components/pages/home";
+import Login from "./components/login/Login";
 //import styles from "./index.css";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Container maxWidth="lg">
-          <Route exact path="/">
-            <Modalidades />
-          </Route>
-          <Formulario />
-          <Route path="/modalidades">
-            <PagePilates />
-          </Route>
-          <FooterContainer/>
-        </Container>
-      </Switch>
-    </Router>
-
+    <Login/>
+    // <Router>
+    //   <Switch>
+    //     <Container maxWidth="lg">
+    //       <Route exact path="/">
+    //         <Modalidades />
+    //       </Route>
+    //       <Formulario />
+    //       <Route path="/modalidades">
+    //         <PagePilates />
+    //       </Route>
+    //       <FooterContainer/>
+    //     </Container>
+    //   </Switch>
+    // </Router>
   );
 }
 
