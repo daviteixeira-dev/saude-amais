@@ -20,7 +20,7 @@ import pilatescard04 from "../../images/pilates_card_04.jpg";
 function Modalidades() {
   return (
     <section className={styles.quadroModalidades}>
-      <Typography mt={4} variant="h2" sx={{ fontSize: 25, fontWeight: "bold" }}>
+      <Typography pt={4} variant="h2" sx={{ fontSize: 25, fontWeight: "bold" }}>
         Conheça nossas modalidades
       </Typography>
       {/*Box de Card's*/}
