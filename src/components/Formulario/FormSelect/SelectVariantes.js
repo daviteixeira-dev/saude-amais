@@ -5,18 +5,18 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 export default function SelectVariants() {
-  const [uf, setAge] = React.useState('');
+  const [uf, setUF] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setUF(event.target.value);
   };
 
   return (
 
-    <FormControl sx={{ m: 1, width: '25ch' }}>
+    <FormControl variant="filled" sx={{ m: 1, minWidth: "40ch" }}>
       <InputLabel id="uf">UF</InputLabel>
       <Select
-        labelId="demo-simple-select-filled-label"
+        labelId="uf"
         id="uf"
         value={uf}
         onChange={handleChange}
@@ -24,11 +24,10 @@ export default function SelectVariants() {
         <MenuItem value="">
           <em>None</em>
         </MenuItem>
-        <MenuItem value={10}>1</MenuItem>
-        <MenuItem value={20}>2</MenuItem>
-        <MenuItem value={30}>3</MenuItem>
+        <MenuItem value={10}>Ten</MenuItem>
+        <MenuItem value={20}>Twenty</MenuItem>
+        <MenuItem value={30}>Thirty</MenuItem>
       </Select>
     </FormControl>
-
   );
 }

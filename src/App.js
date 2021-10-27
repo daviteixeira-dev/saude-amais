@@ -29,12 +29,12 @@ function App() {
           <Route path="/professores">
             <PageProfessores />
           </Route>
-          <Route path="/cadastro">
+          <Route path="/formulario">
             <Formulario />
           </Route>
           <Localizacao />
           <SectionCall />
-          <FooterContainer/>
+          <FooterContainer />
         </Container>
       </Switch>
     </Router>
