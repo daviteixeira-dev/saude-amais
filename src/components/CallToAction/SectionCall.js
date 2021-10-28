@@ -16,7 +16,7 @@ function SectionCall() {
           sx={{ bgcolor: "#a8a8a8" }}
         >
           <Grid item>
-            <Link to="/cadastro" className={styles.linkFor}>
+            <Link to="/" className={styles.linkFor}>
               <Button variant="contained">
                 Agendar uma Aula
               </Button>

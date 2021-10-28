@@ -21,7 +21,7 @@ function Login() {
   const [isLogin, setIsLogin] = React.useState(true);
 
   return (
-    <Grid container spacing={0} columns={16} sx={{height:`100vh`}} alignItems="center">
+    <Grid container spacing={0} columns={16} sx={{ height: `100vh` }} alignItems="center">
       <Hidden lgDown>
         <Grid item xs={8} sm={0} md={0} lg={7}  >
           <Card>

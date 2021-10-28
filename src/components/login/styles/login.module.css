@@ -16,3 +16,7 @@
   width: 400px;
   height: 400px;
 }
+
+.linkFor {
+  text-decoration: none;
+}
