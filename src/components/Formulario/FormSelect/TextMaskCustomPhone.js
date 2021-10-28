@@ -32,7 +32,7 @@ TextMaskCustom.propTypes = {
 /* FormattedInputs */
 export default function TextMaskCustomPhone() {
   const [values, setValues] = React.useState({
-    textmask: '(00) 000-00000',
+    textmask: '(00) 000-000000',
   });
 
   const handleChange = (event) => {
