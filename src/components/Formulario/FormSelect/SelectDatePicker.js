@@ -11,6 +11,7 @@ export default function SelectDatePicker() {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
         label="Data de Nascimento"
+        /*maxlength="14"*/
         value={value}
         onChange={(newValue) => {
           setValue(newValue);

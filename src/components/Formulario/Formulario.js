@@ -6,12 +6,15 @@ import SelectVariants from "./FormSelect/SelectVariantes";
 import SelectRadioGroup from "./FormSelect/SelectRadioGroup";
 import SelectDatePicker from "./FormSelect/SelectDatePicker";
 import TextMaskCustomPhone from "./FormSelect/TextMaskCustomPhone";
+import ImageAvatars from "./FormSelect/ImageAvatars";
 import FormButton from "./FormButton/FormButton";
 import { Link } from "react-router-dom";
 
 
 function Formulario() {
+
   return (
+
     <Box
       component="form"
       sx={{
@@ -27,6 +30,8 @@ function Formulario() {
         alignItems="center"
         justifyContent="center"
         style={{ minHeight: '100vh' }}>
+
+        <ImageAvatars />
 
         <h1>Formulário</h1>
 
