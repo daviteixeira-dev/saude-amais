@@ -10,7 +10,7 @@ import TextMaskCustomCPF from './FormSelect/TextMaskCustomCPF';
 import Button from "@mui/material/Button";
 
 
-function Formulario() {
+function Formulario({setIsLogin}) {
 
   return (
 
@@ -23,21 +23,22 @@ function Formulario() {
       autoComplete="off"
     >
       <Box sx={{width: `100%`, alignItems: 'center', display: `flex`}}>
-          <Typography variant="h5" pr={2} component="h2" width="100%" align="right" sx={{marginBottom: '1em'}}>
-            Já é cadastrado?
-          </Typography>
-          <Button
-            padding="2em"
-            variant="outlined"
-            color="primary"
-            sx={{marginBottom: '1em'}}
-            >Entrar
-          </Button>
-        </Box>
+        <Typography variant="h5" pr={2} component="h2" width="100%" align="right" sx={{marginBottom: '1em'}}>
+          Já é cadastrado?
+        </Typography>
+        <Button
+          onClick={() => setIsLogin(true)}
+          padding="2em"
+          variant="outlined"
+          color="primary"
+          sx={{marginBottom: '1em'}}
+          >Entrar
+        </Button>
+      </Box>
       <Container maxWidth="sm" sx={{display: `flex`, flexDirection: `column`, alignItems: `center`}}>
         <Typography variant="h3" component="h1" gutterBottom> Cadastro </Typography>
-        <Stack spacing={2} direction="column" width='100%'>
-          <Stack spacing={2} direction="row" width='100%'>
+        <Stack direction="column" width='100%'>
+          <Stack direction="row" width='100%'>
             <TextField
               variant="filled"
               required
@@ -71,8 +72,8 @@ function Formulario() {
           type="endereco"
         />
 
-        <Stack spacing={2} direction="column" width='100%'>
-          <Stack spacing={2} direction="row" width='100%'>
+        <Stack direction="column" width='100%'>
+          <Stack direction="row" width='100%'>
             <TextField
               variant="filled"
               required
@@ -84,7 +85,7 @@ function Formulario() {
             <SelectVariants />
 
           </Stack>
-          <Stack spacing={2} direction="row" width='100%'>
+          <Stack spacing={2}  direction="row" width='100%'>
             <TextField
               variant="filled"
               id="number"

@@ -1,18 +1,12 @@
 import React from "react";
 import {
-  Container,
   Grid,
-  TextField,
-  Button,
-  Typography,
-  IconButton,
   Card,
   CardMedia,
   Hidden,
 } from "@mui/material/";
 
 import pilatescard04 from "../../images/4138854.jpg";
-import styles from './styles/login.module.css';
 import FormLogin from "./FormLogin";
 import Formulario from "../Formulario/Formulario";
 
@@ -31,7 +25,7 @@ function Login() {
       </Hidden>
 
       <Grid item xs={16} sm={16} md={16} lg={9}>
-          {isLogin ? <FormLogin setIsLogin={setIsLogin}/> : <Formulario/>}
+          {isLogin ? <FormLogin setIsLogin={setIsLogin}/> : <Formulario setIsLogin={setIsLogin}/>}
       </Grid>
   </Grid>
 
