@@ -9,11 +9,10 @@ import {
 } from "@mui/material/";
 import { green } from "@mui/material/colors";
 import { styled } from '@material-ui/styles';
+
 const ColorButton = styled(Button)(({ theme }) => ({
-  color: '#fff',
-  backgroundColor: green[500],
   '&:hover': {
-    backgroundColor: green[700],
+    Color: green[700],
   },
 }));
 
@@ -90,13 +89,18 @@ function FormLogin({setIsLogin}) {
                   > Entrar
                   </Button>
 
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    align="center"> Ainda não tem uma conta?
+                  </Typography>
 
                   <ColorButton
                     onClick={() => setIsLogin(false)}
                     type="button"
                     fullWidth
                     size="large"
-                    variant="contained"
+                    variant="outlined"
                     className="mt-md-4"
                   >
                     Cadastrar

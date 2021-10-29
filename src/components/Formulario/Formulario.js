@@ -10,7 +10,7 @@ import TextMaskCustomCPF from './FormSelect/TextMaskCustomCPF';
 import Button from "@mui/material/Button";
 
 
-function Formulario() {
+function Formulario({ setIsLogin }) {
 
   return (
 
