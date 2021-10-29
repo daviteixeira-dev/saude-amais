@@ -9,6 +9,7 @@ import Localizacao from "./components/Mapa/Localizacao";
 import SectionCall from "./components/CallToAction/SectionCall";
 import FooterContainer from "./components/Footer/containers/Footer";
 import Formulario from "./components/Formulario/Formulario";
+import Slide from "./components/SlidesPrincipais/Slides"
 //import styles from "./index.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Switch>
         <Container maxWidth="lg">
           <Route exact path="/">
+            <Slide />
             <Modalidades />
             <SecaoProfessores />
           </Route>
