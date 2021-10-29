@@ -1,18 +1,12 @@
 import React from "react";
 import {
-  Container,
   Grid,
-  TextField,
-  Button,
-  Typography,
-  IconButton,
   Card,
   CardMedia,
   Hidden,
 } from "@mui/material/";
 
 import pilatescard04 from "../../images/4138854.jpg";
-import styles from './styles/login.module.css';
 import FormLogin from "./FormLogin";
 import Formulario from "../Formulario/Formulario";
 
@@ -25,15 +19,15 @@ function Login() {
       <Hidden lgDown>
         <Grid item xs={8} sm={0} md={0} lg={7}  >
           <Card>
-            <CardMedia component="img" height='650'  image={pilatescard04}/>
+            <CardMedia component="img" height='650' image={pilatescard04} />
           </Card>
         </Grid>
       </Hidden>
 
       <Grid item xs={16} sm={16} md={16} lg={9}>
-          {isLogin ? <FormLogin setIsLogin={setIsLogin}/> : <Formulario/>}
+        {isLogin ? <FormLogin setIsLogin={setIsLogin} /> : <Formulario />}
       </Grid>
-  </Grid>
+    </Grid>
 
   )
 }
