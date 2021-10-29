@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 40px 50px;
@@ -60,7 +60,7 @@ export const Link = styled.a`
   }
 `
 
-export const Title = styled.a`
+export const Title = styled.p`
   font-size: 30px;
   color: #B0C4DE;
   margin-bottom: 30px;
