@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Route exact path="/">
             <Slide />
             <Modalidades />
