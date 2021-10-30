@@ -9,7 +9,6 @@ import Container from "@mui/material/Container";
 import TextMaskCustomCPF from './FormSelect/TextMaskCustomCPF';
 import Button from "@mui/material/Button";
 
-
 function Formulario({ setIsLogin }) {
 
   return (
@@ -17,7 +16,7 @@ function Formulario({ setIsLogin }) {
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, },
+        '& .MuiTextField-root': { m: 1 },
       }}
       noValidate
       autoComplete="off"
@@ -37,6 +36,7 @@ function Formulario({ setIsLogin }) {
       </Box>
       <Container maxWidth="sm" sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
         <Typography variant="h3" component="h1" gutterBottom> Cadastro </Typography>
+
         <Stack direction="column" width='100%'>
           <Stack direction="row" width='100%'>
             <TextField
@@ -56,22 +56,25 @@ function Formulario({ setIsLogin }) {
               type="email"
             />
           </Stack>
-          <Stack spacing={2} direction="row" width='100%'>
+
+          <Stack direction="row" spacing={3}>
             <SelectDatePicker />
-            <TextMaskCustomCPF />
-          </Stack>
-        </Stack>
+            <Stack direction="row" >
+              <TextMaskCustomCPF />
+            </Stack>
+          </Stack >
 
+        </Stack >
 
-        <TextField
-          sx={{ width: `100%` }}
-          variant="filled"
-          required
-          id="endereco"
-          label="Endereço"
-          type="endereco"
-        />
-
+        <Stack spacing={2} direction="column" width='100%'>
+          <TextField
+            variant="filled"
+            required
+            id="endereco"
+            label="Endereço"
+            type="endereco"
+          />
+        </Stack >
         <Stack direction="column" width='100%'>
           <Stack direction="row" width='100%'>
             <TextField
@@ -105,9 +108,8 @@ function Formulario({ setIsLogin }) {
             />
           </Stack>
         </Stack>
-
         <FormButton />
-      </Container>
+      </Container >
     </Box >
   );
 }
