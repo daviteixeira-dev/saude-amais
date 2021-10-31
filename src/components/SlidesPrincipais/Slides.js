@@ -32,7 +32,7 @@ function Slide() {
   };
 
   return (
-    <section>
+    <Box component="section">
       <Grid container>
         <Grid item lg={12} md={12} sm={12} xs={12}>
           {/* AutoPlay das Imagens */}
@@ -103,7 +103,7 @@ function Slide() {
           {/* End Botões */}
         </Grid>
       </Grid>
-    </section>
+    </Box>
   );
 }
 
