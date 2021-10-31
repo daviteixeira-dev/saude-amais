@@ -4,12 +4,12 @@ import PagePilates from "./pages/PagePilates";
 import PageProfessores from "./pages/PageProfessores";
 import Modalidades from "./components/Modalidades/Modalidades";
 import Login from "./components/login/Login";
-import SecaoProfessores from "./components/SecaoProfessores/SecaoProfessores"
+import SecaoProfessores from "./components/SecaoProfessores/SecaoProfessores";
 import Localizacao from "./components/Mapa/Localizacao";
 import SectionCall from "./components/CallToAction/SectionCall";
-import FooterContainer from "./components/Footer/containers/Footer";
+import FooterContainer from "./components/footer/containers/footer";
 import Formulario from "./components/Formulario/Formulario";
-import Slide from "./components/SlidesPrincipais/Slides"
+import Slide from "./components/SlidesPrincipais/Slides";
 //import styles from "./index.css";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
           </Route>
           <Localizacao />
           <SectionCall />
-          <FooterContainer/>
+          <FooterContainer />
         </Container>
       </Switch>
     </Router>
