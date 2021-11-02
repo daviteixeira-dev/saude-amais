@@ -6,6 +6,8 @@ import {
   IconButton,
   Stack,
   Link,
+  Checkbox,
+  FormControlLabel,
 } from "@mui/material/";
 import { green } from "@mui/material/colors";
 import { styled } from '@material-ui/styles';
@@ -31,7 +33,7 @@ function FormLogin({setIsLogin}) {
                 </Typography>
               </div>
 
-              <Stack spacing={2} direction="row">
+              <Stack spacing={2} direction="row" sx={{marginBottom: 3}}>
                 <Button
                   variant="outlined"
                   startIcon={<i className="fab fa-google"></i>}
@@ -41,18 +43,17 @@ function FormLogin({setIsLogin}) {
                   <i className="fab fa-facebook-f"></i>
                 </IconButton>
                 <IconButton>
-                  <i className="fab fa-twitter"></i>
+                  <i className="fab fa-apple"></i>
                 </IconButton>
                 <IconButton>
-                  <i className="fab fa-apple"></i>
+                  <i className="fab fa-microsoft"></i>
                 </IconButton>
               </Stack>
 
-              <div>
-                <p>Ou</p>
-              </div>
 
-              <div className="mt-4">
+              <Typography variant="body2" color="textSecondary" component="p" align="center"> Entre também com seu email </Typography>
+
+              <div className="mt-2">
                 <TextField
                   variant="filled"
                   margin="normal"
@@ -75,9 +76,13 @@ function FormLogin({setIsLogin}) {
                   type="password"
                   />
 
-                  <Link href="#" color="inherit" underline="none">
-                    Esqueceu sua senha?
-                  </Link>
+                  <Stack direction="row" alignItems="center" justifyContent="space-between">
+                    <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Lembrar-me" />
+                    <Link href="#" color="inherit" underline="none" align="center">
+                      Esqueceu sua senha?
+                    </Link>
+                  </Stack>
+
 
                   <Button
                     type="button"

@@ -35,11 +35,6 @@ function FooterContainer() {
             <Footer.Link href="#">Postura</Footer.Link>
             <Footer.Link href="#">Respiração</Footer.Link>
             <Footer.Link href="#">Resistência</Footer.Link>
-            <Footer.Link href="#">Emagrecimento</Footer.Link>
-            <Footer.Link href="#">Melhora do Sono</Footer.Link>
-            <Footer.Link href="#">Déficit de Atenção</Footer.Link>
-            <Footer.Link href="#">Fortalecimento Muscular</Footer.Link>
-            <Footer.Link href="#">Fortalecimento para Osteoporose</Footer.Link>
           </Footer.Column>
           <Footer.Column>
             <Footer.Title>Social</Footer.Title>

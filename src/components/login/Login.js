@@ -6,9 +6,9 @@ import {
   Hidden,
 } from "@mui/material/";
 
-import pilatescard04 from "../../images/4138854.jpg";
 import FormLogin from "./FormLogin";
 import Formulario from "../Formulario/Formulario";
+import img from "../../images/9.jpg";
 
 function Login() {
 
@@ -18,8 +18,8 @@ function Login() {
     <Grid container spacing={0} columns={16} sx={{ height: `100vh` }} alignItems="center">
       <Hidden lgDown>
         <Grid item xs={8} sm={0} md={0} lg={7}  >
-          <Card>
-            <CardMedia component="img" height='650'  image={pilatescard04}/>
+          <Card >
+            <CardMedia component="img"   image={img} sx={{ height: `100vh`, width: `100vh`, boderRadius: 16}}/>
           </Card>
         </Grid>
       </Hidden>

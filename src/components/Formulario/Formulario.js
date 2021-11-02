@@ -23,8 +23,15 @@ function Formulario({setIsLogin}) {
       autoComplete="off"
     >
       <Box sx={{width: `100%`, alignItems: 'center', display: `flex`}}>
-        <Typography variant="h5" pr={2} component="h2" width="100%" align="right" sx={{marginBottom: '1em'}}>
-          Já é cadastrado?
+        <Typography
+          variant="body2"
+          pr={2}
+          fontSize={16}
+          color="textSecondary"
+          width="100%"
+          align="right"
+          sx={{marginBottom: '1em'}}>
+            Já é cadastrado?
         </Typography>
         <Button
           onClick={() => setIsLogin(true)}
@@ -35,8 +42,15 @@ function Formulario({setIsLogin}) {
           >Entrar
         </Button>
       </Box>
-      <Container maxWidth="sm" sx={{display: `flex`, flexDirection: `column`, alignItems: `center`}}>
-        <Typography variant="h3" component="h1" gutterBottom> Cadastro </Typography>
+      <Container
+      maxWidth="sm"
+      sx={{display: `flex`, flexDirection: `column`, alignItems: `center`}}>
+        <Typography
+          variant="h3"
+          component="h1"
+          gutterBottom
+            > Cadastro
+        </Typography>
         <Stack direction="column" width='100%'>
           <Stack direction="row" width='100%'>
             <TextField
@@ -56,7 +70,7 @@ function Formulario({setIsLogin}) {
               type="email"
             />
           </Stack>
-          <Stack spacing={2} direction="row" width='100%'>
+          <Stack spacing={2} direction="row" width='100%' alignItems="center">
             <SelectDatePicker />
             <TextMaskCustomCPF/>
           </Stack>
