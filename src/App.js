@@ -10,6 +10,8 @@ import SectionCall from "./components/CallToAction/SectionCall";
 import FooterContainer from "./components/footer/containers/footer";
 import Formulario from "./components/Formulario/Formulario";
 import Slide from "./components/SlidesPrincipais/Slides";
+import MenuPrincipal from "./components/AppBar/MenuPrincipal";
+import Banner from "./components/Banner/Banner";
 //import styles from "./index.css";
 
 function App() {
@@ -18,12 +20,20 @@ function App() {
       <Switch>
         <Container maxWidth="xl">
           <Route exact path="/">
+            <Banner />
+            <MenuPrincipal />
             <Slide />
             <Modalidades />
             <SecaoProfessores />
+            <Localizacao />
+            <SectionCall />
+            <FooterContainer />
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/cadastro">
+            <Formulario />
           </Route>
           <Route path="/modalidades">
             <PagePilates />
@@ -31,12 +41,6 @@ function App() {
           <Route path="/professores">
             <PageProfessores />
           </Route>
-          <Route path="/cadastro">
-            <Formulario />
-          </Route>
-          <Localizacao />
-          <SectionCall />
-          <FooterContainer />
         </Container>
       </Switch>
     </Router>
