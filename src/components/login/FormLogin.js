@@ -18,20 +18,20 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-function FormLogin({setIsLogin}) {
+function FormLogin({ setIsLogin }) {
 
   return (
     <Container fixed component="main" maxWidth="xs">
-            <div className="mt-3 mt-md-5">
-              <div className="text-center">
-                <Typography
-                  className="font-weight-normal"
-                  component="h1"
-                  variant="h4"
-                  sx={{marginBottom: 5}}
-                  >Faça seu login no Saúde+
-                </Typography>
-              </div>
+      <div className="mt-3 mt-md-5">
+        <div className="text-center">
+          <Typography
+            className="font-weight-normal"
+            component="h1"
+            variant="h4"
+            sx={{ marginBottom: 5 }}
+          >Faça seu login no Saúde+
+          </Typography>
+        </div>
 
               <Stack spacing={2} direction="row" sx={{marginBottom: 3}}>
                 <Button
@@ -65,16 +65,16 @@ function FormLogin({setIsLogin}) {
                   type="email"
                   />
 
-                  <TextField
-                  variant="filled"
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="password"
-                  label="Senha"
-                  name="password"
-                  type="password"
-                  />
+          <TextField
+            variant="filled"
+            margin="normal"
+            required
+            fullWidth
+            id="password"
+            label="Senha"
+            name="password"
+            type="password"
+          />
 
                   <Stack direction="row" alignItems="center" justifyContent="space-between">
                     <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Lembrar-me" />
@@ -84,35 +84,35 @@ function FormLogin({setIsLogin}) {
                   </Stack>
 
 
-                  <Button
-                    type="button"
-                    variant="contained"
-                    fullWidth
-                    color="primary"
-                    size="large"
-                    className="mb-3 mb-mb-4 mt-4"
-                  > Entrar
-                  </Button>
+          <Button
+            type="button"
+            variant="contained"
+            fullWidth
+            color="primary"
+            size="large"
+            className="mb-3 mb-mb-4 mt-4"
+          > Entrar
+          </Button>
 
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    align="center"> Ainda não tem uma conta?
-                  </Typography>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            align="center"> Ainda não tem uma conta?
+          </Typography>
 
-                  <ColorButton
-                    onClick={() => setIsLogin(false)}
-                    type="button"
-                    fullWidth
-                    size="large"
-                    variant="outlined"
-                    className="mt-md-4"
-                  >
-                    Cadastrar
-                  </ColorButton>
-              </div>
-            </div>
-          </Container>
+          <ColorButton
+            onClick={() => setIsLogin(false)}
+            type="button"
+            fullWidth
+            size="large"
+            variant="outlined"
+            className="mt-md-4"
+          >
+            Cadastre-se
+          </ColorButton>
+        </div>
+      </div>
+    </Container>
   )
 }
 

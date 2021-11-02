@@ -25,9 +25,9 @@ function Login() {
       </Hidden>
 
       <Grid item xs={16} sm={16} md={16} lg={9}>
-          {isLogin ? <FormLogin setIsLogin={setIsLogin}/> : <Formulario setIsLogin={setIsLogin}/>}
+        {isLogin ? <FormLogin setIsLogin={setIsLogin} /> : <Formulario setIsLogin={setIsLogin} />}
       </Grid>
-  </Grid>
+    </Grid>
 
   )
 }

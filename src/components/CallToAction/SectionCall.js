@@ -1,30 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Grid, Button } from "@mui/material/";
-import styles from "./SectionCall.module.css";
+import { Box, Button, Grid } from "@mui/material/";
 
 function SectionCall() {
   return (
-    <section>
-      <Box>
-        <Grid
-          container
-          py={4}
-          direction="row"
-          alignItems="center"
-          justifyContent="space-around"
-          sx={{ bgcolor: "#a8a8a8" }}
-        >
-          <Grid item>
-            <Link to="/" className={styles.linkFor}>
-              <Button variant="contained">
-                Agendar uma Aula
-              </Button>
-            </Link>
-          </Grid>
+    <Box sx={{ bgcolor: "#a8a8a8" }} component="section">
+      <Grid
+        container
+        py={4}
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+      >
+        <Grid item>
+          <Link to="/cadastro" style={{ textDecoration: 'none' }}>
+            <Button variant="contained">Agendar uma aula</Button>
+          </Link>
         </Grid>
-      </Box>
-    </section>
+      </Grid>
+    </Box>
   );
 }
 

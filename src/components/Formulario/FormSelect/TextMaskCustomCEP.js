@@ -13,7 +13,7 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
     <IMaskInput
       required
       {...other}
-      mask="#00.000.000-00"
+      mask="#0000-000"
       definitions={{
         '#': /[0-9]/,
       }}
@@ -31,7 +31,7 @@ TextMaskCustom.propTypes = {
 
 
 /* FormattedInputs */
-export default function TextMaskCustomCPF() {
+export default function TextMaskCustomCEP() {
   const [values, setValues] = React.useState({
     textmask: '',
   });
@@ -44,21 +44,18 @@ export default function TextMaskCustomCPF() {
   };
 
   return (
-
-    <Stack spacing={2} mt={1} direction="column" width="100vh">
       <FormControl variant="filled" fullWidth>
-        <InputLabel htmlFor="component-filled" >CPF</InputLabel>
+        <InputLabel htmlFor="component-filled">CEP</InputLabel>
         <FilledInput
+          required
+          fullWidth
           value={values.textmask}
           onChange={handleChange}
           name="textmask"
           id="component-filled"
           inputComponent={TextMaskCustom}
         />
-
       </FormControl>
-    </Stack>
-
   );
 }
 

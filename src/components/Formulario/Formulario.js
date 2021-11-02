@@ -8,16 +8,16 @@ import { Stack, Typography } from '@mui/material';
 import Container from "@mui/material/Container";
 import TextMaskCustomCPF from './FormSelect/TextMaskCustomCPF';
 import Button from "@mui/material/Button";
+import TextMaskCustomCEP from './FormSelect/TextMaskCustomCEP';
 
-
-function Formulario({setIsLogin}) {
+function Formulario({ setIsLogin }) {
 
   return (
 
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1,  },
+        '& .MuiTextField-root': { m: 1 },
       }}
       noValidate
       autoComplete="off"
@@ -38,8 +38,8 @@ function Formulario({setIsLogin}) {
           padding="2em"
           variant="outlined"
           color="primary"
-          sx={{marginBottom: '1em'}}
-          >Entrar
+          sx={{ marginBottom: '1em' }}
+        >Entrar
         </Button>
       </Box>
       <Container
@@ -76,18 +76,13 @@ function Formulario({setIsLogin}) {
           </Stack>
         </Stack>
 
-
-        <TextField
-          sx={{width: `100%`}}
-          variant="filled"
-          required
-          id="endereco"
-          label="Endereço"
-          type="endereco"
-        />
-
         <Stack direction="column" width='100%'>
-          <Stack direction="row" width='100%'>
+
+
+
+          <Stack direction="row" width='100%' alignItems="center" mt={2}>
+            <TextMaskCustomCEP/>
+
             <TextField
               variant="filled"
               required
@@ -99,31 +94,26 @@ function Formulario({setIsLogin}) {
             <SelectVariants />
 
           </Stack>
-          <Stack spacing={2}  direction="row" width='100%'>
+          <Stack spacing={2} direction="row" width='100%' alignItems="center">
             <TextField
-              variant="filled"
-              id="number"
-              label="Número"
-              type="number"
               fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
+              variant="filled"
+              id="rua"
+              label="Rua"
+              type="text"
             />
             <TextField
-              variant="filled"
-              required
               fullWidth
-              id="cep"
-              label="CEP"
+              variant="filled"
+              id="bairro"
+              label="Bairro"
+              type="text"
             />
           </Stack>
         </Stack>
-
         <FormButton />
-      </Container>
+      </Container >
     </Box >
   );
 }
-
 export default Formulario
