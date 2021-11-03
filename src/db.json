@@ -1,0 +1,55 @@
+{
+  "places": [
+    {
+      "name": "Fortaleza",
+      "id": 1
+    }
+  ],
+  "teachers": [
+    {
+      "name": "Ana",
+      "id": 1
+    },
+    {
+      "name": "Maria",
+      "id": 2
+    }
+  ],
+  "modalities": [
+    {
+      "name": "Para Crianças",
+      "id": 1
+    },
+    {
+      "name": "Para Gestantes",
+      "id": 2
+    },
+    {
+      "name": "Para Crianças",
+      "id": 3
+    }
+  ],
+  "hours": [
+    {
+      "avaliable": [
+        {
+          "hora": "08:00",
+          "disponivel": true
+        }
+      ],
+      "id": 1
+    }
+  ],
+  "images": [
+    {
+      "id": 1,
+      "label": "Mulher gravida e instrutora",
+      "imgPath": "https://hpfisiopilates.com.br/wp-content/uploads/2019/09/Hp-Studio-Pilates-Banner-Topo-06.jpg"
+    },
+    {
+      "id": 2,
+      "label": "Mulher jovem e instrutora",
+      "imgPath": "https://hpfisiopilates.com.br/wp-content/uploads/2019/09/Hp-Studio-Pilates-Banner-Top-03.jpg"
+    }
+  ]
+}
