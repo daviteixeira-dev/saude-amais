@@ -23,6 +23,10 @@
     {
       "name": "Para Gestantes",
       "id": 2
+    },
+    {
+      "name": "Para Crianças",
+      "id": 3
     }
   ],
   "hours": [
@@ -30,14 +34,6 @@
       "avaliable": [
         {
           "hora": "08:00",
-          "disponivel": true
-        },
-        {
-          "hora": "09:00",
-          "disponivel": true
-        },
-        {
-          "hora": "10:00",
           "disponivel": true
         }
       ],
