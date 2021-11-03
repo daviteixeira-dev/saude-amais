@@ -9,7 +9,7 @@ export default function SelectDatePicker() {
   const [value, setValue] = React.useState(null);
 
   return (
-    <Stack spacing={2} direction="column" width="100vh">
+    <Stack direction="column" width="100%">
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
           label="Data de Nascimento"
@@ -19,7 +19,7 @@ export default function SelectDatePicker() {
           onChange={(newValue) => {
             setValue(newValue);
           }}
-          renderInput={(params) => <TextField fullWidth {...params} variant="filled" />}
+          renderInput={(params) => <TextField required fullWidth {...params} variant="filled" />}
         />
       </LocalizationProvider>
     </Stack>

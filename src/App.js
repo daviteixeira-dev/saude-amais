@@ -7,7 +7,7 @@ import Login from "./components/login/Login";
 import SecaoProfessores from "./components/SecaoProfessores/SecaoProfessores";
 import Localizacao from "./components/Mapa/Localizacao";
 import SectionCall from "./components/CallToAction/SectionCall";
-import FooterContainer from "./components/footer/containers/Footer";
+import FooterContainer from "./components/Footer/containers/Footer";
 import Formulario from "./components/Formulario/Formulario";
 import Slide from "./components/SlidesPrincipais/Slides";
 import MenuPrincipal from "./components/AppBar/MenuPrincipal";

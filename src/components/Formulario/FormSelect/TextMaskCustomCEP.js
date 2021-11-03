@@ -4,7 +4,6 @@ import { IMaskInput } from "react-imask";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from '@mui/material/FormControl';
 import { FilledInput } from "@mui/material";
-import { Stack } from '@mui/material';
 
 
 const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
@@ -44,10 +43,9 @@ export default function TextMaskCustomCEP() {
   };
 
   return (
-      <FormControl variant="filled" fullWidth>
+      <FormControl variant="filled" fullWidth required >
         <InputLabel htmlFor="component-filled">CEP</InputLabel>
         <FilledInput
-          required
           fullWidth
           value={values.textmask}
           onChange={handleChange}
