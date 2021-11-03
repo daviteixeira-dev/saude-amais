@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import SelectVariants from "./FormSelect/SelectVariantes";
 import SelectDatePicker from "./FormSelect/SelectDatePicker";
 import FormButton from "./FormButton/FormButton";
-import { Stack, Typography } from '@mui/material';
+import { Stack, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import TextMaskCustomCPF from './FormSelect/TextMaskCustomCPF';
+import TextMaskCustomCPF from "./FormSelect/TextMaskCustomCPF";
 import Button from "@mui/material/Button";
-import TextMaskCustomCEP from './FormSelect/TextMaskCustomCEP';
+import TextMaskCustomCEP from "./FormSelect/TextMaskCustomCEP";
+import ImageAvatar from "./FormSelect/ImageAvatars";
 
 function Formulario({ setIsLogin }) {
 
@@ -22,7 +23,7 @@ function Formulario({ setIsLogin }) {
       noValidate
       autoComplete="off"
     >
-      <Box sx={{width: `100%`, alignItems: 'center', display: `flex`}}>
+      <Box sx={{ width: `100%`, alignItems: 'center', display: `flex` }}>
         <Typography
           variant="body2"
           pr={2}
@@ -30,8 +31,8 @@ function Formulario({ setIsLogin }) {
           color="textSecondary"
           width="100%"
           align="right"
-          sx={{marginBottom: '1em'}}>
-            Já é cadastrado?
+          sx={{ marginBottom: '1em' }}>
+          Já é cadastrado?
         </Typography>
         <Button
           onClick={() => setIsLogin(true)}
@@ -43,14 +44,15 @@ function Formulario({ setIsLogin }) {
         </Button>
       </Box>
       <Container
-      maxWidth="sm"
-      sx={{display: `flex`, flexDirection: `column`, alignItems: `center`}}>
+        maxWidth="sm"
+        sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
         <Typography
           variant="h3"
           component="h1"
           gutterBottom
-            > Cadastro
+        > Cadastro
         </Typography>
+        <ImageAvatar />
         <Stack direction="column" width='100%'>
           <Stack direction="row" width='100%'>
             <TextField
@@ -70,18 +72,16 @@ function Formulario({ setIsLogin }) {
               type="email"
             />
           </Stack>
-          <Stack spacing={2} direction="row" width='100%' alignItems="center">
+          <Stack spacing={3} direction="row" alignItems="center">
             <SelectDatePicker />
-            <TextMaskCustomCPF/>
+            <TextMaskCustomCPF />
+            <TextMaskCustomCEP />
           </Stack>
         </Stack>
 
         <Stack direction="column" width='100%'>
 
-
-
           <Stack direction="row" width='100%' alignItems="center" mt={2}>
-            <TextMaskCustomCEP/>
 
             <TextField
               variant="filled"
@@ -90,7 +90,6 @@ function Formulario({ setIsLogin }) {
               label="Cidade"
               fullWidth
             />
-
             <SelectVariants />
 
           </Stack>
