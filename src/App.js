@@ -9,39 +9,46 @@ import Localizacao from "./components/Mapa/Localizacao";
 import SectionCall from "./components/CallToAction/SectionCall";
 import FooterContainer from "./components/Footer/containers/Footer";
 import Formulario from "./components/Formulario/Formulario";
-import Slide from "./components/SlidesPrincipais/Slides";
 import MenuPrincipal from "./components/AppBar/MenuPrincipal";
 import Banner from "./components/Banner/Banner";
+import HomeAdmin from "./pages/HomeAdmin";
+import DataProvider from "./contexts/DataContext";
+import CarroselDeNoticias from "./components/Carousel";
+
 //import styles from "./index.css";
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Container maxWidth="xl">
-          <Route exact path="/">
-            <Banner />
-            <MenuPrincipal />
-            <Slide />
-            <Modalidades />
-            <SecaoProfessores />
-            <Localizacao />
-            <SectionCall />
-            <FooterContainer />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/cadastro">
-            <Formulario />
-          </Route>
-          <Route path="/modalidades">
-            <PagePilates />
-          </Route>
-          <Route path="/professores">
-            <PageProfessores />
-          </Route>
-        </Container>
+        <DataProvider>
+          <Container maxWidth="xl">
+            <Route path="/admin" component={HomeAdmin} />
+            <Route exact path="/">
+              <Banner />
+              <MenuPrincipal />
+              {/* <Slide /> */}
+              <CarroselDeNoticias />
+              <Modalidades />
+              <SecaoProfessores />
+              <Localizacao />
+              <SectionCall />
+              <FooterContainer />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/cadastro">
+              <Formulario />
+            </Route>
+            <Route path="/modalidades">
+              <PagePilates />
+            </Route>
+            <Route path="/professores">
+              <PageProfessores />
+            </Route>
+          </Container>
+        </DataProvider>
       </Switch>
     </Router>
   );

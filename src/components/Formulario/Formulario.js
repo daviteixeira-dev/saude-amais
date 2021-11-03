@@ -46,13 +46,15 @@ function Formulario({ setIsLogin }) {
       <Container
         maxWidth="sm"
         sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
+
+        <ImageAvatar />
+
         <Typography
           variant="h3"
           component="h1"
           gutterBottom
         > Cadastro
         </Typography>
-        <ImageAvatar />
         <Stack direction="column" width='100%'>
           <Stack direction="row" width='100%'>
             <TextField
@@ -72,7 +74,7 @@ function Formulario({ setIsLogin }) {
               type="email"
             />
           </Stack>
-          <Stack spacing={3} direction="row" alignItems="center">
+          <Stack spacing={2} direction="row" alignItems="center" width="100%">
             <SelectDatePicker />
             <TextMaskCustomCPF />
             <TextMaskCustomCEP />
