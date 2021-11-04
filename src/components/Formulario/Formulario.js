@@ -23,15 +23,14 @@ function Formulario({ setIsLogin }) {
       noValidate
       autoComplete="off"
     >
-      <Box sx={{ width: `100%`, alignItems: 'center', display: `flex` }}>
+      <Box alignItems="center" sx={{ width: `100%`, display: `flex` }}>
         <Typography
           variant="body2"
           pr={2}
           fontSize={16}
           color="textSecondary"
           width="100%"
-          align="right"
-          sx={{ marginBottom: '1em' }}>
+          align="right">
           Já é cadastrado?
         </Typography>
         <Button
@@ -39,7 +38,7 @@ function Formulario({ setIsLogin }) {
           padding="2em"
           variant="outlined"
           color="primary"
-          sx={{ marginBottom: '1em' }}
+          sx={{ marginTop: '1em' }}
         >Entrar
         </Button>
       </Box>
@@ -47,15 +46,20 @@ function Formulario({ setIsLogin }) {
         maxWidth="sm"
         sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
 
-        <ImageAvatar />
-
         <Typography
           variant="h3"
           component="h1"
           gutterBottom
         > Cadastro
         </Typography>
+
+        <Typography variant='body2' color='#6495ED' component="p" align="left">Adicionar Imagem</Typography>
+
+        <ImageAvatar />
+
         <Stack direction="column" width='100%' mb={1}>
+
+
           <Typography variant='body2' color='#6495ED' component="p" align="left">Informacoes de login</Typography>
 
           <Stack direction="row" width='100%' mb={1}>

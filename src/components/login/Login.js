@@ -18,7 +18,7 @@ function Login() {
     <Grid container spacing={0} columns={16} sx={{ height: `100vh` }} alignItems="center">
       <Hidden lgDown>
         <Grid item xs={8} sm={0} md={0} lg={7}  >
-          <Card >
+          <Card>
             <CardMedia component="img"   image={img} sx={{ height: `100vh`, width: `100vh`, boderRadius: 16}}/>
           </Card>
         </Grid>

@@ -21,38 +21,31 @@ function MenuPrincipal() {
             to="/"
             style={{ textDecoration: "none", color: "#f2f2f2", flexGrow: 1 }}
           >
-            <Button color="inherit">Início</Button>
+            <Button
+              size="large"
+              startIcon={<i className="fas fa-home"></i>}
+              color="inherit">Início</Button>
           </Link>
 
           <Link
-            to="/cadastro"
-            style={{ textDecoration: "none", color: "#f2f2f2" }}
-          >
-            <Button color="inherit">Cadastrar</Button>
-          </Link>
-          <Link
-            to="/cadastro"
-            style={{ textDecoration: "none", color: "#f2f2f2" }}
-          >
-            <Button color="inherit">Cadastrar</Button>
-          </Link>
-          <Link
-            to="/cadastro"
-            style={{ textDecoration: "none", color: "#f2f2f2" }}
-          >
-            <Button color="inherit">Cadastrar</Button>
-          </Link>
-          <Link
             to="/login"
-            style={{ textDecoration: "none", color: "#f2f2f2" }}
+            style={{ textDecoration: "none", color: "#f2f2f2", mr: 2 }}
           >
-            <Button color="inherit">Login</Button>
+            <Button
+              size="large"
+              sx={{ mr: 2 }}
+              startIcon={<i className="fas fa-sign-in-alt"></i>}
+              color="inherit">Entrar</Button>
           </Link>
           <Link
+
             to="/admin"
             style={{ textDecoration: "none", color: "#f2f2f2" }}
           >
-            <Button color="inherit">Admin</Button>
+            <Button
+              size="large"
+              startIcon={<i className="fas fa-user-cog"></i>}
+              color="inherit">Admin</Button>
           </Link>
         </Toolbar>
       </AppBar>
