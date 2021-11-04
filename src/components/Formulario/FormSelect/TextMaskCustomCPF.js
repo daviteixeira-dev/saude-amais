@@ -45,9 +45,9 @@ export default function TextMaskCustomCPF() {
 
   return (
 
-    <Stack spacing={2} mt={1} direction="row" width="100%">
-      <FormControl variant="filled" fullWidth>
-        <InputLabel htmlFor="component-filled">CPF</InputLabel>
+    <Stack spacing={2} mt={1} direction="column" width="100%" >
+      <FormControl variant="filled" required>
+        <InputLabel htmlFor="component-filled" >CPF</InputLabel>
         <FilledInput
           value={values.textmask}
           onChange={handleChange}

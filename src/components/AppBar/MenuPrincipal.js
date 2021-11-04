@@ -31,6 +31,18 @@ function MenuPrincipal() {
             <Button color="inherit">Cadastrar</Button>
           </Link>
           <Link
+            to="/cadastro"
+            style={{ textDecoration: "none", color: "#f2f2f2" }}
+          >
+            <Button color="inherit">Cadastrar</Button>
+          </Link>
+          <Link
+            to="/cadastro"
+            style={{ textDecoration: "none", color: "#f2f2f2" }}
+          >
+            <Button color="inherit">Cadastrar</Button>
+          </Link>
+          <Link
             to="/login"
             style={{ textDecoration: "none", color: "#f2f2f2" }}
           >

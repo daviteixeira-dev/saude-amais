@@ -55,16 +55,10 @@ function Formulario({ setIsLogin }) {
           gutterBottom
         > Cadastro
         </Typography>
-        <Stack direction="column" width='100%'>
-          <Stack direction="row" width='100%'>
-            <TextField
-              variant="filled"
-              required
-              id="name"
-              label="Nome"
-              fullWidth
-            />
+        <Stack direction="column" width='100%' mb={1}>
+          <Typography variant='body2' color='#6495ED' component="p" align="left">Informacoes de login</Typography>
 
+          <Stack direction="row" width='100%' mb={1}>
             <TextField
               variant="filled"
               required
@@ -73,17 +67,47 @@ function Formulario({ setIsLogin }) {
               label="Email"
               type="email"
             />
+            <TextField
+              variant="filled"
+              required
+              fullWidth
+              id="senha"
+              label="Senha"
+              type="password"
+            />
           </Stack>
 
-          <SelectDatePicker />
-          <TextMaskCustomCPF />
+          <Typography variant='body2' color='#6495ED' component="p" align="left">Informações pessoais</Typography>
+          <Stack direction="row" width='100%' >
 
+            <TextField
+              variant="filled"
+              required
+              id="name"
+              label="Nome"
+              fullWidth
+            />
+            <TextField
+              variant="filled"
+              required
+              id="sobrenome"
+              label="Sobrenome"
+              fullWidth
+            />
+          </Stack>
+          <Stack spacing={3} direction="row" >
+            <SelectDatePicker />
+            <Stack direction="row" width="100%">
+              <TextMaskCustomCPF />
+            </Stack>
+          </Stack>
         </Stack>
 
         <Stack direction="column" width='100%'>
-
-          <Stack direction="row" width='100%' alignItems="center" mt={1}>
+          <Typography variant='body2' color="#6495ED" component="p" align="left">Informações de endereço</Typography>
+          <Stack direction="row" width='100%' alignItems="center">
             <TextMaskCustomCEP />
+
             <TextField
               variant="filled"
               required
@@ -91,11 +115,20 @@ function Formulario({ setIsLogin }) {
               label="Cidade"
               fullWidth
             />
+
+            {/* <TextField
+              variant="filled"
+              required
+              id="estado"
+              label="Estado"
+              fullWidth
+            /> */}
             <SelectVariants />
 
           </Stack>
           <Stack spacing={2} direction="row" width='100%' alignItems="center">
             <TextField
+              required
               fullWidth
               variant="filled"
               id="rua"
@@ -103,6 +136,7 @@ function Formulario({ setIsLogin }) {
               type="text"
             />
             <TextField
+              required
               fullWidth
               variant="filled"
               id="bairro"
