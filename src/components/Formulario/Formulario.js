@@ -74,17 +74,16 @@ function Formulario({ setIsLogin }) {
               type="email"
             />
           </Stack>
-          <Stack spacing={2} direction="row" alignItems="center" width="100%">
-            <SelectDatePicker />
-            <TextMaskCustomCPF />
-            <TextMaskCustomCEP />
-          </Stack>
+
+          <SelectDatePicker />
+          <TextMaskCustomCPF />
+
         </Stack>
 
         <Stack direction="column" width='100%'>
 
-          <Stack direction="row" width='100%' alignItems="center" mt={2}>
-
+          <Stack direction="row" width='100%' alignItems="center" mt={1}>
+            <TextMaskCustomCEP />
             <TextField
               variant="filled"
               required

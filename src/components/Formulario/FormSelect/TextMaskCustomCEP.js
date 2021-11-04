@@ -44,7 +44,7 @@ export default function TextMaskCustomCEP() {
   };
 
   return (
-    <Stack spacing={2} direction="column" width="100%">
+    <Stack spacing={2} direction="row" width="100%">
       <FormControl variant="filled" fullWidth>
         <InputLabel htmlFor="component-filled">CEP</InputLabel>
         <FilledInput

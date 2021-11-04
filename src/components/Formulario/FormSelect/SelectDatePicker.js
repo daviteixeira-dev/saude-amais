@@ -9,7 +9,7 @@ export default function SelectDatePicker() {
   const [value, setValue] = React.useState(null);
 
   return (
-    <Stack spacing={2} direction="column" width="100vh">
+    <Stack spacing={2} direction="row" width="100%">
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
           label="Data de Nascimento"
