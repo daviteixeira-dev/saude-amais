@@ -4,7 +4,7 @@ import { IMaskInput } from "react-imask";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from '@mui/material/FormControl';
 import { FilledInput } from "@mui/material";
-import { Stack } from '@mui/material';
+import { Stack } from "@mui/material";
 
 
 const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
@@ -45,8 +45,8 @@ export default function TextMaskCustomCPF() {
 
   return (
 
-    <Stack spacing={2} mt={1} direction="column" width="100vh">
-      <FormControl variant="filled" fullWidth>
+    <Stack spacing={2} mt={1} direction="column" width="100%" >
+      <FormControl variant="filled" required>
         <InputLabel htmlFor="component-filled" >CPF</InputLabel>
         <FilledInput
           value={values.textmask}
@@ -55,7 +55,6 @@ export default function TextMaskCustomCPF() {
           id="component-filled"
           inputComponent={TextMaskCustom}
         />
-
       </FormControl>
     </Stack>
 

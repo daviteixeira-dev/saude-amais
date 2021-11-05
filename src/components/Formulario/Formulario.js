@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import SelectVariants from "./FormSelect/SelectVariantes";
 import SelectDatePicker from "./FormSelect/SelectDatePicker";
 import FormButton from "./FormButton/FormButton";
-import { Stack, Typography } from '@mui/material';
+import { Stack, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import TextMaskCustomCPF from './FormSelect/TextMaskCustomCPF';
+import TextMaskCustomCPF from "./FormSelect/TextMaskCustomCPF";
 import Button from "@mui/material/Button";
-import TextMaskCustomCEP from './FormSelect/TextMaskCustomCEP';
+import TextMaskCustomCEP from "./FormSelect/TextMaskCustomCEP";
+import ImageAvatar from "./FormSelect/ImageAvatars";
 
 function Formulario({ setIsLogin }) {
 
@@ -22,45 +23,46 @@ function Formulario({ setIsLogin }) {
       noValidate
       autoComplete="off"
     >
-      <Box sx={{width: `100%`, alignItems: 'center', display: `flex`}}>
+      <Box alignItems="center" sx={{ width: `100%`, display: `flex` }}>
         <Typography
           variant="body2"
           pr={2}
           fontSize={16}
           color="textSecondary"
           width="100%"
-          align="right"
-          sx={{marginBottom: '1em'}}>
-            Já é cadastrado?
+          align="right">
+          Já é cadastrado?
         </Typography>
         <Button
           onClick={() => setIsLogin(true)}
           padding="2em"
           variant="outlined"
           color="primary"
-          sx={{ marginBottom: '1em' }}
+          sx={{ marginTop: '1em' }}
         >Entrar
         </Button>
       </Box>
       <Container
-      maxWidth="sm"
-      sx={{display: `flex`, flexDirection: `column`, alignItems: `center`}}>
+        maxWidth="sm"
+        sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
+
         <Typography
           variant="h3"
           component="h1"
           gutterBottom
-            > Cadastro
+        > Cadastro
         </Typography>
-        <Stack direction="column" width='100%'>
-          <Stack direction="row" width='100%'>
-            <TextField
-              variant="filled"
-              required
-              id="name"
-              label="Nome"
-              fullWidth
-            />
 
+        <Typography variant='body2' color='#6495ED' component="p" align="left">Adicionar Imagem</Typography>
+
+        <ImageAvatar />
+
+        <Stack direction="column" width='100%' mb={1}>
+
+
+          <Typography variant='body2' color='#6495ED' component="p" align="left">Informacoes de login</Typography>
+
+          <Stack direction="row" width='100%' mb={1}>
             <TextField
               variant="filled"
               required
@@ -69,19 +71,46 @@ function Formulario({ setIsLogin }) {
               label="Email"
               type="email"
             />
+            <TextField
+              variant="filled"
+              required
+              fullWidth
+              id="senha"
+              label="Senha"
+              type="password"
+            />
           </Stack>
-          <Stack spacing={2} direction="row" width='100%' alignItems="center">
+
+          <Typography variant='body2' color='#6495ED' component="p" align="left">Informações pessoais</Typography>
+          <Stack direction="row" width='100%' >
+
+            <TextField
+              variant="filled"
+              required
+              id="name"
+              label="Nome"
+              fullWidth
+            />
+            <TextField
+              variant="filled"
+              required
+              id="sobrenome"
+              label="Sobrenome"
+              fullWidth
+            />
+          </Stack>
+          <Stack spacing={3} direction="row" >
             <SelectDatePicker />
-            <TextMaskCustomCPF/>
+            <Stack direction="row" width="100%">
+              <TextMaskCustomCPF />
+            </Stack>
           </Stack>
         </Stack>
 
         <Stack direction="column" width='100%'>
-
-
-
-          <Stack direction="row" width='100%' alignItems="center" mt={2}>
-            <TextMaskCustomCEP/>
+          <Typography variant='body2' color="#6495ED" component="p" align="left">Informações de endereço</Typography>
+          <Stack direction="row" width='100%' alignItems="center">
+            <TextMaskCustomCEP />
 
             <TextField
               variant="filled"
@@ -91,11 +120,19 @@ function Formulario({ setIsLogin }) {
               fullWidth
             />
 
+            {/* <TextField
+              variant="filled"
+              required
+              id="estado"
+              label="Estado"
+              fullWidth
+            /> */}
             <SelectVariants />
 
           </Stack>
           <Stack spacing={2} direction="row" width='100%' alignItems="center">
             <TextField
+              required
               fullWidth
               variant="filled"
               id="rua"
@@ -103,6 +140,7 @@ function Formulario({ setIsLogin }) {
               type="text"
             />
             <TextField
+              required
               fullWidth
               variant="filled"
               id="bairro"

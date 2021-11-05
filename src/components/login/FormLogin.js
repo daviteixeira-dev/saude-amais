@@ -76,12 +76,12 @@ function FormLogin({ setIsLogin }) {
             type="password"
           />
 
-                  <Stack direction="row" alignItems="center" justifyContent="space-between">
-                    <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Lembrar-me" />
-                    <Link href="#" color="inherit" underline="none" align="center">
-                      Esqueceu sua senha?
-                    </Link>
-                  </Stack>
+          <Stack direction="row" alignItems="center" justifyContent="space-between">
+            <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Lembrar-me" />
+            <Link href="#" color="inherit" underline="none" align="center">
+              Esqueceu sua senha?
+            </Link>
+          </Stack>
 
 
           <Button

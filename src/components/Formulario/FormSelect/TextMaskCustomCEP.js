@@ -4,8 +4,6 @@ import { IMaskInput } from "react-imask";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from '@mui/material/FormControl';
 import { FilledInput } from "@mui/material";
-import { Stack } from '@mui/material';
-
 
 const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
   const { onChange, ...other } = props;
@@ -30,6 +28,8 @@ TextMaskCustom.propTypes = {
 };
 
 
+
+
 /* FormattedInputs */
 export default function TextMaskCustomCEP() {
   const [values, setValues] = React.useState({
@@ -43,19 +43,34 @@ export default function TextMaskCustomCEP() {
     });
   };
 
+  function onBlurCep(event) {
+
+    const {value} = event.target;
+    const cepValue = value.replace(/[-]/g, '');
+
+    if(cepValue.length !== 8) {
+      return
+    }
+
+
+    fetch(`https://viacep.com.br/ws/${value}/json/`)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
+
   return (
-      <FormControl variant="filled" fullWidth>
-        <InputLabel htmlFor="component-filled">CEP</InputLabel>
-        <FilledInput
-          required
-          fullWidth
-          value={values.textmask}
-          onChange={handleChange}
-          name="textmask"
-          id="component-filled"
-          inputComponent={TextMaskCustom}
-        />
-      </FormControl>
+    <FormControl variant="filled" fullWidth required >
+      <InputLabel htmlFor="component-filled">CEP</InputLabel>
+      <FilledInput
+        fullWidth
+        onBlur={onBlurCep}
+        value={values.textmask}
+        onChange={handleChange}
+        name="textmask"
+        id="component-filled"
+        inputComponent={TextMaskCustom}
+      />
+    </FormControl>
   );
 }
 
