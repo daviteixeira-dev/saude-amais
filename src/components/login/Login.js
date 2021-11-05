@@ -4,11 +4,23 @@ import {
   Card,
   CardMedia,
   Hidden,
+  Box,
 } from "@mui/material/";
-
+import { makeStyles } from '@material-ui/styles';
 import FormLogin from "./FormLogin";
 import Formulario from "../Formulario/Formulario";
-import img from "../../images/9.jpg";
+import img from "../../images/10.png";
+
+const useStyles = makeStyles((theme) => ({
+  imgBackground: {
+    backgroundImage: `url(${img})`,
+    width: "100%",
+    height: "100vh",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  },
+}));
 
 function Login() {
 
@@ -17,10 +29,11 @@ function Login() {
   return (
     <Grid container spacing={0} columns={16} sx={{ height: `100vh` }} alignItems="center">
       <Hidden lgDown>
-        <Grid item xs={8} sm={0} md={0} lg={7}  >
-          <Card>
+        <Grid item xs={0} sm={0} md={0} lg={7}   >
+          <Box maxWidth="xl" className={useStyles().imgBackground} width="100vh" height="100vh" />
+          {/* <Card>
             <CardMedia component="img"   image={img} sx={{ height: `100vh`, width: `100vh`, boderRadius: 16}}/>
-          </Card>
+          </Card> */}
         </Grid>
       </Hidden>
 

@@ -27,7 +27,6 @@ function App() {
             <Route exact path="/">
               <Banner />
               <MenuPrincipal />
-              {/* <Slide /> */}
               <CarroselDeNoticias />
               <Modalidades />
               <SecaoProfessores />

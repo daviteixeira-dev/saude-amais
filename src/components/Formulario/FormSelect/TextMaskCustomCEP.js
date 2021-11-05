@@ -28,6 +28,8 @@ TextMaskCustom.propTypes = {
 };
 
 
+
+
 /* FormattedInputs */
 export default function TextMaskCustomCEP() {
   const [values, setValues] = React.useState({
@@ -41,11 +43,27 @@ export default function TextMaskCustomCEP() {
     });
   };
 
+  function onBlurCep(event) {
+
+    const {value} = event.target;
+    const cepValue = value.replace(/[-]/g, '');
+
+    if(cepValue.length !== 8) {
+      return
+    }
+
+
+    fetch(`https://viacep.com.br/ws/${value}/json/`)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
+
   return (
     <FormControl variant="filled" fullWidth required >
       <InputLabel htmlFor="component-filled">CEP</InputLabel>
       <FilledInput
         fullWidth
+        onBlur={onBlurCep}
         value={values.textmask}
         onChange={handleChange}
         name="textmask"
@@ -53,7 +71,6 @@ export default function TextMaskCustomCEP() {
         inputComponent={TextMaskCustom}
       />
     </FormControl>
-
   );
 }
 
