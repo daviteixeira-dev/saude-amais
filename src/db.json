@@ -63,11 +63,16 @@
   "images": [
     {
       "id": 1,
+      "label": "Banner de apresentação",
+      "imgPath": "https://uploaddeimagens.com.br/images/003/523/332/full/Sem_T%C3%ADtulo-1.jpg?1636163437"
+    },
+    {
+      "id": 2,
       "label": "Mulher gravida e instrutora",
       "imgPath": "https://hpfisiopilates.com.br/wp-content/uploads/2019/09/Hp-Studio-Pilates-Banner-Topo-06.jpg"
     },
     {
-      "id": 2,
+      "id": 3,
       "label": "Mulher jovem e instrutora",
       "imgPath": "https://hpfisiopilates.com.br/wp-content/uploads/2019/09/Hp-Studio-Pilates-Banner-Top-03.jpg"
     }

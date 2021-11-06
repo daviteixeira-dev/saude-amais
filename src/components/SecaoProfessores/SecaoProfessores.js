@@ -9,6 +9,7 @@ import teacher04 from "../../images/teacher_pilates_04.jpg";
 
 function SecaoProfessores(){
   return (
+    
     <Box p={2} pb={4} sx={{bgcolor: "#a8a8a8", textAlign: "center"}} component="section">
       <Typography pb={4} variant="h2" sx={{ fontSize: 25, fontWeight: "bold", textAlign: "center" }}>
         Nossos Professores

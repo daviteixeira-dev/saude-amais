@@ -12,6 +12,7 @@ import SectionCall from "./components/CallToAction/SectionCall";
 import FooterContainer from "./components/footer/containers/Footer";
 import Formulario from "./components/Formulario/Formulario";
 import MenuPrincipal from "./components/AppBar/MenuPrincipal";
+import MenuPrincipalNew from "./components/AppBar/MenuPrincipalNew";
 import Banner from "./components/Banner/Banner";
 import DataProvider from "./contexts/DataContext";
 import CarroselDeNoticias from "./components/Carousel";
@@ -27,24 +28,23 @@ function App() {
     <Router>
       <Switch>
         <DataProvider>
-          <Container maxWidth="xl">
             <Route path="/admin" component={HomeAdmin} >
               <HomeAdmin />
             </Route>
             <Route exact path="/">
-              <Banner />
-              <MenuPrincipal />
+            {/* <Banner/> */}
+              <MenuPrincipalNew />
               {/* <Slide /> */}
               <CarroselDeNoticias />
-              <Modalidades />
-              <SecaoProfessores />
-              <Localizacao />
-              <SectionCall />
+              <Container maxWidth="xl" >
+                <Modalidades />
+                <SecaoProfessores />
+                <Localizacao />
+                <SectionCall />
+              </Container>
               <FooterContainer />
             </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
+            
             <Route path="/cadastro">
               <Formulario />
             </Route>
@@ -54,9 +54,11 @@ function App() {
             <Route path="/professores">
               <PageProfessores />
             </Route>
-          </Container>
         </DataProvider>
       </Switch>
+      <Route path="/login">
+        <Login />
+      </Route>
     </Router>
   );
 }
