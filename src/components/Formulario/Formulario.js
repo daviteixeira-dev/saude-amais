@@ -13,6 +13,7 @@ import ImageAvatar from "./FormSelect/ImageAvatars";
 
 function Formulario({ setIsLogin }) {
 
+
   return (
 
     <Box
@@ -23,7 +24,7 @@ function Formulario({ setIsLogin }) {
       noValidate
       autoComplete="off"
     >
-      <Box alignItems="center" sx={{ width: `100%`, display: `flex` }}>
+      <Box alignItems="center" sx={{ width: `100%`, height: "100%" , display: `flex` }}>
         <Typography
           variant="body2"
           pr={2}
@@ -110,6 +111,7 @@ function Formulario({ setIsLogin }) {
         <Stack direction="column" width='100%'>
           <Typography variant='body2' color="#6495ED" component="p" align="left">Informações de endereço</Typography>
           <Stack direction="row" width='100%' alignItems="center">
+
             <TextMaskCustomCEP />
 
             <TextField

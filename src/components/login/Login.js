@@ -14,8 +14,6 @@ import img from "../../images/10.png";
 const useStyles = makeStyles((theme) => ({
   imgBackground: {
     backgroundImage: `url(${img})`,
-    width: "100%",
-    height: "100vh",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -27,17 +25,13 @@ function Login() {
   const [isLogin, setIsLogin] = React.useState(true);
 
   return (
-    <Grid container spacing={0} columns={16} sx={{ height: `100vh` }} alignItems="center">
+    <Grid container spacing={0} columns={16} >
       <Hidden lgDown>
-        <Grid item xs={0} sm={0} md={0} lg={7}   >
-          <Box maxWidth="xl" className={useStyles().imgBackground} width="100vh" height="100vh" />
-          {/* <Card>
-            <CardMedia component="img"   image={img} sx={{ height: `100vh`, width: `100vh`, boderRadius: 16}}/>
-          </Card> */}
+        <Grid item xs={0} sm={0} md={0} lg={7} className={useStyles().imgBackground}>
         </Grid>
       </Hidden>
 
-      <Grid item xs={16} sm={16} md={16} lg={9}>
+      <Grid item xs={16} sm={16} md={16} lg={9} >
         {isLogin ? <FormLogin setIsLogin={setIsLogin} /> : <Formulario setIsLogin={setIsLogin} />}
       </Grid>
     </Grid>
