@@ -1,92 +1,13 @@
 import { useContext, useEffect, useState } from "react";
+
+import { Box, Button, Grid, Typography } from "@mui/material/";
+
 import gerarHoras from "../../utils/gerarHoras";
 
-import styled from "styled-components";
 import { DataContext } from "../../contexts/DataContext";
 
-const Container = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export default function QuadroDeHoras(){
 
-  button {
-    border: none;
-    border-radius: 0.5rem;
-    background-color: #ededed;
-    color: #666;
-    margin-left: 1rem;
-    margin-top: 1rem;
-    min-width: 12rem;
-    padding: 0.5rem 1rem;
-    transition: all 0.2s ease-out;
-
-    &:hover {
-      box-shadow: 0 0 0.1rem #aaa;
-      background-color: #dedede;
-    }
-
-    &:active {
-      background-color: #cecece;
-      box-shadow: 0 0 0.1rem #888;
-    }
-
-    &:disabled {
-      background: #bbb;
-      color: #999;
-      cursor: not-allowed;
-    }
-  }
-`;
-
-const ContainerHoras = styled.section`
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(3, 1fr);
-  width: 60%;
-
-  .hora {
-    background-color: #3a4dfa;
-    border-radius: 0.25rem;
-    color: white;
-    font-size: 0.875rem;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    transition: all 0.2s ease-out;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      background-color: #124dcc;
-      box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-    }
-  }
-
-  .selected {
-    background-color: #ccc;
-    border-radius: 0.25rem;
-    color: #666;
-    font-size: 0.875rem;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: all 0.2s ease-out;
-
-    &:hover {
-      box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-    }
-  }
-`;
-
-export default function QuadroDeHoras() {
   const [horas, setHoras] = useState([]);
   const [isDisabled, setIsDisabled] = useState(true);
   const { data } = useContext(DataContext);
@@ -141,33 +62,55 @@ export default function QuadroDeHoras() {
   }, []);
 
   return (
-    <Container>
-      <h3>Horáios</h3>
-      <p>Selecione os horários para ficarem disponíveis</p>
-      <ContainerHoras>
-        {horas?.map((item) => (
-          <div
-            className={item.disponivel ? "hora" : "selected"}
-            key={item.hora}
-            onClick={() => handleClick(item.hora)}
-          >
-            {item.hora}
-          </div>
-        ))}
-      </ContainerHoras>
-      <button
-        type="button"
-        onClick={() => handleSubmitHours()}
-        disabled={isDisabled}
-      >
-        Cadastrar Horas
-      </button>
-      {/* <SaveButton
-        onClick={() => handleSubmitHours()}
-        btnName="Cadastrar Horas"
-        values={horasSelecionadas}
-        endPoint="hours"
-      /> */}
-    </Container>
+    <Grid container direction="column" alignItems="center" component="section">
+      <Grid item>
+
+        <Typography variant="h2" fontSize={25} fontWeight="bold" pb={2} textAlign="center">
+          Horários
+        </Typography>
+
+        <Typography pb={2} textAlign="center">
+          Selecione os horários para ficarem disponíveis
+        </Typography>
+
+        <Box mb={2} sx={{ display: "grid", gap: "0.5", gridTemplateColumns: "repeat(3, 1fr)" }}>
+          {horas?.map((item) => (
+            <Box
+              sx={{
+                bgcolor: "#ccc",
+                borderRadius: "0.25rem",
+                color: "#666",
+                fontSize: "0.875rem",
+                fontWeight: "bold",
+                padding: "0.5rem 1rem",
+                transition: "all 0.2s ease-out",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: ".5rem",
+                cursor:"pointer",
+                boxShadow: "0 0 0.25rem rgba(0, 0, 0, 0.3)",
+                "&:hover": {
+                  bgcolor: "#3a4dfa",
+                  color: "#f2f2f2"
+                },
+                // não consegui manter a cor depois de clicar
+              }}
+
+              className={item.disponivel ? "hora" : "selected"}
+              key={item.hora}
+              onClick={() => handleClick(item.hora)}
+            >
+              {item.hora}
+            </Box>
+          ))}
+        </Box>
+      </Grid>
+
+      <Button variant="contained" type="button" onClick={() => handleSubmitHours()} disabled={isDisabled}>
+          Cadastrar Horas
+      </Button>
+
+    </Grid>
   );
 }

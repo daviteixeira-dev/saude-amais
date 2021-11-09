@@ -1,11 +1,13 @@
 import React from "react";
 import Footer from "..";
 import { Icon } from "../icons/styles/icons";
+import { Container } from '@mui/material';
 
 function FooterContainer() {
 
   return (
     <Footer>
+       <Container maxWidth="xl" >
       <Footer.Wrapper>
         <Footer.ContainerIcon>
           <Footer.IconLink href="#" className="fas fa-home fa-2x" />
@@ -48,6 +50,7 @@ function FooterContainer() {
           Feito com <Icon className="fas fa-heart" />e <Icon className="fas fa-coffee" />pela equipe Shalins do Sertão &copy; 2021
         </Footer.Copyright>
       </Footer.Wrapper>
+      </Container>
     </Footer>
   )
 }

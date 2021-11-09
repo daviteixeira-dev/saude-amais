@@ -2,10 +2,13 @@ import { useContext, useEffect, useState } from "react";
 
 import { CircularProgress } from "@mui/material";
 
-import Button from "./styles";
+//import Button from "./styles";
+import { Button } from "@mui/material/";
+
 import { DataContext } from "../../contexts/DataContext";
 
-function SaveButton({ values, btnName, endPoint, onSaveInput }) {
+function SaveButton({ values, btnName, endPoint, onSaveInput }){
+
   const [isSubmiting, setIsSubmiting] = useState(false);
   const [isSave, setIsSave] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -34,10 +37,13 @@ function SaveButton({ values, btnName, endPoint, onSaveInput }) {
   return (
     <Button
       type="button"
+      variant="contained"
       onClick={() => handleSubmit()}
       className={isSave ? "save" : ""}
       disabled={isDisabled}
+      sx={{ marginLeft: 2 }}
     >
+
       {isSubmiting ? (
         <CircularProgress size={18} sx={{ marginLeft: 1 }} />
       ) : isSave ? (

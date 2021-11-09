@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 40px 50px;
-  background: radial-gradient(circle, rgba(92, 39, 251, 1) 0%, rgba(112, 71, 247, 1) 100%);
+  background: radial-gradient(circle,rgb(25 118 210) 0%,rgb(66 143 219) 100%);
 `
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 1000px;
   margin: 0 auto;
 `
 
@@ -25,7 +24,7 @@ export const IconLink = styled.a`
   text-decoration: none;
 
   &:hover {
-    color: #ff9c00;
+    color: #B0C4DE;
     transition: 200ms ease-in;
   }
 `
@@ -40,7 +39,7 @@ export const Column = styled.div`
 
 export const Row = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
   grid-gap: 20px;
 
   @media (max-width: 1000px) {
@@ -55,7 +54,7 @@ export const Link = styled.a`
   text-decoration: none;
 
   &:hover {
-    color: #ff9c00;
+    color: #B0C4DE;
     transition: 200ms ease-in;
   }
 `
