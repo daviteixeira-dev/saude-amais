@@ -267,6 +267,13 @@
 - Opção para alocar horário a um usuário;
 - Opção para cancelar algum horário agendado;
 
+> <h2>💡 Modelo conceitual</h2>
+- Aluno
+- Professor
+- Modalidades
+- Aula
+- ...
+
 > <h3> 👨‍💻 Contribuidores </h3>
 
 <p>🚀 Equipe de desenvolvimento - 🌵 Os Shaolins do Sertão</p>
