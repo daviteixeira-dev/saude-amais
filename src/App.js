@@ -10,9 +10,9 @@ import PagePilates from "./pages/PilatesModalities/PagePilates";
 /* Component imports  */
 import Login from "./components/login/Login";
 import MainMenu from "./components/AppBar/MainMenu";
-import Localizacao from "./components/Map/Localization";
+import Localization from "./components/Map/Localization";
 import Formulario from "./components/Formulario/Formulario";
-import Modalidades from "./components/Modalidades/Modalidades";
+import Modalities from "./components/PilatesModalities/Modalities";
 import SectionCall from "./components/CallToAction/SectionCall";
 import FooterContainer from "./components/Footer/containers/Footer";
 import CarouselOfImages from "./components/CarouselOfImages/Carousel";
@@ -31,9 +31,9 @@ function App() {
             <MainMenu />
             <CarouselOfImages />
             <Container maxWidth="xl">
-              <Modalidades />
+              <Modalities />
               <SecaoProfessores />
-              <Localizacao />
+              <Localization />
               <SectionCall />
             </Container>
             <FooterContainer />

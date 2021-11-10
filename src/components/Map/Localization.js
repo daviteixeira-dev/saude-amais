@@ -4,7 +4,7 @@ import React from "react";
 /* Imports of UI material components */
 import { Box, Grid, Typography } from "@mui/material/";
 
-function Localizacao() {
+function Localization() {
   return (
     <Box sx={{ textAlign: "center", bgcolor: "#f2f2f2" }} component="section">
       <Typography pt={4} pb={4} variant="h2" fontSize="25px" fontWeight="bold">
@@ -26,4 +26,4 @@ function Localizacao() {
   );
 }
 
-export default Localizacao;
+export default Localization;

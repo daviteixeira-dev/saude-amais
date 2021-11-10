@@ -1,5 +1,8 @@
+/* React imports */
 import React from "react";
 import { Link } from "react-router-dom";
+
+/* Imports of UI material components */
 import {
   Box,
   Button,
@@ -12,14 +15,19 @@ import {
   Typography,
 } from "@mui/material/";
 
+/* Image imports */
 import pilatescard01 from "../../images/pilates_card_01.jpg";
 import pilatescard02 from "../../images/pilates_card_02.jpg";
 import pilatescard03 from "../../images/pilates_card_03.jpg";
 import pilatescard04 from "../../images/pilates_card_04.jpg";
 
-function Modalidades() {
+function Modalities() {
   return (
-    <Box p={2} sx={{bgcolor: "#f2f2f2", textAlign: "center"}} component="section">
+    <Box
+      p={2}
+      sx={{ bgcolor: "#f2f2f2", textAlign: "center" }}
+      component="section"
+    >
       <Typography pb={4} variant="h2" sx={{ fontSize: 25, fontWeight: "bold" }}>
         Conheça nossas modalidades
       </Typography>
@@ -52,7 +60,7 @@ function Modalidades() {
                 informações sobre as modalidades do pilates.
               </Typography>
               <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-                <Link to="/modalidades" style={{ textDecoration: 'none' }}>
+                <Link to="/modalidades" style={{ textDecoration: "none" }}>
                   <Button size="small" variant="contained">
                     Veja Sobre
                   </Button>
@@ -82,7 +90,7 @@ function Modalidades() {
                 informações sobre as modalidades do pilates.
               </Typography>
               <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-                <Link to="/modalidades" style={{ textDecoration: 'none' }}>
+                <Link to="/modalidades" style={{ textDecoration: "none" }}>
                   <Button size="small" variant="contained">
                     Veja Sobre
                   </Button>
@@ -112,7 +120,7 @@ function Modalidades() {
                 informações sobre as modalidades do pilates.
               </Typography>
               <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-                <Link to="/modalidades" style={{ textDecoration: 'none' }}>
+                <Link to="/modalidades" style={{ textDecoration: "none" }}>
                   <Button size="small" variant="contained">
                     Veja Sobre
                   </Button>
@@ -142,7 +150,7 @@ function Modalidades() {
                 informações sobre as modalidades do pilates.
               </Typography>
               <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-                <Link to="/modalidades" style={{ textDecoration: 'none' }}>
+                <Link to="/modalidades" style={{ textDecoration: "none" }}>
                   <Button size="small" variant="contained">
                     Veja Sobre
                   </Button>
@@ -157,4 +165,4 @@ function Modalidades() {
   );
 }
 
-export default Modalidades;
+export default Modalities;
