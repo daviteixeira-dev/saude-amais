@@ -1,42 +1,36 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+/* React imports */
 import { Container } from "@mui/material/";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import PagePilates from "./pages/PagePilates";
-import PageProfessores from "./pages/PageProfessores";
+/* Pages */
+import HomeAdmin from "./pages/HomeAdmin";
+import PageProfessores from "./pages/Teachers/PageProfessores";
+import PagePilates from "./pages/PilatesModalities/PagePilates";
 
-import Modalidades from "./components/Modalidades/Modalidades";
+/* Component imports  */
 import Login from "./components/login/Login";
-import SecaoProfessores from "./components/SecaoProfessores/SecaoProfessores";
+import MainMenu from "./components/AppBar/MainMenu";
 import Localizacao from "./components/Mapa/Localizacao";
+import Formulario from "./components/Formulario/Formulario";
+import Modalidades from "./components/Modalidades/Modalidades";
 import SectionCall from "./components/CallToAction/SectionCall";
 import FooterContainer from "./components/Footer/containers/Footer";
-import Formulario from "./components/Formulario/Formulario";
-import MenuPrincipal from "./components/AppBar/MenuPrincipal";
-import MenuPrincipalNew from "./components/AppBar/MenuPrincipalNew";
-import Banner from "./components/Banner/Banner";
+import CarouselOfImages from "./components/CarouselOfImages/Carousel";
+import SecaoProfessores from "./components/SecaoProfessores/SecaoProfessores";
+
+/* Other imports */
 import DataProvider from "./contexts/DataContext";
-import CarroselDeNoticias from "./components/Carousel";
-
-import HomeAdmin from "./pages/HomeAdmin";
-
-//import styles from "./index.css";
-//import Slide from "./components/SlidesPrincipais/Slides";
-// <Route path="/admin" component={HomeAdmin} />
 
 function App() {
   return (
     <Router>
       <Switch>
         <DataProvider>
-          <Route path="/admin" component={HomeAdmin} >
-            <HomeAdmin />
-          </Route>
+          {/* Main routes */}
           <Route exact path="/">
-            {/* <Banner/> */}
-            <MenuPrincipalNew />
-            {/* <Slide /> */}
-            <CarroselDeNoticias />
-            <Container maxWidth="xl" >
+            <MainMenu />
+            <CarouselOfImages />
+            <Container maxWidth="xl">
               <Modalidades />
               <SecaoProfessores />
               <Localizacao />
@@ -44,18 +38,25 @@ function App() {
             </Container>
             <FooterContainer />
           </Route>
-
+          {/* Route to admin */}
+          <Route path="/admin">
+            <HomeAdmin />
+          </Route>
+          {/* Route to registration */}
           <Route path="/cadastro">
             <Formulario />
           </Route>
+          {/* Route to the modalities */}
           <Route path="/modalidades">
             <PagePilates />
           </Route>
+          {/* Route for teachers */}
           <Route path="/professores">
             <PageProfessores />
           </Route>
         </DataProvider>
       </Switch>
+      {/* Route to login */}
       <Route path="/login">
         <Login />
       </Route>
