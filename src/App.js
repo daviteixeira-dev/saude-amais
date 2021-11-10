@@ -12,11 +12,11 @@ import Login from "./components/login/Login";
 import MainMenu from "./components/AppBar/MainMenu";
 import Localization from "./components/Map/Localization";
 import Formulario from "./components/Formulario/Formulario";
-import Modalities from "./components/PilatesModalities/Modalities";
 import SectionCall from "./components/CallToAction/SectionCall";
+import Modalities from "./components/PilatesModalities/Modalities";
 import FooterContainer from "./components/Footer/containers/Footer";
 import CarouselOfImages from "./components/CarouselOfImages/Carousel";
-import SecaoProfessores from "./components/SecaoProfessores/SecaoProfessores";
+import ListOfTeachers from "./components/TeachersSection/ListOfTeachers";
 
 /* Other imports */
 import DataProvider from "./contexts/DataContext";
@@ -32,7 +32,7 @@ function App() {
             <CarouselOfImages />
             <Container maxWidth="xl">
               <Modalities />
-              <SecaoProfessores />
+              <ListOfTeachers />
               <Localization />
               <SectionCall />
             </Container>
