@@ -10,7 +10,7 @@ import PagePilates from "./pages/PilatesModalities/PagePilates";
 /* Component imports  */
 import Login from "./components/login/Login";
 import MainMenu from "./components/AppBar/MainMenu";
-import Localizacao from "./components/Mapa/Localizacao";
+import Localizacao from "./components/Map/Localization";
 import Formulario from "./components/Formulario/Formulario";
 import Modalidades from "./components/Modalidades/Modalidades";
 import SectionCall from "./components/CallToAction/SectionCall";

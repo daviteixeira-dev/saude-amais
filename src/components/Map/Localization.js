@@ -1,4 +1,7 @@
+/* React imports */
 import React from "react";
+
+/* Imports of UI material components */
 import { Box, Grid, Typography } from "@mui/material/";
 
 function Localizacao() {
