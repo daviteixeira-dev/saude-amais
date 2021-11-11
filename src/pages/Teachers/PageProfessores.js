@@ -1,4 +1,4 @@
-import teacher01 from "../images/teacher_pilates_01.jpg";
+import teacher01 from "../../images/teacher_pilates_01.jpg";
 
 function PageProfessores(){
   return (
