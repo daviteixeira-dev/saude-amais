@@ -24,7 +24,12 @@ function Formulario({ setIsLogin }) {
       noValidate
       autoComplete="off"
     >
-      <Box alignItems="center" sx={{ width: `100%`, height: "100%" , display: `flex` }}>
+
+      <Container
+        maxWidth="sm"
+        sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
+
+      <Box alignItems="center" mb={5} sx={{ width: `100%`, display: `flex` }}>
         <Typography
           variant="body2"
           pr={2}
@@ -43,9 +48,6 @@ function Formulario({ setIsLogin }) {
         >Entrar
         </Button>
       </Box>
-      <Container
-        maxWidth="sm"
-        sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
 
         <Typography
           variant="h3"

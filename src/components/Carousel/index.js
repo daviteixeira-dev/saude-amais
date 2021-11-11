@@ -44,7 +44,7 @@ function CarroselDeNoticias() {
         >
           {images.map((step, index) => (
             <div key={step.label}>
-              {Math.abs(activeStep - index) <= 2 ? (
+              {Math.abs(activeStep - index) <= 3 ? (
                 <ContainerImage>
                   <Box
                     component="img"

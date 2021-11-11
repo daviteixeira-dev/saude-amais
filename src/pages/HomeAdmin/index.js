@@ -1,42 +1,14 @@
 import { useContext, useEffect, useState } from "react";
-import styled from "styled-components";
 
-import Agenda from "./Fomulario";
+import { Box, Grid, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material/";
+
+import Cadastro from "./Fomulario";
 import QuadroDeHoras from "../../components/QuadroDeHoras";
+
 import { DataContext } from "../../contexts/DataContext";
 
-const ContainerCadastro = styled.div`
-  background-color: #fafafa;
-  margin: 2rem 0;
-  padding: 2rem 0;
-  display: flex;
-  align-items: flex-start;
-`;
-
-const ContainerLists = styled.div`
-  display: flex;
-  justify-content: center;
-
-  div {
-    margin: 1rem;
-    text-align: center;
-    min-width: 20%;
-
-    ul {
-      list-style: none;
-      text-align: center;
-      /* display: flex; */
-      /* justify-content: center; */
-      /* flex-direction: column; */
-      /* justify-content: flex-start; */
-      /* align-items: flex-start; */
-      margin: 0;
-      padding: 0;
-    }
-  }
-`;
-
 export default function HomeAdmin() {
+
   const [places, setPlaces] = useState([]);
   const [teachers, setTeachers] = useState([]);
   const [modalities, setModalities] = useState([]);
@@ -71,62 +43,118 @@ export default function HomeAdmin() {
   }, [state]);
 
   return (
-    <div>
-      <h1>Home Admin</h1>
-      <p>Pagina de gerenciamento de dados</p>
-      <ContainerCadastro>
-        <Agenda />
-        <QuadroDeHoras />
-      </ContainerCadastro>
-      <ContainerLists>
-        <div>
-          <h3>Local</h3>
-          <ul>
+    <Box bgcolor="#f2f2f2">
+      <Typography variant="h1" fontSize={35} fontWeight="bold" pb={2} textAlign="center" mt={2}>
+        Home Admin
+      </Typography>
+
+      <Typography component="p" fontSize={18} pb={2} textAlign="center">
+        Página de gerenciamento de dados do site
+      </Typography>
+
+      <Grid container mt={2} direction="row" alignItems="flex-start" justifyContent="space-evenly" component="section">
+        <Grid item lg={6} md={6} sm={10} xs={10}>
+          <Cadastro />
+        </Grid>
+        <Grid item lg={6} md={6} sm={10} xs={10}>
+          <QuadroDeHoras />
+        </Grid>
+      </Grid>
+
+      <Typography variant="h2" fontSize={30} fontWeight="bold" pb={2} textAlign="center" mt={2} pt={2} bgcolor="#bbb">
+        Tabela de Cadastros
+      </Typography>
+      <Grid container alignItems="flex-start" justifyContent="space-evenly" bgcolor="#ccc">
+        {/* Local */}
+        <Grid item mt={2} lg={3} md={3} sm={6} xs={10}>
+          <Typography variant="h3" fontSize={25} fontWeight="bold" pb={2} textAlign="center">
+            Local
+          </Typography>
+          <List>
             {places?.map((item) => (
-              <li key={item.id}>
+              <ListItem key={item.id}>
                 {item.name}
-                <button onClick={() => handleDeletePlace(item.id)}>
-                  Deletar
-                </button>
-              </li>
+                <ListItemButton
+                  sx={{
+                    bgcolor: "#0288d1",
+                    color: "#f2f2f2",
+                    marginLeft: "1rem",
+                    borderRadius: ".5rem",
+                    textAlign: "center",
+                    "&:hover": {
+                      bgcolor: "#1565c0",
+                    }
+                  }} onClick={() => handleDeletePlace(item.id)}>
+                  <ListItemText primary="Deletar" />
+                </ListItemButton>
+              </ListItem>
             ))}
-          </ul>
-        </div>
-        <div>
-          <h3>Professor</h3>
-          <ul>
+          </List>
+        </Grid>
+        {/* Professor */}
+        <Grid item mt={2} lg={3} md={3} sm={6} xs={10}>
+          <Typography variant="h3" fontSize={25} fontWeight="bold" pb={2} textAlign="center">
+            Professor(a)
+          </Typography>
+          <List>
             {teachers?.map((item) => (
-              <li key={item.id}>
+              <ListItem key={item.id}>
                 {item.name}
-                <button onClick={() => handleDeleteTeachers(item.id)}>
-                  Deletar
-                </button>
-              </li>
+                <ListItemButton
+                  sx={{
+                    bgcolor: "#0288d1",
+                    color: "#f2f2f2",
+                    marginLeft: "1rem",
+                    borderRadius: ".5rem",
+                    textAlign: "center",
+                    "&:hover": {
+                      bgcolor: "#1565c0",
+                    }
+                  }} onClick={() => handleDeleteTeachers(item.id)}>
+                  <ListItemText primary="Deletar" />
+                </ListItemButton>
+              </ListItem>
             ))}
-          </ul>
-        </div>
-        <div>
-          <h3>Modalidade</h3>
-          <ul>
+          </List>
+        </Grid>
+        {/* Modalidade */}
+        <Grid item mt={2} lg={3} md={3} sm={6} xs={10}>
+          <Typography variant="h3" fontSize={25} fontWeight="bold" pb={2} textAlign="center">
+            Modalidade
+          </Typography>
+          <List>
             {modalities?.map((item) => (
-              <li key={item.id}>
+              <ListItem key={item.id}>
                 {item.name}
-                <button onClick={() => handleDeleteModalities(item.id)}>
-                  Deletar
-                </button>
-              </li>
+                <ListItemButton
+                  sx={{
+                    bgcolor: "#0288d1",
+                    color: "#f2f2f2",
+                    marginLeft: "1rem",
+                    borderRadius: ".5rem",
+                    textAlign: "center",
+                    "&:hover": {
+                      bgcolor: "#1565c0",
+                    }
+                  }} onClick={() => handleDeleteModalities(item.id)}>
+                  <ListItemText primary="Deletar" />
+                </ListItemButton>
+              </ListItem>
             ))}
-          </ul>
-        </div>
-        <div>
-          <h3>Horário</h3>
-          <ul>
+          </List>
+        </Grid>
+        {/* Horários */}
+        <Grid item mt={2} lg={1} md={3} sm={6} xs={10}>
+          <Typography variant="h3" fontSize={25} fontWeight="bold" pb={2} textAlign="center">
+            Horário
+          </Typography>
+          <List>
             {hours?.avaliable?.map((item) => (
-              <li key={item.hora}>{item.hora}</li>
+              <ListItem key={item.hora}>{item.hora}</ListItem>
             ))}
-          </ul>
-        </div>
-      </ContainerLists>
-    </div>
+          </List>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }

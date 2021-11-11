@@ -7,33 +7,53 @@
   ],
   "teachers": [
     {
-      "name": "Ana",
-      "id": 1
-    },
-    {
       "name": "Maria",
       "id": 2
+    },
+    {
+      "name": "Ana",
+      "id": 3
+    },
+    {
+      "name": "Davi",
+      "id": 5
     }
   ],
   "modalities": [
-    {
-      "name": "Para Crianças",
-      "id": 1
-    },
     {
       "name": "Para Gestantes",
       "id": 2
     },
     {
-      "name": "Para Crianças",
-      "id": 3
+      "name": "Ioga",
+      "id": 4
     }
   ],
   "hours": [
     {
       "avaliable": [
         {
-          "hora": "08:00",
+          "hora": "10:15",
+          "disponivel": true
+        },
+        {
+          "hora": "10:30",
+          "disponivel": true
+        },
+        {
+          "hora": "10:45",
+          "disponivel": true
+        },
+        {
+          "hora": "11:00",
+          "disponivel": true
+        },
+        {
+          "hora": "11:15",
+          "disponivel": true
+        },
+        {
+          "hora": "11:30",
           "disponivel": true
         }
       ],
@@ -43,11 +63,16 @@
   "images": [
     {
       "id": 1,
+      "label": "Banner de apresentação",
+      "imgPath": "https://uploaddeimagens.com.br/images/003/523/332/full/Sem_T%C3%ADtulo-1.jpg?1636163437"
+    },
+    {
+      "id": 2,
       "label": "Mulher gravida e instrutora",
       "imgPath": "https://hpfisiopilates.com.br/wp-content/uploads/2019/09/Hp-Studio-Pilates-Banner-Topo-06.jpg"
     },
     {
-      "id": 2,
+      "id": 3,
       "label": "Mulher jovem e instrutora",
       "imgPath": "https://hpfisiopilates.com.br/wp-content/uploads/2019/09/Hp-Studio-Pilates-Banner-Top-03.jpg"
     }
