@@ -267,12 +267,13 @@
 - Opção para alocar horário a um usuário;
 - Opção para cancelar algum horário agendado;
 
-> <h2>💡 Modelo conceitual</h2>
-- Aluno
-- Professor
-- Modalidades
-- Aula
-- ...
+> <h3>💡 Modelo de Dados - Conceitual </h3>
+
+<img src="./assets/MODELO_CONCEITUAL_SAUDEAMAIS.jpg" />
+
+> <h3>💡 Modelo de Dados - Lógico </h3>
+
+<img src="./assets/MODELO_LOGICO_SAUDEAMAIS.jpg" />
 
 > <h3> 👨‍💻 Contribuidores </h3>
 
