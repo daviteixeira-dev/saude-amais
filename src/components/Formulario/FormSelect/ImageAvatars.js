@@ -4,23 +4,26 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ theme }) => ({
   root: {
     alignSelf: 'center',
     justifyContent: "center",
     alignItems: "center",
     display: 'flex',
     '& > *': {
+
     },
   },
   input: {
     display: "none",
   },
+  large: {
+
+  },
 }));
 
 export default function ImageAvatars() {
   const classes = useStyles();
-
 
   return (
     <Stack direction="row" alignItems="center" fullWidth>
@@ -28,7 +31,7 @@ export default function ImageAvatars() {
         <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
         <label htmlFor="icon-button-file">
           <IconButton color="primary" aria-label="upload picture" component="span">
-            <Avatar src={<i className="fas fa-sign-in-alt"></i>} sx={{ width: 90, height: 90 }} />
+            <Avatar src={<i className="fas fa-sign-in-alt"></i>} className={classes.large} sx={{ width: 90, height: 90 }} />
           </IconButton>
         </label>
       </div>

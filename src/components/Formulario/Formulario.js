@@ -13,6 +13,7 @@ import ImageAvatar from "./FormSelect/ImageAvatars";
 
 function Formulario({ setIsLogin }) {
 
+
   return (
 
     <Box
@@ -28,25 +29,25 @@ function Formulario({ setIsLogin }) {
         maxWidth="sm"
         sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
 
-        <Box alignItems="center" mb={5} sx={{ width: `100%`, display: `flex` }}>
-          <Typography
-            variant="body2"
-            pr={2}
-            fontSize={16}
-            color="textSecondary"
-            width="100%"
-            align="right">
-            Já é cadastrado?
-          </Typography>
-          <Button
-            onClick={() => setIsLogin(true)}
-            padding="2em"
-            variant="outlined"
-            color="primary"
-            sx={{ marginTop: '1em' }}
-          >Entrar
-          </Button>
-        </Box>
+      <Box alignItems="center" mb={5} sx={{ width: `100%`, display: `flex` }}>
+        <Typography
+          variant="body2"
+          pr={2}
+          fontSize={16}
+          color="textSecondary"
+          width="100%"
+          align="right">
+          Já é cadastrado?
+        </Typography>
+        <Button
+          onClick={() => setIsLogin(true)}
+          padding="2em"
+          variant="outlined"
+          color="primary"
+          sx={{ marginTop: '1em' }}
+        >Entrar
+        </Button>
+      </Box>
 
         <Typography
           variant="h3"
@@ -112,6 +113,7 @@ function Formulario({ setIsLogin }) {
         <Stack direction="column" width='100%'>
           <Typography variant='body2' color="#6495ED" component="p" align="left">Informações de endereço</Typography>
           <Stack direction="row" width='100%' alignItems="center">
+
             <TextMaskCustomCEP />
 
             <TextField

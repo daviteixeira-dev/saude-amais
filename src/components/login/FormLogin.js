@@ -21,7 +21,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
 function FormLogin({ setIsLogin }) {
 
   return (
-    <Container fixed component="main" maxWidth="xs">
+    <Container fixed component="main" maxWidth="xs" sx={{width: "100vh", height: "100vh"}}>
       <div className="mt-3 mt-md-5">
         <div className="text-center">
           <Typography
