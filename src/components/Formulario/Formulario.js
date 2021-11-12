@@ -23,30 +23,30 @@ function Formulario({ setIsLogin }) {
       noValidate
       autoComplete="off"
     >
-      
+
       <Container
         maxWidth="sm"
         sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
 
-<Box alignItems="center" mb={5} sx={{ width: `100%`, display: `flex` }}>
-        <Typography
-          variant="body2"
-          pr={2}
-          fontSize={16}
-          color="textSecondary"
-          width="100%"
-          align="right">
-          Já é cadastrado?
-        </Typography>
-        <Button
-          onClick={() => setIsLogin(true)}
-          padding="2em"
-          variant="outlined"
-          color="primary"
-          sx={{ marginTop: '1em' }}
-        >Entrar
-        </Button>
-      </Box>
+        <Box alignItems="center" mb={5} sx={{ width: `100%`, display: `flex` }}>
+          <Typography
+            variant="body2"
+            pr={2}
+            fontSize={16}
+            color="textSecondary"
+            width="100%"
+            align="right">
+            Já é cadastrado?
+          </Typography>
+          <Button
+            onClick={() => setIsLogin(true)}
+            padding="2em"
+            variant="outlined"
+            color="primary"
+            sx={{ marginTop: '1em' }}
+          >Entrar
+          </Button>
+        </Box>
 
         <Typography
           variant="h3"

@@ -9,7 +9,7 @@ import Login from "./components/login/Login";
 import SecaoProfessores from "./components/SecaoProfessores/SecaoProfessores";
 import Localizacao from "./components/Mapa/Localizacao";
 import SectionCall from "./components/CallToAction/SectionCall";
-import FooterContainer from "./components/footer/containers/Footer";
+import FooterContainer from "./components/Footer/containers/Footer";
 import Formulario from "./components/Formulario/Formulario";
 import MenuPrincipal from "./components/AppBar/MenuPrincipal";
 import MenuPrincipalNew from "./components/AppBar/MenuPrincipalNew";
@@ -28,32 +28,32 @@ function App() {
     <Router>
       <Switch>
         <DataProvider>
-            <Route path="/admin" component={HomeAdmin} >
-              <HomeAdmin />
-            </Route>
-            <Route exact path="/">
+          <Route path="/admin" component={HomeAdmin} >
+            <HomeAdmin />
+          </Route>
+          <Route exact path="/">
             {/* <Banner/> */}
-              <MenuPrincipalNew />
-              {/* <Slide /> */}
-              <CarroselDeNoticias />
-              <Container maxWidth="xl" >
-                <Modalidades />
-                <SecaoProfessores />
-                <Localizacao />
-                <SectionCall />
-              </Container>
-              <FooterContainer />
-            </Route>
-            
-            <Route path="/cadastro">
-              <Formulario />
-            </Route>
-            <Route path="/modalidades">
-              <PagePilates />
-            </Route>
-            <Route path="/professores">
-              <PageProfessores />
-            </Route>
+            <MenuPrincipalNew />
+            {/* <Slide /> */}
+            <CarroselDeNoticias />
+            <Container maxWidth="xl" >
+              <Modalidades />
+              <SecaoProfessores />
+              <Localizacao />
+              <SectionCall />
+            </Container>
+            <FooterContainer />
+          </Route>
+
+          <Route path="/cadastro">
+            <Formulario />
+          </Route>
+          <Route path="/modalidades">
+            <PagePilates />
+          </Route>
+          <Route path="/professores">
+            <PageProfessores />
+          </Route>
         </DataProvider>
       </Switch>
       <Route path="/login">
