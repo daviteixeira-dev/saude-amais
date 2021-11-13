@@ -31,7 +31,7 @@ TextMaskCustom.propTypes = {
 
 
 /* FormattedInputs */
-export default function TextMaskCustomCPF() {
+export default function TextMaskCustomCPF({ value }) {
   const [values, setValues] = React.useState({
     textmask: '',
   });

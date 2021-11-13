@@ -5,7 +5,7 @@ import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
 import DatePicker from "@material-ui/lab/DatePicker";
 import { Stack } from "@mui/material";
 
-export default function SelectDatePicker() {
+export default function SelectDatePicker({props}) {
   const [value, setValue] = React.useState(null);
 
   return (
@@ -16,10 +16,11 @@ export default function SelectDatePicker() {
           /*maxlength="14"*/
           value={value}
           required
+
           onChange={(newValue) => {
             setValue(newValue);
           }}
-          renderInput={(params) => <TextField required fullWidth {...params} variant="filled" />}
+          renderInput={(params) => <TextField required value={props} fullWidth {...params} variant="filled" />}
         />
       </LocalizationProvider>
     </Stack>

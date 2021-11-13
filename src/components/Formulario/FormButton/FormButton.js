@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 function FormButton() {
 
   return (
-    <Button sx={{ width: '100%', margin: 3 }} variant="contained">Cadastrar</Button>
+    <Button sx={{ width: '100%', marginTop: 2, marginBottom: 4 }} variant="contained">Cadastrar</Button>
   );
 }
 

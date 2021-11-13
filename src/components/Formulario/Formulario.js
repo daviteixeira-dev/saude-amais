@@ -11,8 +11,20 @@ import Button from "@mui/material/Button";
 import TextMaskCustomCEP from "./FormSelect/TextMaskCustomCEP";
 import ImageAvatar from "./FormSelect/ImageAvatars";
 
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
 function Formulario({ setIsLogin }) {
 
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+      birthday: "",
+    },
+  })
 
   return (
 
@@ -29,7 +41,7 @@ function Formulario({ setIsLogin }) {
         maxWidth="sm"
         sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
 
-      <Box alignItems="center" mb={5} sx={{ width: `100%`, display: `flex` }}>
+      <Box alignItems="center" mb={4} sx={{ width: `100%`, display: `flex` }}>
         <Typography
           variant="body2"
           pr={2}
@@ -58,102 +70,103 @@ function Formulario({ setIsLogin }) {
 
         <Typography variant='body2' color='#6495ED' component="p" align="left">Adicionar Imagem</Typography>
 
-        <ImageAvatar />
+        <form maxWidth="sm">
+          <ImageAvatar />
 
-        <Stack direction="column" width='100%' mb={1}>
+          <Stack direction="column" width='100%' mb={1}>
 
 
-          <Typography variant='body2' color='#6495ED' component="p" align="left">Informacoes de login</Typography>
+            <Typography variant='body2' color='#6495ED' component="p" align="left">Informacoes de login</Typography>
 
-          <Stack direction="row" width='100%' mb={1}>
-            <TextField
-              variant="filled"
-              required
-              fullWidth
-              id="email"
-              label="Email"
-              type="email"
-            />
-            <TextField
-              variant="filled"
-              required
-              fullWidth
-              id="senha"
-              label="Senha"
-              type="password"
-            />
-          </Stack>
+            <Stack direction="row" width='100%' mb={1}>
+              <TextField
+                variant="filled"
+                required
+                fullWidth
+                id="email"
+                label="Email"
+                type="email"
+                value={formik.values.email}
+              />
+              <TextField
+                variant="filled"
+                required
+                fullWidth
+                id="password"
+                label="Senha"
+                type="password"
+                value={formik.values.password}
+              />
+            </Stack>
 
-          <Typography variant='body2' color='#6495ED' component="p" align="left">Informações pessoais</Typography>
-          <Stack direction="row" width='100%' >
+            <Typography variant='body2' color='#6495ED' component="p" align="left">Informações pessoais</Typography>
+            <Stack direction="row" width='100%' >
 
-            <TextField
-              variant="filled"
-              required
-              id="name"
-              label="Nome"
-              fullWidth
-            />
-            <TextField
-              variant="filled"
-              required
-              id="sobrenome"
-              label="Sobrenome"
-              fullWidth
-            />
-          </Stack>
-          <Stack spacing={3} direction="row" >
-            <SelectDatePicker />
-            <Stack direction="row" width="100%">
-              <TextMaskCustomCPF />
+              <TextField
+                variant="filled"
+                required
+                id="firstName"
+                label="Nome"
+                fullWidth
+                value={formik.values.firstName}
+              />
+              <TextField
+                variant="filled"
+                required
+                id="lastName"
+                label="Sobrenome"
+                fullWidth
+                value={formik.values.lastName}
+              />
+            </Stack>
+            <Stack spacing={3} direction="row" >
+              <SelectDatePicker
+                value={formik.values.birthday}
+              />
+              <Stack direction="row" width="100%">
+                <TextMaskCustomCPF />
+              </Stack>
             </Stack>
           </Stack>
-        </Stack>
 
-        <Stack direction="column" width='100%'>
-          <Typography variant='body2' color="#6495ED" component="p" align="left">Informações de endereço</Typography>
-          <Stack direction="row" width='100%' alignItems="center">
+          <Stack direction="column" width='100%'>
+            <Typography variant='body2' color="#6495ED" component="p" align="left">Informações de endereço</Typography>
+            <Stack direction="row" width='100%' alignItems="center">
 
-            <TextMaskCustomCEP />
+              <TextMaskCustomCEP />
 
-            <TextField
-              variant="filled"
-              required
-              id="cidade"
-              label="Cidade"
-              fullWidth
-            />
+              <TextField
+                variant="filled"
+                required
+                id="cidade"
+                label="Cidade"
+                fullWidth
+              />
+              <SelectVariants />
 
-            {/* <TextField
-              variant="filled"
-              required
-              id="estado"
-              label="Estado"
-              fullWidth
-            /> */}
-            <SelectVariants />
-
+            </Stack>
+            <Stack spacing={2} direction="row" width='100%' alignItems="center">
+              <TextField
+                required
+                fullWidth
+                variant="filled"
+                id="rua"
+                label="Rua"
+                type="text"
+              />
+              <TextField
+                required
+                fullWidth
+                variant="filled"
+                id="bairro"
+                label="Bairro"
+                type="text"
+              />
+            </Stack>
           </Stack>
-          <Stack spacing={2} direction="row" width='100%' alignItems="center">
-            <TextField
-              required
-              fullWidth
-              variant="filled"
-              id="rua"
-              label="Rua"
-              type="text"
-            />
-            <TextField
-              required
-              fullWidth
-              variant="filled"
-              id="bairro"
-              label="Bairro"
-              type="text"
-            />
-          </Stack>
-        </Stack>
-        <FormButton />
+          <FormButton />
+
+        </form>
       </Container >
     </Box >
   );

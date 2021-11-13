@@ -26,15 +26,13 @@ export default function ImageAvatars() {
   const classes = useStyles();
 
   return (
-    <Stack direction="row" alignItems="center" fullWidth>
-      <div className={classes.root}>
-        <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
-        <label htmlFor="icon-button-file">
-          <IconButton color="primary" aria-label="upload picture" component="span">
-            <Avatar src={<i className="fas fa-sign-in-alt"></i>} className={classes.large} sx={{ width: 90, height: 90 }} />
-          </IconButton>
-        </label>
-      </div>
-    </Stack>
+    <div className={classes.root}>
+      <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
+      <label htmlFor="icon-button-file">
+        <IconButton color="primary" aria-label="upload picture" component="span">
+          <Avatar src={<i className="fas fa-sign-in-alt"></i>} className={classes.large} sx={{ width: 90, height: 90 }} />
+        </IconButton>
+      </label>
+    </div>
   );
 }
