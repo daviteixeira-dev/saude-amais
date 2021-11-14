@@ -12,7 +12,7 @@ import {
 import { green } from "@mui/material/colors";
 import { styled } from '@material-ui/styles';
 
-import { useFormik, validateYupSchema } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 
@@ -23,7 +23,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().required('Email é obrigatório'),
+  email: Yup.string().email("Entre com email válido").required('Email é obrigatório'),
   password: Yup.string().required('Senha é obrigatória'),
 })
 

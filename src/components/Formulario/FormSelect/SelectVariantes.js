@@ -4,7 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function SelectVariants() {
+export default function SelectVariants( value, onChange, id) {
   const [uf, setUF] = React.useState('');
 
   const handleChange = (event) => {
@@ -17,9 +17,9 @@ export default function SelectVariants() {
       <InputLabel id="uf">Estado</InputLabel>
       <Select
         labelId="Estado"
-        id="uf"
-        value={uf}
-        onChange={handleChange}
+        id={id}
+        value={value}
+        onChange={onChange}
       >
         <MenuItem value={10}>Ceará</MenuItem>
         <MenuItem value={20}>Maranhão</MenuItem>

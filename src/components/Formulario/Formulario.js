@@ -10,9 +10,24 @@ import TextMaskCustomCPF from "./FormSelect/TextMaskCustomCPF";
 import Button from "@mui/material/Button";
 import TextMaskCustomCEP from "./FormSelect/TextMaskCustomCEP";
 import ImageAvatar from "./FormSelect/ImageAvatars";
+import InputMask from "react-input-mask";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
+
+const validationSchema = Yup.object({
+  email: Yup.string().email("Entre com email válido").required("Campo obrigatório"),
+  password: Yup.string().required("Campo obrigatório"),
+  firstName: Yup.string().required("Campo obrigatório"),
+  lastName: Yup.string().required("Campo obrigatório"),
+  // birthday: Yup.string().required("Campo obrigatório"),
+  // cpf: Yup.string().required("Campo obrigatório"),
+  // cep: Yup.string().required("Campo obrigatório"),
+  // uf: Yup.string().required("Campo obrigatório"),
+  // city: Yup.string().required("Campo obrigatório"),
+  // road: Yup.string().required("Campo obrigatório"),
+  // neighborhood: Yup.string().required("Campo obrigatório"),
+})
 
 function Formulario({ setIsLogin }) {
 
@@ -23,8 +38,18 @@ function Formulario({ setIsLogin }) {
       firstName: "",
       lastName: "",
       birthday: "",
+      cpf: "",
+      cep: "",
+      uf: "",
+      city1: "",
+      road: "",
+      neighborhood: "",
     },
-  })
+    onSubmit: (values) => {
+      console.log(JSON.stringify(values));
+    },
+    validationSchema: validationSchema,
+  });
 
   return (
 
@@ -70,7 +95,7 @@ function Formulario({ setIsLogin }) {
 
         <Typography variant='body2' color='#6495ED' component="p" align="left">Adicionar Imagem</Typography>
 
-        <form maxWidth="sm">
+        <form maxWidth="sm" onSubmit={formik.handleSubmit}>
           <ImageAvatar />
 
           <Stack direction="column" width='100%' mb={1}>
@@ -81,21 +106,25 @@ function Formulario({ setIsLogin }) {
             <Stack direction="row" width='100%' mb={1}>
               <TextField
                 variant="filled"
-                required
                 fullWidth
                 id="email"
                 label="Email"
                 type="email"
                 value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
               />
               <TextField
                 variant="filled"
-                required
                 fullWidth
                 id="password"
                 label="Senha"
                 type="password"
                 value={formik.values.password}
+                onChange={formik.handleChange}
+                error={formik.touched.password && Boolean(formik.errors.password)}
+                helperText={formik.touched.password && formik.errors.password}
               />
             </Stack>
 
@@ -104,19 +133,21 @@ function Formulario({ setIsLogin }) {
 
               <TextField
                 variant="filled"
-                required
                 id="firstName"
                 label="Nome"
                 fullWidth
                 value={formik.values.firstName}
+                onChange={formik.handleChange}
+                error={formik.touched.firstName && Boolean(formik.errors.firstName)}
+                helperText={formik.touched.firstName && formik.errors.firstName}
               />
               <TextField
                 variant="filled"
-                required
                 id="lastName"
                 label="Sobrenome"
                 fullWidth
                 value={formik.values.lastName}
+                onChange={formik.handleChange}
               />
             </Stack>
             <Stack spacing={3} direction="row" >
@@ -124,7 +155,23 @@ function Formulario({ setIsLogin }) {
                 value={formik.values.birthday}
               />
               <Stack direction="row" width="100%">
-                <TextMaskCustomCPF />
+                <InputMask
+                  mask="999.999.999-99"
+                  value={formik.values.cpf}
+                  onChange={formik.handleChange}
+                  disabled={false}
+                >
+                  {() => <TextField
+                    variant="filled"
+                    required
+                    fullWidth
+                    id="cpf"
+                    label="CPF"
+                    error={formik.touched.cpf && Boolean(formik.errors.cpf)}
+                    helperText={formik.touched.cpf && formik.errors.cpf}
+                  />}
+                </InputMask>
+                {/* <TextMaskCustomCPF /> */}
               </Stack>
             </Stack>
           </Stack>
@@ -133,16 +180,37 @@ function Formulario({ setIsLogin }) {
             <Typography variant='body2' color="#6495ED" component="p" align="left">Informações de endereço</Typography>
             <Stack direction="row" width='100%' alignItems="center">
 
-              <TextMaskCustomCEP />
+              <InputMask
+                mask="99999-999"
+                value={formik.values.cep}
+                onChange={formik.handleChange}
+                disabled={false}
+              >
+                {() => <TextField
+                  variant="filled"
+                  required
+                  fullWidth
+                  id="cep"
+                  label="CEP"
+                  error={formik.touched.cep && Boolean(formik.errors.cep)}
+                  helperText={formik.touched.cep && formik.errors.cep}
+                />}
+              </InputMask>
 
+              {/* <TextMaskCustomCEP /> */}
               <TextField
                 variant="filled"
                 required
-                id="cidade"
-                label="Cidade"
                 fullWidth
+                id="city1"
+                label="Cidade"
+                value={formik.values.city1}
+                onChange={formik.handleChange}
+                error={formik.touched.city1 && Boolean(formik.errors.city1)}
+                helperText={formik.touched.city1 && formik.errors.city1}
               />
-              <SelectVariants />
+
+              <SelectVariants value={formik.values.uf} id="uf" onChange={formik.values.uf} />
 
             </Stack>
             <Stack spacing={2} direction="row" width='100%' alignItems="center">
@@ -150,22 +218,28 @@ function Formulario({ setIsLogin }) {
                 required
                 fullWidth
                 variant="filled"
-                id="rua"
+                id="road"
                 label="Rua"
-                type="text"
+                value={formik.values.road}
+                onChange={formik.handleChange}
+                error={formik.touched.road && Boolean(formik.errors.road)}
+                helperText={formik.touched.road && formik.errors.road}
               />
               <TextField
                 required
                 fullWidth
                 variant="filled"
-                id="bairro"
+                id="neighborhood"
                 label="Bairro"
                 type="text"
+                value={formik.values.neighborhood}
+                onChange={formik.handleChange}
+                error={formik.touched.neighborhood && Boolean(formik.errors.neighborhood)}
+                helperText={formik.touched.neighborhood && formik.errors.neighborhood}
               />
             </Stack>
           </Stack>
-          <FormButton />
-
+          <FormButton type="submit"/>
         </form>
       </Container >
     </Box >
