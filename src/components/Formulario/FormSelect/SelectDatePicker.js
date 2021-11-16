@@ -3,7 +3,6 @@ import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
 import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
 import DatePicker from "@material-ui/lab/DatePicker";
-import { Stack } from "@mui/material";
 
 export default function SelectDatePicker({ props }) {
   const [value, setValue] = React.useState(null);
