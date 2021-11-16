@@ -9,7 +9,6 @@ export default function SelectDatePicker({ props }) {
   const [value, setValue] = React.useState(null);
 
   return (
-
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
         label="Data de Nascimento"
@@ -21,6 +20,5 @@ export default function SelectDatePicker({ props }) {
         renderInput={(params) => <TextField required value={props} fullWidth {...params} variant="filled" />}
       />
     </LocalizationProvider>
-
   );
 }
