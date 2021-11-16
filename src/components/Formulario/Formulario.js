@@ -1,7 +1,6 @@
-import React from "react";
+import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import SelectVariants from "./FormSelect/SelectVariantes";
 import SelectDatePicker from "./FormSelect/SelectDatePicker";
 import FormButton from "./FormButton/FormButton";
 import { Stack, Typography } from "@mui/material";
@@ -30,8 +29,9 @@ const validationSchema = Yup.object().shape({
   neighborhood: Yup.string().required("Campo obrigatório"),
 })
 
-function Formulario({ setIsLogin }) {
 
+function Formulario({ setIsLogin, props }) {
+  const [value, setValue] = React.useState(null);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -53,7 +53,7 @@ function Formulario({ setIsLogin }) {
   })
 
   function onBlurCep(event, setFieldValue) {
-    const {value} = event.target;
+    const { value } = event.target;
 
     const cep = value?.replace(/[^0-9]/g, '');
 
@@ -82,25 +82,25 @@ function Formulario({ setIsLogin }) {
         maxWidth="sm"
         sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
 
-      <Box alignItems="center" mb={4} sx={{ width: `100%`, display: `flex` }}>
-        <Typography
-          variant="body2"
-          pr={2}
-          fontSize={16}
-          color="textSecondary"
-          width="100%"
-          align="right">
-          Já é cadastrado?
-        </Typography>
-        <Button
-          onClick={() => setIsLogin(true)}
-          padding="2em"
-          variant="outlined"
-          color="primary"
-          sx={{ marginTop: '1em' }}
-        >Entrar
-        </Button>
-      </Box>
+        <Box alignItems="center" mb={4} sx={{ width: `100%`, display: `flex` }}>
+          <Typography
+            variant="body2"
+            pr={2}
+            fontSize={16}
+            color="textSecondary"
+            width="100%"
+            align="right">
+            Já é cadastrado?
+          </Typography>
+          <Button
+            onClick={() => setIsLogin(true)}
+            padding="2em"
+            variant="outlined"
+            color="primary"
+            sx={{ marginTop: '1em' }}
+          >Entrar
+          </Button>
+        </Box>
 
         <Typography
           variant="h3"
@@ -173,28 +173,26 @@ function Formulario({ setIsLogin }) {
                 helperText={formik.touched.lastName && formik.errors.lastName}
               />
             </Stack>
-            <Stack spacing={3} direction="row" >
-              <SelectDatePicker
-                value={formik.values.birthday}
-              />
-              <Stack direction="row" width="100%">
-                <InputMask
-                  mask="999.999.999-99"
-                  value={formik.values.cpf}
-                  onChange={formik.handleChange}
-                  disabled={false}
-                >
-                  {() => <TextField
-                    variant="filled"
-                    required
-                    fullWidth
-                    id="cpf"
-                    label="CPF"
-                    error={formik.touched.cpf && Boolean(formik.errors.cpf)}
-                    helperText={formik.touched.cpf && formik.errors.cpf}
-                  />}
-                </InputMask>
-              </Stack>
+            <Stack spacing={2} direction="row" >
+
+              <SelectDatePicker value={formik.values.birthday} />
+
+              <InputMask
+                mask="999.999.999-99"
+                value={formik.values.cpf}
+                onChange={formik.handleChange}
+                disabled={false}
+              >
+                {() => <TextField
+                  variant="filled"
+                  required
+                  fullWidth
+                  id="cpf"
+                  label="CPF"
+                  error={formik.touched.cpf && Boolean(formik.errors.cpf)}
+                  helperText={formik.touched.cpf && formik.errors.cpf}
+                />}
+              </InputMask>
             </Stack>
           </Stack>
 
@@ -277,4 +275,5 @@ function Formulario({ setIsLogin }) {
     </Box >
   );
 }
+
 export default Formulario
