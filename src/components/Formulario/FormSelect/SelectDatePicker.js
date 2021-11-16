@@ -15,8 +15,6 @@ export default function SelectDatePicker({props}) {
           label="Data de Nascimento"
           /*maxlength="14"*/
           value={value}
-          required
-
           onChange={(newValue) => {
             setValue(newValue);
           }}

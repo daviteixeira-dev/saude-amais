@@ -14,19 +14,20 @@ import InputMask from "react-input-mask";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { da } from "date-fns/locale";
 
-const validationSchema = Yup.object({
+const validationSchema = Yup.object().shape({
   email: Yup.string().email("Entre com email válido").required("Campo obrigatório"),
   password: Yup.string().required("Campo obrigatório"),
   firstName: Yup.string().required("Campo obrigatório"),
   lastName: Yup.string().required("Campo obrigatório"),
-  // birthday: Yup.string().required("Campo obrigatório"),
-  // cpf: Yup.string().required("Campo obrigatório"),
-  // cep: Yup.string().required("Campo obrigatório"),
-  // uf: Yup.string().required("Campo obrigatório"),
-  // city: Yup.string().required("Campo obrigatório"),
-  // road: Yup.string().required("Campo obrigatório"),
-  // neighborhood: Yup.string().required("Campo obrigatório"),
+  birthday: Yup.string().required("Campo obrigatório"),
+  cpf: Yup.string().required("Campo obrigatório"),
+  cep: Yup.string().required("Campo obrigatório"),
+  uf: Yup.string().required("Campo obrigatório"),
+  city: Yup.string().required("Campo obrigatório"),
+  road: Yup.string().required("Campo obrigatório"),
+  neighborhood: Yup.string().required("Campo obrigatório"),
 })
 
 function Formulario({ setIsLogin }) {
@@ -41,15 +42,30 @@ function Formulario({ setIsLogin }) {
       cpf: "",
       cep: "",
       uf: "",
-      city1: "",
+      city: "",
       road: "",
       neighborhood: "",
     },
     onSubmit: (values) => {
-      console.log(JSON.stringify(values));
+      alert(JSON.stringify(values));
     },
     validationSchema: validationSchema,
-  });
+  })
+
+  function onBlurCep(event, setFieldValue) {
+    const {value} = event.target;
+
+    const cep = value?.replace(/[^0-9]/g, '');
+
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then((res) => res.json())
+      .then((data) => {
+        setFieldValue('city', data.localidade)
+        setFieldValue('road', data.logradouro)
+        setFieldValue('neighborhood', data.bairro)
+        setFieldValue('uf', data.uf)
+      });
+  }
 
   return (
 
@@ -103,7 +119,9 @@ function Formulario({ setIsLogin }) {
 
             <Typography variant='body2' color='#6495ED' component="p" align="left">Informacoes de login</Typography>
 
+
             <Stack direction="row" width='100%' mb={1}>
+
               <TextField
                 variant="filled"
                 fullWidth
@@ -126,6 +144,7 @@ function Formulario({ setIsLogin }) {
                 error={formik.touched.password && Boolean(formik.errors.password)}
                 helperText={formik.touched.password && formik.errors.password}
               />
+
             </Stack>
 
             <Typography variant='body2' color='#6495ED' component="p" align="left">Informações pessoais</Typography>
@@ -135,6 +154,7 @@ function Formulario({ setIsLogin }) {
                 variant="filled"
                 id="firstName"
                 label="Nome"
+                type="text"
                 fullWidth
                 value={formik.values.firstName}
                 onChange={formik.handleChange}
@@ -145,9 +165,12 @@ function Formulario({ setIsLogin }) {
                 variant="filled"
                 id="lastName"
                 label="Sobrenome"
+                type="text"
                 fullWidth
                 value={formik.values.lastName}
                 onChange={formik.handleChange}
+                error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+                helperText={formik.touched.lastName && formik.errors.lastName}
               />
             </Stack>
             <Stack spacing={3} direction="row" >
@@ -171,7 +194,6 @@ function Formulario({ setIsLogin }) {
                     helperText={formik.touched.cpf && formik.errors.cpf}
                   />}
                 </InputMask>
-                {/* <TextMaskCustomCPF /> */}
               </Stack>
             </Stack>
           </Stack>
@@ -184,6 +206,7 @@ function Formulario({ setIsLogin }) {
                 mask="99999-999"
                 value={formik.values.cep}
                 onChange={formik.handleChange}
+                onBlur={(event) => onBlurCep(event, formik.setFieldValue)}
                 disabled={false}
               >
                 {() => <TextField
@@ -197,20 +220,29 @@ function Formulario({ setIsLogin }) {
                 />}
               </InputMask>
 
-              {/* <TextMaskCustomCEP /> */}
               <TextField
                 variant="filled"
                 required
                 fullWidth
-                id="city1"
+                id="city"
                 label="Cidade"
-                value={formik.values.city1}
+                value={formik.values.city}
                 onChange={formik.handleChange}
-                error={formik.touched.city1 && Boolean(formik.errors.city1)}
-                helperText={formik.touched.city1 && formik.errors.city1}
+                error={formik.touched.city && Boolean(formik.errors.city)}
+                helperText={formik.touched.city && formik.errors.city}
               />
 
-              <SelectVariants value={formik.values.uf} id="uf" onChange={formik.values.uf} />
+              <TextField
+                variant="filled"
+                required
+                fullWidth
+                id="uf"
+                label="Estado"
+                value={formik.values.uf}
+                onChange={formik.handleChange}
+                error={formik.touched.uf && Boolean(formik.errors.uf)}
+                helperText={formik.touched.uf && formik.errors.uf}
+              />
 
             </Stack>
             <Stack spacing={2} direction="row" width='100%' alignItems="center">
@@ -239,7 +271,7 @@ function Formulario({ setIsLogin }) {
               />
             </Stack>
           </Stack>
-          <FormButton type="submit"/>
+          <FormButton type="submit" />
         </form>
       </Container >
     </Box >
