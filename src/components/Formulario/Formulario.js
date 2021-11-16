@@ -30,7 +30,7 @@ const validationSchema = Yup.object().shape({
 })
 
 
-function Formulario({ setIsLogin, props }) {
+function Formulario({ setIsLogin }) {
   const [value, setValue] = React.useState(null);
   const formik = useFormik({
     initialValues: {
