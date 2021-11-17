@@ -24,6 +24,7 @@ const useStyles = makeStyles(({ theme }) => ({
 
 export default function ImageAvatars() {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
