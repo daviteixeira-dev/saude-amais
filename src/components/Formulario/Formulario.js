@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import SelectDatePicker from "./FormSelect/SelectDatePicker";
@@ -25,6 +25,7 @@ const validationSchema = Yup.object().shape({
   neighborhood: Yup.string().required("Campo obrigatório"),
 })
 
+
 function Formulario({ setIsLogin }) {
 
   const formik = useFormik({
@@ -48,7 +49,7 @@ function Formulario({ setIsLogin }) {
   })
 
   function onBlurCep(event, setFieldValue) {
-    const {value} = event.target;
+    const { value } = event.target;
 
     const cep = value?.replace(/[^0-9]/g, '');
 
@@ -79,25 +80,25 @@ function Formulario({ setIsLogin }) {
         maxWidth="sm"
         sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
 
-      <Box alignItems="center" mb={4} sx={{ width: `100%`, display: `flex` }}>
-        <Typography
-          variant="body2"
-          pr={2}
-          fontSize={16}
-          color="textSecondary"
-          width="100%"
-          align="right">
-          Já é cadastrado?
-        </Typography>
-        <Button
-          onClick={() => setIsLogin(true)}
-          padding="2em"
-          variant="outlined"
-          color="primary"
-          sx={{ marginTop: '1em' }}
-        >Entrar
-        </Button>
-      </Box>
+        <Box alignItems="center" mb={4} sx={{ width: `100%`, display: `flex` }}>
+          <Typography
+            variant="body2"
+            pr={2}
+            fontSize={16}
+            color="textSecondary"
+            width="100%"
+            align="right">
+            Já é cadastrado?
+          </Typography>
+          <Button
+            onClick={() => setIsLogin(true)}
+            padding="2em"
+            variant="outlined"
+            color="primary"
+            sx={{ marginTop: '1em' }}
+          >Entrar
+          </Button>
+        </Box>
 
         <Typography
           variant="h3"
@@ -274,4 +275,5 @@ function Formulario({ setIsLogin }) {
     </Box >
   );
 }
+
 export default Formulario
