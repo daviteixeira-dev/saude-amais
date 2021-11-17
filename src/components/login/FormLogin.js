@@ -32,7 +32,7 @@ function FormLogin({ setIsLogin }) {
   const formik = useFormik({
     initialValues: {
       email: "",
-      password: ""
+      password: "",
     },
     onSubmit: (values) => {
       console.log(JSON.stringify(values));

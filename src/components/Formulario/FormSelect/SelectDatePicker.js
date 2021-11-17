@@ -18,7 +18,7 @@ export default function SelectDatePicker({props}) {
           onChange={(newValue) => {
             setValue(newValue);
           }}
-          renderInput={(params) => <TextField required value={props} fullWidth {...params} variant="filled" />}
+          renderInput={(params) => <TextField value={props} fullWidth {...params} variant="filled" />}
         />
       </LocalizationProvider>
     </Stack>

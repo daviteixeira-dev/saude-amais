@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@mui/material/IconButton";
-import Stack from "@mui/material/Stack";
 
 const useStyles = makeStyles(({ theme }) => ({
   root: {

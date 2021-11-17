@@ -1,20 +1,15 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import SelectVariants from "./FormSelect/SelectVariantes";
 import SelectDatePicker from "./FormSelect/SelectDatePicker";
-import FormButton from "./FormButton/FormButton";
 import { Stack, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import TextMaskCustomCPF from "./FormSelect/TextMaskCustomCPF";
 import Button from "@mui/material/Button";
-import TextMaskCustomCEP from "./FormSelect/TextMaskCustomCEP";
 import ImageAvatar from "./FormSelect/ImageAvatars";
 import InputMask from "react-input-mask";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { da } from "date-fns/locale";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Entre com email válido").required("Campo obrigatório"),
@@ -57,14 +52,16 @@ function Formulario({ setIsLogin }) {
 
     const cep = value?.replace(/[^0-9]/g, '');
 
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then((res) => res.json())
-      .then((data) => {
-        setFieldValue('city', data.localidade)
-        setFieldValue('road', data.logradouro)
-        setFieldValue('neighborhood', data.bairro)
-        setFieldValue('uf', data.uf)
-      });
+    if(cep.toString().length === 8) {
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then((res) => res.json())
+        .then((data) => {
+          setFieldValue('city', data.localidade)
+          setFieldValue('road', data.logradouro)
+          setFieldValue('neighborhood', data.bairro)
+          setFieldValue('uf', data.uf)
+        });
+    }
   }
 
   return (
@@ -111,7 +108,7 @@ function Formulario({ setIsLogin }) {
 
         <Typography variant='body2' color='#6495ED' component="p" align="left">Adicionar Imagem</Typography>
 
-        <form maxWidth="sm" onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <ImageAvatar />
 
           <Stack direction="column" width='100%' mb={1}>
@@ -160,6 +157,7 @@ function Formulario({ setIsLogin }) {
                 onChange={formik.handleChange}
                 error={formik.touched.firstName && Boolean(formik.errors.firstName)}
                 helperText={formik.touched.firstName && formik.errors.firstName}
+                onSubmit={formik.handleSubmit}
               />
               <TextField
                 variant="filled"
@@ -171,6 +169,7 @@ function Formulario({ setIsLogin }) {
                 onChange={formik.handleChange}
                 error={formik.touched.lastName && Boolean(formik.errors.lastName)}
                 helperText={formik.touched.lastName && formik.errors.lastName}
+                onSubmit={formik.handleSubmit}
               />
             </Stack>
             <Stack spacing={3} direction="row" >
@@ -186,7 +185,6 @@ function Formulario({ setIsLogin }) {
                 >
                   {() => <TextField
                     variant="filled"
-                    required
                     fullWidth
                     id="cpf"
                     label="CPF"
@@ -211,7 +209,6 @@ function Formulario({ setIsLogin }) {
               >
                 {() => <TextField
                   variant="filled"
-                  required
                   fullWidth
                   id="cep"
                   label="CEP"
@@ -222,7 +219,6 @@ function Formulario({ setIsLogin }) {
 
               <TextField
                 variant="filled"
-                required
                 fullWidth
                 id="city"
                 label="Cidade"
@@ -234,7 +230,6 @@ function Formulario({ setIsLogin }) {
 
               <TextField
                 variant="filled"
-                required
                 fullWidth
                 id="uf"
                 label="Estado"
@@ -247,7 +242,6 @@ function Formulario({ setIsLogin }) {
             </Stack>
             <Stack spacing={2} direction="row" width='100%' alignItems="center">
               <TextField
-                required
                 fullWidth
                 variant="filled"
                 id="road"
@@ -258,7 +252,6 @@ function Formulario({ setIsLogin }) {
                 helperText={formik.touched.road && formik.errors.road}
               />
               <TextField
-                required
                 fullWidth
                 variant="filled"
                 id="neighborhood"
@@ -271,7 +264,11 @@ function Formulario({ setIsLogin }) {
               />
             </Stack>
           </Stack>
-          <FormButton type="submit" />
+          <Button sx={{ width: '100%', marginTop: 2, marginBottom: 4 }}
+            type="submit"
+            variant="contained"
+            >Cadastrar
+          </Button>
         </form>
       </Container >
     </Box >
