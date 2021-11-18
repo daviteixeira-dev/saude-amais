@@ -5,20 +5,24 @@ import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
 import DatePicker from "@material-ui/lab/DatePicker";
 import Stack from "@mui/material/Stack";
 
-export default function SelectDatePicker({ props }) {
-  const [value, setValue] = React.useState(null);
+export default function SelectDatePicker({  value, onChange, error, helperText, id}) {
 
   return (
     <Stack direction="column" width="100%">
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
+          id={id}
           label="Data de Nascimento"
           /*maxlength="14"*/
           value={value}
-          onChange={(newValue) => {
-            setValue(newValue);
-          }}
-          renderInput={(params) => <TextField value={props} fullWidth {...params} variant="filled" />}
+          onChange={onChange}
+          renderInput={(params) => <TextField
+            fullWidth
+            {...params}
+            variant="filled"
+            error={error}
+            helperText={helperText}
+            />}
         />
       </LocalizationProvider>
     </Stack>
