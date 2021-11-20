@@ -324,4 +324,13 @@
       <p>🧠</p>
     </td>
   </tr>
+  <tr align="center">
+    <td>
+      <a href="https://github.com/LeticiaFarias">
+        <img src="https://avatars.githubusercontent.com/u/40062831?v=4" width=100 />
+        <p>Letícia <br/>Farias</p>
+      </a>
+      <p>😂</p>
+    </td>
+  </tr>
 </table>
