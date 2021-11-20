@@ -189,7 +189,7 @@ function Formulario({ setIsLogin }) {
               <SelectDatePicker
                 id="birthday"
                 value={formik.values.birthday}
-                onChange={formik.values.birthday => setFieldValue("date", birthday)}
+                //onChange={formik.values.birthday => setFieldValue("date", birthday)}
                 error={formik.touched.birthday && Boolean(formik.errors.birthday)}
                 helperText={formik.touched.birthday && formik.errors.birthday}
               />
