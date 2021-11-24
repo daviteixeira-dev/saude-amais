@@ -11,7 +11,7 @@ function FooterContainer() {
       <Footer.Wrapper>
         <Footer.ContainerIcon>
           <Footer.IconLink href="#" className="fas fa-home fa-2x" />
-          <Footer.IconLink href="#topo" className="far fa-arrow-alt-circle-up fa-3x" />
+          <Footer.IconLink href="#" className="far fa-arrow-alt-circle-up fa-3x" />
         </Footer.ContainerIcon>
         <Footer.Row>
           <Footer.Column>
@@ -40,10 +40,10 @@ function FooterContainer() {
           </Footer.Column>
           <Footer.Column>
             <Footer.Title>Social</Footer.Title>
-            <Footer.Link href="#"> <Icon className="fab fa-facebook-f" />  Facebook</Footer.Link>
-            <Footer.Link href="#"> <Icon className="fab fa-instagram" /> Instagram</Footer.Link>
-            <Footer.Link href="#"> <Icon className="fab fa-youtube" /> YouTube</Footer.Link>
-            <Footer.Link href="#"> <Icon className="fab fa-linkedin" /> Linkedin</Footer.Link>
+            <Footer.Link href="https://www.facebook.com/atlanticos/"> <Icon className="fab fa-facebook-f" />  Facebook</Footer.Link>
+            <Footer.Link href="https://www.instagram.com/iatlantico/"> <Icon className="fab fa-instagram" /> Instagram</Footer.Link>
+            <Footer.Link href="https://www.youtube.com/channel/UCjHYt0YPHpznZ-bISEBokLg"> <Icon className="fab fa-youtube" /> YouTube</Footer.Link>
+            <Footer.Link href="https://www.linkedin.com/company/instituto-atlantico/mycompany/"> <Icon className="fab fa-linkedin" /> Linkedin</Footer.Link>
           </Footer.Column>
         </Footer.Row>
         <Footer.Copyright>
