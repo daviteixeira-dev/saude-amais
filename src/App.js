@@ -3,7 +3,7 @@ import { Container } from "@mui/material/";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 /* Pages */
-import HomeAdmin from "./pages/HomeAdmin";
+//import HomeAdmin from "./pages/HomeAdmin";
 import PageProfessores from "./pages/Teachers/PageProfessores";
 import PagePilates from "./pages/PilatesModalities/PagePilates";
 
@@ -17,6 +17,7 @@ import Modalities from "./components/PilatesModalities/Modalities";
 import FooterContainer from "./components/Footer/containers/Footer";
 import CarouselOfImages from "./components/CarouselOfImages/Carousel";
 import ListOfTeachers from "./components/TeachersSection/ListOfTeachers";
+import Layout from "./components/Dashboard/Layout";
 
 /* Other imports */
 import DataProvider from "./contexts/DataContext";
@@ -40,7 +41,8 @@ function App() {
           </Route>
           {/* Route to admin */}
           <Route path="/admin">
-            <HomeAdmin />
+            {/*<HomeAdmin />*/}
+            <Layout />
           </Route>
           {/* Route to registration */}
           <Route path="/cadastro">

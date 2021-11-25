@@ -12,6 +12,7 @@ import { Avatar, Box, Button, Grid, Typography } from "@mui/material/";
 import { makeStyles } from "@material-ui/styles";
 
 import MainMenu from "../../components/AppBar/MainMenu";
+import Calendar from "../../components/Consultancy/Calendar";
 import FooterContainer from "../../components/Footer/containers/Footer";
 
 const useStyles = makeStyles({
@@ -125,6 +126,7 @@ function PageProfessores() {
           </Box>
         </Grid>
       </Grid>
+      <Calendar />
       <FooterContainer />
     </Box>
   );
