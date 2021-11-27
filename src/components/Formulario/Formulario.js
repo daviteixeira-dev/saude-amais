@@ -7,9 +7,13 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import ImageAvatar from "./FormSelect/ImageAvatars";
 import InputMask from "react-input-mask";
+import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
+import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
+import DatePicker from '@material-ui/lab/DatePicker';
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { date } from "yup/lib/locale";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -18,7 +22,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required("Campo obrigatório"),
   firstName: Yup.string().required("Campo obrigatório"),
   lastName: Yup.string().required("Campo obrigatório"),
-  birthday: Yup.date().required("Campo obrigatório"),
+  birthday: Yup.string().required("Campo obrigatório"),
   cpf: Yup.string().required("Campo obrigatório"),
   cep: Yup.string().required("Campo obrigatório"),
   uf: Yup.string().required("Campo obrigatório"),
@@ -34,7 +38,7 @@ function Formulario({ setIsLogin }) {
       password: "",
       firstName: "",
       lastName: "",
-      birthday: null,
+      birthday: "",
       cpf: "",
       cep: "",
       uf: "",
@@ -186,32 +190,47 @@ function Formulario({ setIsLogin }) {
               />
             </Stack>
             <Stack spacing={3} direction="row">
-              <SelectDatePicker
+              {/* <SelectDatePicker
                 id="birthday"
                 value={formik.values.birthday}
-                onChange={formik.values.birthday => setFieldValue("date", birthday)}
+                onChange={(birthday) => formik.setFieldValue("date", birthday)}
                 error={formik.touched.birthday && Boolean(formik.errors.birthday)}
                 helperText={formik.touched.birthday && formik.errors.birthday}
-              />
-              <Stack direction="row" width="100%">
-                <InputMask
-                  mask="999.999.999-99"
-                  value={formik.values.cpf}
-                  onChange={formik.handleChange}
-                  disabled={false}
-                >
-                  {() => (
-                    <TextField
-                      variant="filled"
+              /> */}
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DatePicker
+                  id="birthday"
+                  label="Data de nascimento"
+                  value={formik.values.birthday}
+                  onChange={(birthday) => formik.setFieldValue("birthday", birthday)}
+                  renderInput={(params) => (
+                    <TextField {...params}
                       fullWidth
-                      id="cpf"
-                      label="CPF"
-                      error={formik.touched.cpf && Boolean(formik.errors.cpf)}
-                      helperText={formik.touched.cpf && formik.errors.cpf}
+                      variant="filled"
+                      error={formik.touched.birthday && Boolean(formik.errors.birthday)}
+                      helperText={formik.touched.birthday && formik.errors.birthday}
                     />
                   )}
-                </InputMask>
-              </Stack>
+                />
+              </LocalizationProvider>
+
+              <InputMask
+                mask="999.999.999-99"
+                value={formik.values.cpf}
+                onChange={formik.handleChange}
+                disabled={false}
+              >
+                {() => (
+                  <TextField
+                    variant="filled"
+                    fullWidth
+                    id="cpf"
+                    label="CPF"
+                    error={formik.touched.cpf && Boolean(formik.errors.cpf)}
+                    helperText={formik.touched.cpf && formik.errors.cpf}
+                  />
+                )}
+              </InputMask>
             </Stack>
           </Stack>
 
