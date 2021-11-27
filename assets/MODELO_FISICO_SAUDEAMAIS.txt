@@ -1,92 +1,69 @@
-CREATE TYPE genre_teach AS ENUM ('M','F','O');
-
-CREATE TABLE Teacher (
-id_teacher SERIAL PRIMARY KEY,
-name varchar(50),
-surname varchar(50),
-cpf numeric(11),
-genre genre_teach,
-birth_date date,
-id_user integer NOT NULL,
-id_location integer NOT NULL
-);
-
-CREATE TYPE genre_std AS ENUM ('M','F','O');
-
-CREATE TABLE Student (
-id_student SERIAL PRIMARY KEY,
-name varchar(50),
-surname varchar(50),
-cpf numeric(11),
-genre genre_std,
-birth_date date,
-id_user integer NOT NULL,
-id_location integer NOT NULL
-);
-
-CREATE TABLE Users (
-id_user SERIAL PRIMARY KEY,
-email varchar(50),
-password varchar(16),
-date date,
-photo oid,
-id_admin integer NOT NULL
-);
-
-CREATE TABLE Admin (
-id_admin SERIAL PRIMARY KEY,
-name varchar(50),
-date date,
-password varchar(16),
-photo oid
+CREATE TABLE Location (
+  id_location SERIAL PRIMARY KEY,
+  city varchar(50),
+  uf varchar(50),
+  cep numeric(8),
+  hood varchar(50),
+  street varchar(50)
 );
 
 CREATE TABLE News (
-id_new SERIAL PRIMARY KEY,
-title varchar(50),
-description text,
-id_admin integer NOT NULL,
-FOREIGN KEY(id_admin) REFERENCES Admin (id_admin)
+  id_news SERIAL PRIMARY KEY,
+  title varchar(50),
+  description text,
+  photo oid,
+  id_users integer NOT NULL
 );
 
 CREATE TABLE Modality (
-id_modality SERIAL PRIMARY KEY,
-name varchar(50),
-description text,
-id_admin integer NOT NULL,
-FOREIGN KEY(id_admin) REFERENCES Admin (id_admin)
+  id_modality SERIAL PRIMARY KEY,
+  name varchar(50),
+  description text
 );
 
-CREATE TABLE Have (
-id_modality integer NOT NULL,
-id_teacher integer NOT NULL,
-id_consultancy integer NOT NULL,
-PRIMARY KEY(id_modality,id_teacher,id_consultancy),
-FOREIGN KEY(id_modality) REFERENCES Modality (id_modality),
-FOREIGN KEY(id_teacher) REFERENCES Teacher (id_teacher)
+CREATE TABLE UserLogin (
+  id_userlogin SERIAL PRIMARY KEY,
+  username varchar(50),
+  email varchar(50),
+  password varchar(16),
+  date date NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  photo oid
 );
 
-CREATE TABLE Location (
-id_location SERIAL PRIMARY KEY,
-city varchar(50),
-uf varchar(50),
-cep numeric(8),
-hood varchar(50),
-street varchar(50)
+CREATE TYPE genre_users AS ENUM ('M','F','O');
+CREATE TYPE type_users AS ENUM ('student','teacher', 'admin');
+
+CREATE TABLE Users (
+  id_users SERIAL PRIMARY KEY,
+  name varchar(50),
+  surname varchar(50),
+  cpf numeric(11),
+  genre genre_users,
+  birth_date date,
+  description text,
+  type type_users,
+  id_userlogin integer NOT NULL,
+  id_location integer NOT NULL,
+  FOREIGN KEY(id_userlogin) REFERENCES UserLogin (id_userlogin),
+  FOREIGN KEY(id_location) REFERENCES Location (id_location)
 );
 
 CREATE TABLE Consultancy (
-id_consultancy SERIAL PRIMARY KEY,
-name varchar(50),
-date date,
-hour time,
-id_student integer,
-FOREIGN KEY(id_student) REFERENCES Student (id_student)
+  id_consultancy SERIAL PRIMARY KEY,
+  name varchar(50),
+  date date,
+  hour time,
+  vacancy integer
 );
 
-ALTER TABLE Teacher ADD FOREIGN KEY(id_user) REFERENCES Users (id_user);
-ALTER TABLE Teacher ADD FOREIGN KEY(id_location) REFERENCES Location (id_location);
-ALTER TABLE Student ADD FOREIGN KEY(id_user) REFERENCES Users (id_user);
-ALTER TABLE Student ADD FOREIGN KEY(id_location) REFERENCES Location (id_location);
-ALTER TABLE Users ADD FOREIGN KEY(id_admin) REFERENCES Admin (id_admin);
-ALTER TABLE Have ADD FOREIGN KEY(id_consultancy) REFERENCES Consultancy (id_consultancy);
+CREATE TABLE Have (
+  id_modality integer NOT NULL,
+  id_users integer NOT NULL,
+  id_consultancy integer NOT NULL,
+  PRIMARY KEY(id_modality,id_users,id_consultancy),
+  FOREIGN KEY(id_modality) REFERENCES Modality (id_modality),
+  FOREIGN KEY(id_users) REFERENCES Users (id_users),
+  FOREIGN KEY(id_consultancy) REFERENCES Consultancy (id_consultancy)
+);
+
+ALTER TABLE News ADD FOREIGN KEY(id_users) REFERENCES Users (id_users);

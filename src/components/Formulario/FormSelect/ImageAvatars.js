@@ -16,9 +16,6 @@ const useStyles = makeStyles(({ theme }) => ({
   input: {
     display: "none",
   },
-  large: {
-
-  },
 }));
 
 export default function ImageAvatars() {
@@ -29,7 +26,7 @@ export default function ImageAvatars() {
       <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
       <label htmlFor="icon-button-file">
         <IconButton color="primary" aria-label="upload picture" component="span">
-          <Avatar src={<i className="fas fa-sign-in-alt"></i>} className={classes.large} sx={{ width: 90, height: 90 }} />
+          <Avatar src={<i className="fas fa-sign-in-alt"></i>} sx={{ width: 90, height: 90 }} />
         </IconButton>
       </label>
     </div>
