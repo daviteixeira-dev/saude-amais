@@ -2,7 +2,7 @@ CREATE TABLE Location (
   id_location SERIAL PRIMARY KEY,
   city varchar(50),
   uf varchar(50),
-  cep numeric(8),
+  cep varchar(10),
   hood varchar(50),
   street varchar(50)
 );
@@ -10,6 +10,7 @@ CREATE TABLE Location (
 CREATE TABLE News (
   id_news SERIAL PRIMARY KEY,
   title varchar(50),
+  category varchar(50),
   description text,
   photo oid,
   id_users integer NOT NULL
@@ -18,7 +19,9 @@ CREATE TABLE News (
 CREATE TABLE Modality (
   id_modality SERIAL PRIMARY KEY,
   name varchar(50),
-  description text
+  category varchar(50),
+  description text,
+  photo oid
 );
 
 CREATE TABLE UserLogin (
@@ -26,7 +29,7 @@ CREATE TABLE UserLogin (
   username varchar(50),
   email varchar(50),
   password varchar(16),
-  date date NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
   photo oid
 );
 
@@ -37,9 +40,11 @@ CREATE TABLE Users (
   id_users SERIAL PRIMARY KEY,
   name varchar(50),
   surname varchar(50),
-  cpf numeric(11),
+  cpf varchar(14),
   genre genre_users,
   birth_date date,
+  date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  occupation varchar(50),
   description text,
   type type_users,
   id_userlogin integer NOT NULL,
@@ -57,12 +62,12 @@ CREATE TABLE Consultancy (
 );
 
 CREATE TABLE Have (
+  id_users integer NOT NULL, 
   id_modality integer NOT NULL,
-  id_users integer NOT NULL,
   id_consultancy integer NOT NULL,
-  PRIMARY KEY(id_modality,id_users,id_consultancy),
-  FOREIGN KEY(id_modality) REFERENCES Modality (id_modality),
+  PRIMARY KEY(id_users,id_modality,id_consultancy),
   FOREIGN KEY(id_users) REFERENCES Users (id_users),
+  FOREIGN KEY(id_modality) REFERENCES Modality (id_modality),
   FOREIGN KEY(id_consultancy) REFERENCES Consultancy (id_consultancy)
 );
 
