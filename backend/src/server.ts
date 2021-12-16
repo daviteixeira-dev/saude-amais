@@ -10,4 +10,4 @@ app.use(express.json());
 
 app.use(routes);
 
-app.listen(3000, () => console.log("🚀 Server is running"));
+app.listen(3003, () => console.log("🚀 Server is running"));

@@ -1,77 +1,92 @@
-/* React imports */
-import React from 'react';
+import React from 'react'
+import { makeStyles } from '@material-ui/styles'
+import Drawer from '@material-ui/core/Drawer'
+import Typography from '@material-ui/core/Typography'
+import { useHistory, useLocation } from 'react-router-dom'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import { AddCircleOutlineOutlined, SubjectOutlined } from '@material-ui/icons'
 
-/* Material UI MakeStyles */
-import { makeStyles } from "@material-ui/styles";
 
-/* Image imports */
-import teacher01 from "../../images/teacher_pilates_01.jpg";
-
-/* Imports of UI material components */
-import { AppBar, Avatar, Box, Button, Drawer, Grid, Typography, Toolbar } from '@mui/material';
+const drawerWidth = 240
 
 const useStyles = makeStyles({
-  DrawerStyle: {
-    width: 240,
-    flexShrink: 0,
-    '& .MuiDrawer-paper': {
-      width: 240,
-      alignItems: "center",
-      boxSizing: 'border-box',
-    },
-  }
+  page: {
+    background: '#f9f9f9',
+    width: '100%',
+  },
+  root: {
+    display: 'flex',
+  },
+  drawer: {
+    width: drawerWidth,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  active: {
+    background: '#f4f4f4'
+  },
 })
 
-function Layout(){
+export default function Layout({ children }) {
+  const classes = useStyles()
+  const history = useHistory()
+  const location = useLocation()
 
-  const classes = useStyles();
+  const menuItems = [
+    {
+      text: 'My Notes',
+      icon: <SubjectOutlined color="primary" />,
+      path: '/home-admin'
+    },
+    {
+      text: 'Create Note',
+      icon: <AddCircleOutlineOutlined color="primary" />,
+      path: '/list-user'
+    },
+  ];
 
   return (
-    <Box>
-      <Grid container height="100vw">
-        <Grid item>
-          <Drawer
-            className={classes.DrawerStyle}
-            variant="permanent"
-            anchor="left"
-          >
-            <Avatar alt="Remy Sharp" src={teacher01} sx={{ width: 100, height: 100, marginTop: "1em" }} />
-            <Typography my={2}>Admin: Seu Nome</Typography>
-            <Box my={2}>
-              <Button variant="contained" startIcon={<i class="fas fa-user-alt"></i>}>Perfil</Button>
-            </Box>
-            <Box my={2}>
-              <Button variant="contained" startIcon={<i class="fas fa-cog"></i>}>Opções</Button>
-            </Box>
-            <Box my={2}>
-              <Button variant="contained" startIcon={<i class="fas fa-sign-out-alt"></i>}>Sair</Button>
-            </Box>
-          </Drawer>
-        </Grid>
-        <Grid item>
-          <AppBar>
-            <Toolbar>
-              <Box sx={{ flexGrow: 1 }}></Box>
-              <Box width="80%" display="flex" justifyContent="space-evenly">
-                <Button color="inherit">
-                  Home
-                </Button>
-                <Button color="inherit">
-                  Modalidades
-                </Button>
-                <Button color="inherit">
-                  Professores
-                </Button>
-                <Button color="inherit">
-                  Vagas
-                </Button>
-              </Box>
-            </Toolbar>
-          </AppBar>
-        </Grid>
-      </Grid>
-    </Box>
+    <div className={classes.root}>
+      {/* app bar */}
+
+      {/* side drawer */}
+      <Drawer
+        className={classes.drawer}
+        variant="permanent"
+        classes={{ paper: classes.drawerPaper }}
+        anchor="left"
+      >
+        <div>
+          <Typography variant="h5" className={classes.title}>
+            Saúde A+
+          </Typography>
+        </div>
+
+        {/* links/list section */}
+        <List>
+          {menuItems.map((item) => (
+            <ListItem
+              button
+              key={item.text}
+              onClick={() => history.push(item.path)}
+              className={location.pathname == item.path ? classes.active : null}
+            >
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
+        </List>
+
+      </Drawer>
+
+      {/* main content */}
+      <div className={classes.page}>
+        { children }
+      </div>
+    </div>
   )
 }
-
-export default Layout;
