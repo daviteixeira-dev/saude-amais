@@ -13,6 +13,16 @@ export class CreateUser1639615342164 implements MigrationInterface {
               isPrimary: true,
             },
             {
+              name: "name",
+              type: "varchar",
+              isNullable: false,
+            },
+            {
+              name: "lastname",
+              type: "varchar",
+              isNullable: false,
+            },
+            {
               name: "cpf",
               type: "varchar",
               isNullable: false,
@@ -22,16 +32,6 @@ export class CreateUser1639615342164 implements MigrationInterface {
               type: "date",
               isNullable: false,
 
-            },
-            {
-              name: "occupation",
-              type: "varchar",
-              isNullable: false,
-            },
-            {
-              name: "description",
-              type: "text",
-              isNullable: false,
             },
             {
               name: 'type',
