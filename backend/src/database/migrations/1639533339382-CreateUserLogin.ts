@@ -17,22 +17,6 @@ export class CreateUserLogin1639533339382 implements MigrationInterface {
             type: "varchar(50)",
             isNullable: false,
           },
-          {
-            name: "email",
-            type: "varchar(50)",
-            isNullable: false,
-
-          },
-          {
-            name: "password",
-            type: "varchar(16)",
-            isNullable: false,
-          },
-          {
-            name: "created_at",
-            type: "timestamp",
-            default: "now()",
-          },
         ]
       })
     )

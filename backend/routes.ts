@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { CreateUserLoginController } from "./src/controllers/CreateUserLoginController";
+import { CreateUserController } from "./src/controllers/CreateUserController";
 
 const routes = Router();
 
@@ -10,6 +11,7 @@ const routes = Router();
  * [X] D - DELETE
 */
 
+routes.post("/user", new CreateUserController().handle);
 routes.post("/userlogin", new CreateUserLoginController().handle);
 
 export { routes };
