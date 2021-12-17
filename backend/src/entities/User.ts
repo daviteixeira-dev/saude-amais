@@ -1,0 +1,44 @@
+import { Entity, Column, PrimaryColumn, JoinColumn, OneToOne } from "typeorm";
+import { v4 as uuid } from "uuid";
+import { Location } from "./Location";
+
+@Entity("system_user")
+export class User {
+
+  @PrimaryColumn()
+  id_user: string;
+
+  @Column()
+  name: string;
+
+  @Column()
+  lastname: string;
+
+  @Column()
+  email: string;
+
+  @Column()
+  password: string;
+
+  @Column()
+  cpf: string;
+
+  @Column()
+  birth_date: Date;
+
+  @Column()
+  type: string;
+
+  @Column()
+  id_location: string;
+
+  @OneToOne(() => Location)
+  @JoinColumn({ name: "id_location" })
+  location: Location;
+
+  constructor() {
+    if (!this.id_user) {
+      this.id_user = uuid();
+    }
+  }
+}
