@@ -50,7 +50,7 @@ export class CreateUser1639615342164 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            name: "fk_user_login",
+            name: "fk_userlogin",
             columnNames: ["id_user_login"],
             referencedTableName: "user_login",
             referencedColumnNames: ["id"],
@@ -69,5 +69,4 @@ export class CreateUser1639615342164 implements MigrationInterface {
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable("user");
   }
-
 }

@@ -21,7 +21,6 @@ export class CreateLocation1639617191830 implements MigrationInterface {
             name: "uf",
             type: "varchar",
             isNullable: false,
-
           },
           {
             name: "cep",
@@ -42,9 +41,7 @@ export class CreateLocation1639617191830 implements MigrationInterface {
       })
     )
   }
-
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable("location");
   }
-
 }
