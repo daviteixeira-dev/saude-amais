@@ -57,6 +57,9 @@ function Layout(){
                   Home
                 </Button>
                 <Button color="inherit">
+                  Alunos
+                </Button>
+                <Button color="inherit">
                   Modalidades
                 </Button>
                 <Button color="inherit">

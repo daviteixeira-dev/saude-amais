@@ -18,6 +18,7 @@ import FooterContainer from "./components/Footer/containers/Footer";
 import CarouselOfImages from "./components/CarouselOfImages/Carousel";
 import ListOfTeachers from "./components/TeachersSection/ListOfTeachers";
 import Layout from "./components/Dashboard/Layout";
+import PersistentDrawerLeft from "./components/Dashboard/Layout2";
 
 /* Other imports */
 import DataProvider from "./contexts/DataContext";
@@ -42,7 +43,8 @@ function App() {
           {/* Route to admin */}
           <Route path="/admin">
             {/*<HomeAdmin />*/}
-            <Layout />
+            {/*<Layout /> */}
+            <PersistentDrawerLeft />
           </Route>
           {/* Route to registration */}
           <Route path="/cadastro">
