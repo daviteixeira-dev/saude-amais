@@ -65,14 +65,14 @@ function Formulario({ setIsLogin, setId }) {
         "lastname": user[1],
         "email": user[2],
         "password": user[3],
-        "birth_data": user[4],
+        "birth_date": user[4],
         "adress": user[5],
         "cpf": user[6],
         "type": user[7],
       }).then((response) => {
 
         //Redirecionar para a página de login
-        if(response.status === 200){
+        if (response.status === 200) {
           setIsLogin(true);
           setId(response.data.id);
         }
