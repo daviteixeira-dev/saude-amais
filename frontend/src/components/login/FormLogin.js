@@ -29,7 +29,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required('Senha é obrigatória'),
 })
 
-function FormLogin({ setIsLogin }) {
+function FormLogin({ setIsLogin, setId }) {
 
   const formik = useFormik({
     initialValues: {
@@ -39,6 +39,13 @@ function FormLogin({ setIsLogin }) {
     onSubmit: (values) => {
       values.preventDefault();
 
+      axios.get(`http://localhost:3333/users/${setId}`).then(res => {
+        const email = res.data.email;
+        const password = res.data.password;
+        if (values.email === email && values.password === password) {
+          console.log('Login realizado com sucesso');
+        }
+      })
 
     },
     validationSchema: validationSchema,

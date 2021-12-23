@@ -19,37 +19,34 @@ import { useEffect } from "react";
 function Formulario({ setIsLogin }) {
 
 
-  const [profile, setProfile] = React.useState();
 
   useEffect(() => {
-    axios.get("http://localhost:3003/user/d6f46985-6ea8-4428-b2dc-997c7a369959").then((response)=> setProfile(response.data)).catch((err) => {
-      console.error("ocorreu um erro!"+err);
-    });
+    axios.get("http://localhost:3003/user/3bb812c5-40c3-43c9-9a75-4170655b202a")
+    .then((res) => {
+      formik.setFieldValue("name", res.data.name);
+      formik.setFieldValue("lastname", res.data.lastname);
+      formik.setFieldValue("email", res.data.email);
+      formik.setFieldValue("password", res.data.password);
+      formik.setFieldValue("birthday", res.data.birthday);
+      formik.setFieldValue("cpf", res.data.cpf);
+      formik.setFieldValue("road", res.data.adress);
+    }
+
+    )
   }, []);
 
   //console.log(String(profile?.name));
 
-  function setTeste(setFieldValue) {
-    setFieldValue("email",profile?.email)
 
-    formik.setFieldValue()
-
-  }
-
-  const teste = String(profile?.name);
-  const t2 = profile?.email;
-
-  const texto = JSON.stringify(profile?.email);
-  console.log(texto);
 
   const formik = useFormik({
 
 
     initialValues: {
-      name: texto,
-      lastname: profile?.lastname.toString,
-      email: String(profile?.email),
-      password: String(profile?.password),
+      name: "",
+      lastname: "",
+      email: "",
+      password: "",
       birthday: "",
       cpf: "",
       cep: "",

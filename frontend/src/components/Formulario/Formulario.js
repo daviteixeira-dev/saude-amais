@@ -31,7 +31,7 @@ const validationSchema = Yup.object().shape({
   hood: Yup.string().required("Campo obrigatório"),
 });
 
-function Formulario({ setIsLogin }) {
+function Formulario({ setIsLogin, setId }) {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -70,7 +70,12 @@ function Formulario({ setIsLogin }) {
         "cpf": user[6],
         "type": user[7],
       }).then((response) => {
-        <Redirect to="/admin" />
+
+        //Redirecionar para a página de login
+        if(response.status === 200){
+          setIsLogin(true);
+          setId(response.data.id);
+        }
       });
 
     },

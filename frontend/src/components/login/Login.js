@@ -1,10 +1,7 @@
 import React from "react";
 import {
   Grid,
-  Card,
-  CardMedia,
   Hidden,
-  Box,
 } from "@mui/material/";
 import { makeStyles } from '@material-ui/styles';
 import FormLogin from "./FormLogin";
@@ -23,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
 function Login() {
 
   const [isLogin, setIsLogin] = React.useState(true);
+  const [getId, setId] = React.useState('login')
+
 
   return (
     <Grid container spacing={0} columns={16} >
@@ -32,7 +31,7 @@ function Login() {
       </Hidden>
 
       <Grid item xs={16} sm={16} md={16} lg={9} >
-        {isLogin ? <FormLogin setIsLogin={setIsLogin} /> : <Formulario setIsLogin={setIsLogin} />}
+        {isLogin ? <FormLogin setIsLogin={setIsLogin} setId={setId}  /> : <Formulario setIsLogin={setIsLogin} setId={setId} />}
       </Grid>
     </Grid>
 
