@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import SelectDatePicker from "./FormSelect/SelectDatePicker";
 import { Stack, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
@@ -13,41 +12,67 @@ import DatePicker from '@material-ui/lab/DatePicker';
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { date } from "yup/lib/locale";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
+  name: Yup.string().required("Campo obrigatório"),
+  lastname: Yup.string().required("Campo obrigatório"),
   email: Yup.string()
     .email("Entre com email válido")
     .required("Campo obrigatório"),
   password: Yup.string().required("Campo obrigatório"),
-  firstName: Yup.string().required("Campo obrigatório"),
-  lastName: Yup.string().required("Campo obrigatório"),
   birthday: Yup.string().required("Campo obrigatório"),
   cpf: Yup.string().required("Campo obrigatório"),
   cep: Yup.string().required("Campo obrigatório"),
   uf: Yup.string().required("Campo obrigatório"),
   city: Yup.string().required("Campo obrigatório"),
   road: Yup.string().required("Campo obrigatório"),
-  neighborhood: Yup.string().required("Campo obrigatório"),
+  hood: Yup.string().required("Campo obrigatório"),
 });
 
 function Formulario({ setIsLogin }) {
   const formik = useFormik({
     initialValues: {
+      name: "",
+      lastname: "",
       email: "",
       password: "",
-      firstName: "",
-      lastName: "",
       birthday: "",
       cpf: "",
       cep: "",
       uf: "",
       city: "",
       road: "",
-      neighborhood: "",
+      hood: "",
     },
     onSubmit: (values) => {
-      console.log(JSON.stringify(values));
+
+      console.log(values);
+
+
+
+      const address = [values.city, values.uf, values.cep, values.road, values.hood];
+      const user = [values.name, values.lastname, values.email, values.password, String(values.birthday), String(address), values.cpf, "student"];
+
+      console.log(address);
+
+      console.log(user);
+
+
+      axios.post("http://localhost:3003/user", {
+        "name": user[0],
+        "lastname": user[1],
+        "email": user[2],
+        "password": user[3],
+        "birth_data": user[4],
+        "adress": user[5],
+        "cpf": user[6],
+        "type": user[7],
+      }).then((response) => {
+        <Redirect to="/admin" />
+      });
+
     },
     validationSchema: validationSchema,
   });
@@ -63,7 +88,7 @@ function Formulario({ setIsLogin }) {
         .then((data) => {
           setFieldValue("city", data.localidade);
           setFieldValue("road", data.logradouro);
-          setFieldValue("neighborhood", data.bairro);
+          setFieldValue("hood", data.bairro);
           setFieldValue("uf", data.uf);
         });
     }
@@ -164,29 +189,29 @@ function Formulario({ setIsLogin }) {
             <Stack direction="row" width="100%">
               <TextField
                 variant="filled"
-                id="firstName"
+                id="name"
                 label="Nome"
                 type="text"
                 fullWidth
-                value={formik.values.firstName}
+                value={formik.values.name}
                 onChange={formik.handleChange}
                 error={
-                  formik.touched.firstName && Boolean(formik.errors.firstName)
+                  formik.touched.name && Boolean(formik.errors.name)
                 }
-                helperText={formik.touched.firstName && formik.errors.firstName}
+                helperText={formik.touched.name && formik.errors.name}
               />
               <TextField
                 variant="filled"
-                id="lastName"
+                id="lastname"
                 label="Sobrenome"
                 type="text"
                 fullWidth
-                value={formik.values.lastName}
+                value={formik.values.lastname}
                 onChange={formik.handleChange}
                 error={
-                  formik.touched.lastName && Boolean(formik.errors.lastName)
+                  formik.touched.lastname && Boolean(formik.errors.lastname)
                 }
-                helperText={formik.touched.lastName && formik.errors.lastName}
+                helperText={formik.touched.lastname && formik.errors.lastname}
               />
             </Stack>
             <Stack spacing={3} direction="row">
@@ -299,17 +324,17 @@ function Formulario({ setIsLogin }) {
               <TextField
                 fullWidth
                 variant="filled"
-                id="neighborhood"
+                id="hood"
                 label="Bairro"
                 type="text"
-                value={formik.values.neighborhood}
+                value={formik.values.hood}
                 onChange={formik.handleChange}
                 error={
-                  formik.touched.neighborhood &&
-                  Boolean(formik.errors.neighborhood)
+                  formik.touched.hood &&
+                  Boolean(formik.errors.hood)
                 }
                 helperText={
-                  formik.touched.neighborhood && formik.errors.neighborhood
+                  formik.touched.hood && formik.errors.hood
                 }
               />
             </Stack>

@@ -16,6 +16,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.24.0",
     "date-fns": "^2.25.0",
     "formik": "^2.2.9",
     "hoist-non-react-statics": "^3.3.2",

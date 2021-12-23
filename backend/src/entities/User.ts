@@ -6,7 +6,7 @@ import { Location } from "./Location";
 export class User {
 
   @PrimaryColumn()
-  id: string;
+  id_users: string;
 
   @Column()
   name: string;
@@ -27,18 +27,14 @@ export class User {
   birth_data: Date;
 
   @Column()
-  type: string;
+  adress: string;
 
   @Column()
-  id_location: string;
-
-  @OneToOne(() => Location)
-  @JoinColumn({ name: "id_location" })
-  location: Location;
+  type: string;
 
   constructor() {
-    if(!this.id) {
-      this.id = uuid();
+    if(!this.id_users) {
+      this.id_users = uuid();
     }
   }
 
