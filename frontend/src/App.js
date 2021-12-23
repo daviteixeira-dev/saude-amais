@@ -17,13 +17,8 @@ import Modalities from "./components/PilatesModalities/Modalities";
 import FooterContainer from "./components/Footer/containers/Footer";
 import CarouselOfImages from "./components/CarouselOfImages/Carousel";
 import ListOfTeachers from "./components/TeachersSection/ListOfTeachers";
-//admin
 import Layout from "./components/Dashboard/Layout";
-import HomeAdmin from "./components/Dashboard/Pages/HomeDashboard"
-import ListUser from "./components/Dashboard/Pages/ListUser"
-
-import Teste from "./components/Dashboard/Pages/teste"
-//import Dashboard from "./components/Dashboard/Layout_Old";
+import PersistentDrawerLeft from "./components/Dashboard/Layout2";
 
 /* Other imports */
 import DataProvider from "./contexts/DataContext";
@@ -47,16 +42,9 @@ function App() {
           </Route>
           {/* Route to admin */}
           <Route path="/admin">
-            <Layout>
-              <Switch>
-                <Route exact path="/home-admin">
-                  <HomeAdmin/>
-                </Route>
-                <Route path="/list-user">
-                  <ListUser/>
-                </Route>
-              </Switch>
-            </Layout>
+            {/*<HomeAdmin />*/}
+            {/*<Layout /> */}
+            <PersistentDrawerLeft />
           </Route>
           {/* Route to registration */}
           <Route path="/cadastro">

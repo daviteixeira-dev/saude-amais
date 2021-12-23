@@ -29,5 +29,4 @@ export class Location {
       this.id = uuid();
     }
   }
-
 }
