@@ -22,6 +22,8 @@ import PersistentDrawerLeft from "./components/Dashboard/Layout2";
 
 /* Other imports */
 import DataProvider from "./contexts/DataContext";
+import ListUser from "./components/Dashboard/Pages/ListUser";
+import ProfilerView from "./components/Dashboard/Pages/ProfileView";
 
 function App() {
   return (
@@ -43,8 +45,15 @@ function App() {
           {/* Route to admin */}
           <Route path="/admin">
             {/*<HomeAdmin />*/}
-            {/*<Layout /> */}
             <PersistentDrawerLeft />
+          </Route>
+          <Route path="/list-user">
+            {/*<HomeAdmin />*/}
+            <ListUser />
+          </Route>
+          <Route path="/profile">
+            {/*<HomeAdmin />*/}
+            <ProfilerView />
           </Route>
           {/* Route to registration */}
           <Route path="/cadastro">
