@@ -1,11 +1,11 @@
-import { Entity, Column, PrimaryColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, CreateDateColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
-
+import { User } from "./User";
 
 @Entity("location")
 export class Location {
 
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
@@ -23,6 +23,14 @@ export class Location {
   @Column()
   street: string;
 
+  @OneToOne(type => User, location => Location)
+  user: User;
+
+  @CreateDateColumn({ name: 'created_At' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_At' })
+  updatedAt: Date;
 
   constructor() {
     if (!this.id) {
