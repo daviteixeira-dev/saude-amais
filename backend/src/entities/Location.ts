@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid";
 export class Location {
 
   @PrimaryColumn()
-  id_location: string;
+  id: string;
 
   @Column()
   city: string;
@@ -25,8 +25,8 @@ export class Location {
 
 
   constructor() {
-    if (!this.id_location) {
-      this.id_location = uuid();
+    if (!this.id) {
+      this.id = uuid();
     }
   }
 

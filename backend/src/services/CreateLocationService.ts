@@ -12,20 +12,20 @@ interface LocationRequest {
 
 export class CreateLocationService {
 
-      async execute({city, uf, cep, hood, street}: LocationRequest): Promise<Location | Error> {
+    async execute({ city, uf, cep, hood, street }: LocationRequest): Promise<Location | Error> {
 
-          const repo = getRepository(Location);
+        const repo = getRepository(Location);
 
-          const location = repo.create({
-              city,
-              uf,
-              cep,
-              hood,
-              street
-          });
+        const location = repo.create({
+            city,
+            uf,
+            cep,
+            hood,
+            street
+        });
 
-          await repo.save(location);
+        await repo.save(location);
 
-          return location;
-      }
+        return location;
+    }
 }

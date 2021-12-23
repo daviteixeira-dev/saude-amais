@@ -6,7 +6,7 @@ import { Location } from "./Location";
 export class User {
 
   @PrimaryColumn()
-  id_user: string;
+  id: string;
 
   @Column()
   name: string;
@@ -37,8 +37,8 @@ export class User {
   location: Location;
 
   constructor() {
-    if (!this.id_user) {
-      this.id_user = uuid();
+    if (!this.id) {
+      this.id = uuid();
     }
   }
 }

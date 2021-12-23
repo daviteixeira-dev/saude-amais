@@ -1,4 +1,4 @@
-function HomeDashboard(){
+function HomeDashboard() {
   return (
     <div>
       <section>
@@ -11,4 +11,4 @@ function HomeDashboard(){
   )
 }
 
-export default HomeDashboard
+export default HomeDashboard;

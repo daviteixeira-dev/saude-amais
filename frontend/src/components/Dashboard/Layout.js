@@ -85,7 +85,7 @@ export default function Layout({ children }) {
 
       {/* main content */}
       <div className={classes.page}>
-        { children }
+        {children}
       </div>
     </div>
   )
