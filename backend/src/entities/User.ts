@@ -1,6 +1,12 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Location } from "./Location";
+
+export enum Type {
+  student = "student",
+  teacher = "teacher",
+  admin = "admin"
+}
 @Entity("system_user")
 export class User {
 
@@ -28,8 +34,11 @@ export class User {
   @Column()
   address: string;
 
-  @Column()
-  type: string;
+  @Column({
+    type: "enum",
+    enum: Type,
+  })
+  type: Type
 
   @OneToOne(type => Location, user => User)
   @JoinColumn()
