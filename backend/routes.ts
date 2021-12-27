@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { request, response, Router } from "express";
 import { CreateLocationController } from "./src/controllers/CreateLocationController";
 import { CreateUserController } from "./src/controllers/CreateUserController";
 import { DeleteUserController } from "./src/controllers/DeleteUserController";
@@ -7,6 +7,9 @@ import { GetUserController } from "./src/controllers/GetUserController";
 import { UpdateUserController } from "./src/controllers/UpdateUserController";
 import { UpdateLocationController } from "./src/controllers/UpdateLocationController";
 import { DeleteLocationController } from "./src/controllers/DeleteLocationController";
+import { AuthController } from "./src/controllers/AuthController";
+import  authMiddleware  from "./src/middlewares/authMiddleware";
+
 
 
 const routes = Router();
@@ -23,11 +26,23 @@ routes.delete("/location/:id", new DeleteLocationController().handle);
 
 routes.post("/user", new CreateUserController().handle);
 
-routes.get("/user/:id", new GetUserController().handle);
 
-routes.delete("/user/:id", new DeleteUserController().handle);
+routes.post("/auth", new AuthController().handle);
 
-routes.put("/user/:id", new UpdateUserController().handle);
+routes.get("/user", authMiddleware,  new GetUserController().handle);
+
+routes.put("/user", authMiddleware, new UpdateUserController().handle);
+
+routes.delete("/user", authMiddleware, new DeleteUserController().handle);
+
+
+
+
+
+
+
+
+
 
 
 export{ routes };

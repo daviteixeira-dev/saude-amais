@@ -3,7 +3,7 @@ import { UpdateUserService } from '../services/UpdateUserService';
 
 export class UpdateUserController {
     async handle(request: Request, response: Response) {
-        const { id } = request.params;
+        const id = request.userId;
 
         const { name, lastname, email, password } = request.body;
 
