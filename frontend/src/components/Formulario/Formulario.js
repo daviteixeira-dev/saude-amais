@@ -13,7 +13,6 @@ import DatePicker from '@material-ui/lab/DatePicker';
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Campo obrigatório"),
@@ -31,7 +30,7 @@ const validationSchema = Yup.object().shape({
   hood: Yup.string().required("Campo obrigatório"),
 });
 
-function Formulario({ setIsLogin, setId }) {
+function Formulario({ setIsLogin }) {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -48,17 +47,8 @@ function Formulario({ setIsLogin, setId }) {
     },
     onSubmit: (values) => {
 
-      console.log(values);
-
-
-
       const address = [values.city, values.uf, values.cep, values.road, values.hood];
       const user = [values.name, values.lastname, values.email, values.password, String(values.birthday), String(address), values.cpf, "student"];
-
-      console.log(address);
-
-      console.log(user);
-
 
       axios.post("http://localhost:3003/user", {
         "name": user[0],
@@ -74,7 +64,7 @@ function Formulario({ setIsLogin, setId }) {
         //Redirecionar para a página de login
         if(response.status === 200){
           setIsLogin(true);
-          setId(response.data.id);
+
         }
       });
 

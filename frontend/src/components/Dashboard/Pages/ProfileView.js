@@ -9,38 +9,44 @@ import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
 import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
 import DatePicker from '@material-ui/lab/DatePicker';
 
-import { Formik, useFormik } from "formik";
-import * as Yup from "yup";
+import { useFormik } from "formik";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
-import { useEffect } from "react";
 
+const token = localStorage.getItem("token");
+
+// Puxar dados do usuário logado
 
 function Formulario({ setIsLogin }) {
 
-
-
-  useEffect(() => {
-    axios.get("http://localhost:3003/user/3bb812c5-40c3-43c9-9a75-4170655b202a")
-    .then((res) => {
-      formik.setFieldValue("name", res.data.name);
-      formik.setFieldValue("lastname", res.data.lastname);
-      formik.setFieldValue("email", res.data.email);
-      formik.setFieldValue("password", res.data.password);
-      formik.setFieldValue("birthday", res.data.birthday);
-      formik.setFieldValue("cpf", res.data.cpf);
-      formik.setFieldValue("road", res.data.adress);
-    }
-
-    )
+  React.useEffect(() => {
+    console.log(token);
+    axios.get("http://localhost:3003/user", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => {
+      if(response.status !==  200) {
+        window.location.href = "/login";
+        return;
+      }
+      console.log(response.data);
+      formik.setFieldValue("name", response.data.name);
+      formik.setFieldValue("lastname", response.data.lastname);
+      formik.setFieldValue("email", response.data.email);
+      formik.setFieldValue("password", response.data.password);
+      formik.setFieldValue("cpf", response.data.cpf);
+      formik.setFieldValue("birthday", response.data.birthday);
+      const address = response.data.adress;
+      const addressArray = address.split(",");
+      formik.setFieldValue("city", addressArray[0]);
+      formik.setFieldValue("uf", addressArray[1]);
+      formik.setFieldValue("cep", addressArray[2]);
+      formik.setFieldValue("road", addressArray[3]);
+      formik.setFieldValue("hood", addressArray[4]);
+    });
   }, []);
 
-  //console.log(String(profile?.name));
-
-
-
   const formik = useFormik({
-
 
     initialValues: {
       name: "",
@@ -57,51 +63,20 @@ function Formulario({ setIsLogin }) {
     },
     onSubmit: (values) => {
 
-      console.log(values);
-
-
-
-      const address = [values.city, values.uf, values.cep, values.road, values.hood];
-      const user = [values.name, values.lastname, values.email, values.password, String(values.birthday), String(address), values.cpf, "student"];
-
-      console.log(address);
-
-      console.log(user);
-
-
-      axios.post("http://localhost:3003/user", {
-        "name": user[0],
-        "lastname": user[1],
-        "email": user[2],
-        "password": user[3],
-        "birth_data": user[4],
-        "adress": user[5],
-        "cpf": user[6],
-        "type": user[7],
+      axios.put("http://localhost:3003/user", values, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }).then((response) => {
-        <Redirect to="/admin" />
+        if(response.status !==  200) {
+          window.location.href = "/login";
+          return;
+        }
+        console.log(response.data);
       });
-
     },
+
   });
-
-
-  function onBlurCep(event, setFieldValue) {
-    const { value } = event.target;
-
-    const cep = value?.replace(/[^0-9]/g, "");
-
-    if (cep.toString().length === 8) {
-      fetch(`https://viacep.com.br/ws/${cep}/json/`)
-        .then((res) => res.json())
-        .then((data) => {
-          setFieldValue("city", data.localidade);
-          setFieldValue("road", data.logradouro);
-          setFieldValue("hood", data.bairro);
-          setFieldValue("uf", data.uf);
-        });
-    }
-  }
 
   return (
 
@@ -200,47 +175,34 @@ function Formulario({ setIsLogin }) {
               />
             </Stack>
             <Stack spacing={3} direction="row">
-              {/* <SelectDatePicker
-                id="birthday"
-                value={formik.values.birthday}
-                onChange={(birthday) => formik.setFieldValue("date", birthday)}
-                error={formik.touched.birthday && Boolean(formik.errors.birthday)}
-                helperText={formik.touched.birthday && formik.errors.birthday}
-              /> */}
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
                   id="birthday"
-                  label="Data de nascimento"
                   value={formik.values.birthday}
-                  onChange={(birthday) => formik.setFieldValue("birthday", birthday)}
+                  onChange={(formik.values.birthday)}
+                  label="Data de nascimento"
                   renderInput={(params) => (
                     <TextField {...params}
                       fullWidth
                       variant="filled"
-                      error={formik.touched.birthday && Boolean(formik.errors.birthday)}
-                      helperText={formik.touched.birthday && formik.errors.birthday}
+                      disabled
                     />
                   )}
                 />
               </LocalizationProvider>
 
-              <InputMask
-                mask="999.999.999-99"
+              <TextField
+                variant="filled"
+                id="cpf"
+                label="CPF"
+                type="text"
+                disabled
+                fullWidth
                 value={formik.values.cpf}
                 onChange={formik.handleChange}
-                disabled={false}
               >
-                {() => (
-                  <TextField
-                    variant="filled"
-                    fullWidth
-                    id="cpf"
-                    label="CPF"
-                    error={formik.touched.cpf && Boolean(formik.errors.cpf)}
-                    helperText={formik.touched.cpf && formik.errors.cpf}
-                  />
-                )}
-              </InputMask>
+                <InputMask mask="999.999.999-99" maskChar=" " />
+              </TextField>
             </Stack>
           </Stack>
 
@@ -254,45 +216,37 @@ function Formulario({ setIsLogin }) {
               Informações de endereço
             </Typography>
             <Stack direction="row" width="100%" alignItems="center">
-              <InputMask
-                mask="99999-999"
+              <TextField
+                variant="filled"
+                id="cep"
+                label="CEP"
+                type="text"
+                fullWidth
                 value={formik.values.cep}
                 onChange={formik.handleChange}
-                onBlur={(event) => onBlurCep(event, formik.setFieldValue)}
-                disabled={false}
+                disabled
               >
-                {() => (
-                  <TextField
-                    variant="filled"
-                    fullWidth
-                    id="cep"
-                    label="CEP"
-                    error={formik.touched.cep && Boolean(formik.errors.cep)}
-                    helperText={formik.touched.cep && formik.errors.cep}
-                  />
-                )}
-              </InputMask>
+                <InputMask mask="99999-999" maskChar=" " />
+              </TextField>
 
               <TextField
                 variant="filled"
                 fullWidth
+                disabled
                 id="city"
                 label="Cidade"
                 value={formik.values.city}
                 onChange={formik.handleChange}
-                error={formik.touched.city && Boolean(formik.errors.city)}
-                helperText={formik.touched.city && formik.errors.city}
               />
 
               <TextField
                 variant="filled"
                 fullWidth
+                disabled
                 id="uf"
                 label="Estado"
                 value={formik.values.uf}
                 onChange={formik.handleChange}
-                error={formik.touched.uf && Boolean(formik.errors.uf)}
-                helperText={formik.touched.uf && formik.errors.uf}
               />
             </Stack>
             <Stack spacing={2} direction="row" width="100%" alignItems="center">
@@ -301,10 +255,9 @@ function Formulario({ setIsLogin }) {
                 variant="filled"
                 id="road"
                 label="Rua"
+                disabled
                 value={formik.values.road}
                 onChange={formik.handleChange}
-                error={formik.touched.road && Boolean(formik.errors.road)}
-                helperText={formik.touched.road && formik.errors.road}
               />
               <TextField
                 fullWidth
@@ -314,6 +267,7 @@ function Formulario({ setIsLogin }) {
                 type="text"
                 value={formik.values.hood}
                 onChange={formik.handleChange}
+                disabled
                 error={
                   formik.touched.hood &&
                   Boolean(formik.errors.hood)

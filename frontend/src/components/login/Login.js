@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 function Login() {
 
   const [isLogin, setIsLogin] = React.useState(true);
-  const [getId, setId] = React.useState('login')
 
 
   return (
@@ -31,7 +30,7 @@ function Login() {
       </Hidden>
 
       <Grid item xs={16} sm={16} md={16} lg={9} >
-        {isLogin ? <FormLogin setIsLogin={setIsLogin} setId={setId}  /> : <Formulario setIsLogin={setIsLogin} setId={setId} />}
+        {isLogin ? <FormLogin setIsLogin={setIsLogin}  /> : <Formulario setIsLogin={setIsLogin} />}
       </Grid>
     </Grid>
 
