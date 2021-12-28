@@ -13,7 +13,7 @@ export class CreateLocationController {
       uf,
       cep,
       hood,
-      street
+      street,
     });
 
     if (result instanceof Error) {

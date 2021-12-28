@@ -11,12 +11,12 @@ interface LocationRequest {
 }
 
 export class UpdateLocationService {
-    async execute({id, city, uf, cep, hood, street}: LocationRequest) {
+    async execute({ id, city, uf, cep, hood, street }: LocationRequest) {
         const repo = getRepository(Location);
 
         const location = await repo.findOne(id);
 
-        if(!location) {
+        if (!location) {
             return new Error('Location does not exist!');
         }
 

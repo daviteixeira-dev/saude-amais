@@ -1,5 +1,5 @@
 import { getRepository } from "typeorm";
-
+import { Location } from '../entities/Location';
 export class GetLocationService {
     async execute(id: string): Promise<Location | Error> {
         const repo = getRepository(Location);

@@ -9,9 +9,9 @@ export class UpdateLocationController {
 
         const service = new UpdateLocationService();
 
-        const result = await service.execute({id, city, uf, cep, hood, street});
+        const result = await service.execute({ id, city, uf, cep, hood, street });
 
-        if(result instanceof Error) {
+        if (result instanceof Error) {
             return response.status(400).json(result.message);
         }
 

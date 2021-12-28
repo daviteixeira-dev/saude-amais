@@ -9,7 +9,7 @@ export class DeleteLocationController {
 
         const result = await service.execute(id);
 
-        if(result instanceof Error) {
+        if (result instanceof Error) {
             return response.status(400).json(result.message);
         }
 

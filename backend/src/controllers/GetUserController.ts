@@ -8,11 +8,11 @@ export class GetUserController {
 
         console.log(id);
 
-        const service = new GetUserService(); 
+        const service = new GetUserService();
 
         const result = await service.execute(id);
 
-        if(result instanceof Error) {
+        if (result instanceof Error) {
             return response.status(400).json(result.message);
         }
 

@@ -4,7 +4,7 @@ import { CreateUserService } from "../services/CreateUserService";
 export class CreateUserController {
   async handle(request: Request, response: Response) {
 
-    const { name, lastname, email, password, cpf, birth_data, adress, type} = request.body;
+    const { name, lastname, email, password, cpf, birth_date, address, type } = request.body;
 
     const service = new CreateUserService();
 
@@ -14,12 +14,12 @@ export class CreateUserController {
       email,
       password,
       cpf,
-      birth_data,
-      adress,
+      birth_date,
+      address,
       type,
     });
 
-    if(result instanceof Error) {
+    if (result instanceof Error) {
       return response.status(400).json(result.message);
     }
 

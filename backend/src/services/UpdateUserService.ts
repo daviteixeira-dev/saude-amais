@@ -10,12 +10,12 @@ interface UserUpdate {
 }
 
 export class UpdateUserService {
-    async execute({id, name, lastname, email, password}: UserUpdate) {
+    async execute({ id, name, lastname, email, password }: UserUpdate) {
         const repo = getRepository(User);
 
         const user = await repo.findOne(id);
 
-        if(!user) {
+        if (!user) {
             return new Error('User does not exist!');
         }
 

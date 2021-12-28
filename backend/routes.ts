@@ -45,4 +45,4 @@ routes.delete("/user", authMiddleware, new DeleteUserController().handle);
 
 
 
-export{ routes };
+export { routes };

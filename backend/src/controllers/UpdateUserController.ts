@@ -9,9 +9,9 @@ export class UpdateUserController {
 
         const service = new UpdateUserService();
 
-        const result = await service.execute({id, name, lastname, email, password});
+        const result = await service.execute({ id, name, lastname, email, password });
 
-        if(result instanceof Error) {
+        if (result instanceof Error) {
             return response.status(400).json(result.message);
         }
 
