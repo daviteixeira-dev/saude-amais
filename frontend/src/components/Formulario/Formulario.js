@@ -55,7 +55,7 @@ function Formulario({ setIsLogin }) {
         "lastname": user[1],
         "email": user[2],
         "password": user[3],
-        "birth_date": user[4],
+        "birth_data": user[4],
         "adress": user[5],
         "cpf": user[6],
         "type": user[7],
@@ -64,7 +64,10 @@ function Formulario({ setIsLogin }) {
         //Redirecionar para a página de login
         if (response.status === 200) {
           setIsLogin(true);
-
+          const token = response.data.token;
+          console.log(token);
+          localStorage.setItem("token", token);
+          window.location.href = "/login";
         }
       });
 

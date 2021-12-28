@@ -43,13 +43,14 @@ function FormLogin({ setIsLogin}) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
-      }).then((response) => response.json()).then((data) => {
-        if(data.status === 200) {
-          const token = data.token;
-          localStorage.setItem("token", token);
-          window.location.href = "/profile";
-        }else {
-          alert("Email ou senha incorretos");
+      }).then((response) => {
+        if (response.status === 200) {
+          response.json().then((data) => {
+            localStorage.setItem("token", data.token);
+            window.location.href = "/profile";
+          })
+        }else{
+          alert("Login ou senha inválidos");
         }
       })
     },

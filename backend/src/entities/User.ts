@@ -1,17 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { Location } from "./Location";
 
-export enum Type {
-  student = "student",
-  teacher = "teacher",
-  admin = "admin"
-}
 @Entity("system_user")
 export class User {
 
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id_users: string;
 
   @Column()
   name: string;
@@ -29,30 +23,17 @@ export class User {
   cpf: string;
 
   @Column()
-  birth_date: Date;
+  birth_data: Date;
 
   @Column()
-  address: string;
+  adress: string;
 
-  @Column({
-    type: "enum",
-    enum: Type,
-  })
-  type: Type
-
-  @OneToOne(type => Location, user => User)
-  @JoinColumn()
-  location: Location;
-
-  @CreateDateColumn({ name: 'created_At' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ name: 'updated_At' })
-  updatedAt: Date;
+  @Column() 
+  type: string;
 
   constructor() {
-    if (!this.id) {
-      this.id = uuid();
+    if (!this.id_users) {
+      this.id_users = uuid();
     }
   }
 }

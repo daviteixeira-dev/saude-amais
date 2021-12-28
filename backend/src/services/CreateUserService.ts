@@ -7,13 +7,13 @@ interface UserRequest {
   email: string,
   password: string,
   cpf: string,
-  birth_date: Date,
-  address: string,
+  birth_data: Date,
+  adress: string,
   type: string,
 }
 
 export class CreateUserService {
-  async execute({ name, lastname, email, password, cpf, birth_date, address, type }: UserRequest): Promise<User | Error> {
+  async execute({ name, lastname, email, password, cpf, birth_data, adress, type }: UserRequest): Promise<User | Error> {
 
     const repo = getRepository(User);
 
@@ -27,10 +27,10 @@ export class CreateUserService {
       email,
       password,
       cpf,
-      birth_date,
-      address,
-      type
-    });
+      birth_data,
+      adress,
+      type,
+    })
 
     await repo.save(user);
 
