@@ -12,10 +12,10 @@ import {
 import { green } from "@mui/material/colors";
 import { styled } from '@material-ui/styles';
 
+
+
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
-import { axios } from "axios";
 
 
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -44,9 +44,13 @@ function FormLogin({ setIsLogin}) {
         },
         body: JSON.stringify(values),
       }).then((response) => response.json()).then((data) => {
-        const token = data.token;
-        localStorage.setItem("token", token);
-        window.location.href = "/profile";
+        if(data.status === 200) {
+          const token = data.token;
+          localStorage.setItem("token", token);
+          window.location.href = "/profile";
+        }else {
+          alert("Email ou senha incorretos");
+        }
       })
     },
     validationSchema: validationSchema,

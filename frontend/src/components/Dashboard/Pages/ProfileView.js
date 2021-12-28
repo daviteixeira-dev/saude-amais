@@ -8,6 +8,7 @@ import InputMask from "react-input-mask";
 import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
 import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
 import DatePicker from '@material-ui/lab/DatePicker';
+import Alert from "@mui/material/Alert";
 
 import { useFormik } from "formik";
 import axios from "axios";
@@ -15,6 +16,23 @@ import axios from "axios";
 const token = localStorage.getItem("token");
 
 // Puxar dados do usuário logado
+
+function removeAccount() {
+  axios({
+    method: "delete",
+    url: "http://localhost:3003/user",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((response) => {
+    if(response.status === 200) {
+      console.log("Conta removida com sucesso!");
+      localStorage.removeItem("token");
+      window.location.href = "/login";
+    }
+
+  });
+}
 
 function Formulario({ setIsLogin }) {
 
@@ -43,6 +61,7 @@ function Formulario({ setIsLogin }) {
       formik.setFieldValue("cep", addressArray[2]);
       formik.setFieldValue("road", addressArray[3]);
       formik.setFieldValue("hood", addressArray[4]);
+
     });
   }, []);
 
@@ -81,6 +100,7 @@ function Formulario({ setIsLogin }) {
   return (
 
     <Box
+
       componente="section"
       sx={{
         "& .MuiTextField-root": { m: 1 },
@@ -88,10 +108,12 @@ function Formulario({ setIsLogin }) {
       noValidate
       autoComplete="off"
     >
+
       <Container
         maxWidth="sm"
         sx={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}
       >
+        <Alert variant="filled" severity="success">Bem-Vindo {formik.values.name} </Alert>
 
 
         <Typography variant="h3" component="h1" gutterBottom>
@@ -285,6 +307,14 @@ function Formulario({ setIsLogin }) {
           >
             Edit
           </Button>
+          <Button
+            sx={{ width: "100%", marginBottom: 4, background: "red", color: "white" } }
+            variant="text"
+            onClick={() => removeAccount()}
+          >
+            Remover conta
+          </Button>
+
         </Box>
       </Container>
     </Box>
