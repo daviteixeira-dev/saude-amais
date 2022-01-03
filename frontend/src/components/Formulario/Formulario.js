@@ -64,8 +64,8 @@ function Formulario({ setIsLogin }) {
         //Redirecionar para a página de login
         if (response.status === 200) {
           setIsLogin(true);
+          alert("Cadastro efetuado com sucesso, faça login com sua conta.");
           const token = response.data.token;
-          console.log(token);
           localStorage.setItem("token", token);
           window.location.href = "/login";
         }

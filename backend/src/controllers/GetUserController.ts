@@ -6,8 +6,6 @@ export class GetUserController {
     async handle(request: Request, response: Response): Promise<Response> {
         const id = request.userId;
 
-        console.log(id);
-
         const service = new GetUserService();
 
         const result = await service.execute(id);

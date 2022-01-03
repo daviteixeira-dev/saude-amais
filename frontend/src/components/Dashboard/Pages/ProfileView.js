@@ -26,9 +26,9 @@ function removeAccount() {
     },
   }).then((response) => {
     if(response.status === 200) {
-      console.log("Conta removida com sucesso!");
+      alert("Conta removida com sucesso.");
       localStorage.removeItem("token");
-      window.location.href = "/login";
+      window.location.href = "/";
     }
 
   });
@@ -47,7 +47,6 @@ function Formulario({ setIsLogin }) {
         window.location.href = "/login";
         return;
       }
-      console.log(response.data);
       formik.setFieldValue("name", response.data.name);
       formik.setFieldValue("lastname", response.data.lastname);
       formik.setFieldValue("email", response.data.email);
@@ -91,7 +90,7 @@ function Formulario({ setIsLogin }) {
           window.location.href = "/login";
           return;
         }
-        console.log(response.data);
+        alert("Dados atualizados com sucesso.");
       });
     },
 
@@ -303,13 +302,15 @@ function Formulario({ setIsLogin }) {
           <Button
             sx={{ width: "100%", marginTop: 2, marginBottom: 4 }}
             type="submit"
-            variant="contained"
+            variant="outlined"
+            color="success"
           >
-            Edit
+            Atualizar dados
           </Button>
           <Button
-            sx={{ width: "100%", marginBottom: 4, background: "red", color: "white" } }
-            variant="text"
+            sx={{ width: "100%", marginBottom: 4  } }
+            variant="contained"
+            color="error"
             onClick={() => removeAccount()}
           >
             Remover conta

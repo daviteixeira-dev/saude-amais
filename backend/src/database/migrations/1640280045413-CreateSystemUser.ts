@@ -1,4 +1,4 @@
-/*import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class CreateSystemUser1640280045413 implements MigrationInterface {
 
@@ -8,7 +8,7 @@ export class CreateSystemUser1640280045413 implements MigrationInterface {
                 name: "system_user",
                 columns: [
                     {
-                        name: "id",
+                        name: "id_users",
                         type: "uuid",
                     },
                     {
@@ -44,17 +44,10 @@ export class CreateSystemUser1640280045413 implements MigrationInterface {
                     {
                         name: 'type',
                         type: 'enum',
-                        enum: ['student', 'teacher', 'admin'],
-                    },
-
-                    {
-                        name: 'id_location',
-                        type: 'uuid',
+                        enum: ['student', 'admin'],
                     },
 
                 ],
-
-
             })
         )
     }
@@ -64,4 +57,3 @@ export class CreateSystemUser1640280045413 implements MigrationInterface {
     }
 
 }
-*/
