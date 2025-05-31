@@ -1,8 +1,3 @@
-### Exemplo 2 - Remoção de elemento inexistente
-### Exemplo 3 - Impressão de versão vazia e inserções múltiplas
-### Exemplo 4 - Remover raiz e verificar rebalanceamento
-### Exemplo 5 - Uso de versão inexistente em IMP e SUC
-
 <h1>🧘‍♀️ Projeto - SaúdeA+ 🧘‍♂️</h1>
 
 > <h2>💬 Sobre o Projeto</h2>
